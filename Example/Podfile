@@ -4,7 +4,7 @@ target 'Koyomi_Example' do
   pod 'Koyomi', :path => '../'
 
   target 'Koyomi_Tests' do
-    inherit! :search_paths
+#    inherit! :search_paths
 
     pod 'Quick', '~> 0.8'
   pod 'Nimble', '~> 3.0'

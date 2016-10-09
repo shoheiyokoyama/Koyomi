@@ -1,0 +1,20 @@
+PODS:
+  - Koyomi (0.1.0)
+  - Nimble (3.2.0)
+  - Quick (0.10.0)
+
+DEPENDENCIES:
+  - Koyomi (from `../`)
+  - Nimble (~> 3.0)
+  - Quick (~> 0.8)
+
+EXTERNAL SOURCES:
+  Koyomi:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Koyomi: ce68cf1f06ba1a42d22a4135a6f403dfb260ecd8
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
+
+COCOAPODS: 0.39.0

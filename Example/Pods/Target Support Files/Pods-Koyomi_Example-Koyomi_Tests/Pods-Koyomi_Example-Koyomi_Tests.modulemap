@@ -1,0 +1,6 @@
+framework module Pods_Koyomi_Example_Koyomi_Tests {
+  umbrella header "Pods-Koyomi_Example-Koyomi_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
