@@ -1,7 +1,7 @@
 # Koyomi
 
-[![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
-)]
+![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+)
 [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
 )](https://developer.apple.com/swift)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
