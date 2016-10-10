@@ -63,10 +63,17 @@ extension KoyomiLayout {
 // MARK: - Private Methods -
 
 private extension KoyomiLayout {
+    struct Constant {
+        static let columnCount = 7
+        static let maxLineSpaceCount = 5
+        static let maxRowCount = 7
+    }
+    
     func frame(at indexPath: NSIndexPath) -> CGRect {
         let count = CGFloat(DateModel.weeks.count)
-        let availableLength: CGFloat = (collectionView?.frame.width ?? 0) - cellSpace * CGFloat(count - 1)
-        let size = CGSize(width: availableLength / count, height: availableLength / count)
+        let availableWidth: CGFloat = (collectionView?.frame.width ?? 0) - cellSpace * CGFloat(count - 1) - inset.right - inset.left
+        let availableHeight: CGFloat = (collectionView?.frame.height ?? 0) - (cellSpace * CGFloat(Constant.maxLineSpaceCount) + inset.bottom + inset.top + sectionSpace)
+        let size = CGSize(width: availableWidth / count, height: availableHeight / CGFloat(Constant.maxRowCount))
         
         let row = floor(CGFloat(indexPath.row) / count)
         let column = CGFloat(indexPath.row) - row * count

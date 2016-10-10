@@ -9,9 +9,9 @@
 import UIKit
 
 final public class Koyomi: UICollectionView {
-    var sectionSpace: CGFloat = 1
-    var cellSpace: CGFloat    = 0.5
-    var inset = UIEdgeInsetsZero
+    public var sectionSpace: CGFloat = 1
+    public var cellSpace: CGFloat    = 0.5
+    public var inset = UIEdgeInsetsZero
     
     private static let cellIdentifier = "KoyomiCell"
     
@@ -22,6 +22,16 @@ final public class Koyomi: UICollectionView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
+    }
+    
+    public func display(in month: MonthType) {
+        model.display(in: month)
+        reloadData()
+    }
+    
+    override public func reloadData() {
+        super.reloadData()
+        setCollectionViewLayout(KoyomiLayout(inset: inset, cellSpace: cellSpace, sectionSpace: sectionSpace), animated: false)
     }
 }
 

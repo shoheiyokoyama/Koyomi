@@ -8,13 +8,13 @@
 
 import UIKit
 
+public enum MonthType { case previous, current, next }
+
 final class DateModel: NSObject {
     private var currentDates: [NSDate] = []
     private var currentDate = NSDate()
     
     static let weeks: [String] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
-    
-    enum MonthType { case previous, current, next }
     
     override init() {
         super.init()
@@ -23,7 +23,8 @@ final class DateModel: NSObject {
     
     func cellCount(in month: MonthType) -> Int {
         let weeksRange = calendar.rangeOfUnit(.WeekOfMonth, inUnit: .Month, forDate: atBeginning(of: month))
-        return weeksRange.length * DateModel.weeks.count
+//        return weeksRange.length * DateModel.weeks.count
+        return 42
     }
     
     func indexAtBeginning(in month: MonthType) -> Int {
@@ -35,6 +36,18 @@ final class DateModel: NSObject {
         formatter.dateFormat = DateFormat.day
         return formatter.stringFromDate(currentDates[indexPath.row])
     }
+    
+    func display(in month: MonthType) {
+        currentDates = []
+        currentDate = date(of: month)
+        setup()
+    }
+    
+    func dateString(in month: MonthType) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = DateFormat.yearWithMonth
+        return formatter.stringFromDate(date(of: month))
+    }
 }
 
 // MARK: - Private Methods -
@@ -42,7 +55,7 @@ final class DateModel: NSObject {
 private extension DateModel {
     struct DateFormat {
         static let day = "d"
-        static let header = "yyyy年M月"
+        static let yearWithMonth = "yyyy年M月"
     }
     
     var calendar: NSCalendar {
