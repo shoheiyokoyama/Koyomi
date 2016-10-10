@@ -29,5 +29,4 @@ shoheiyokoyama, shohei.yok0602@gmail.com
 
 ## License
 
-Koyomi is available under the MIT license. See the LICENSE file for more info.
 ***Koyomi*** is available under the MIT license. See the [LICENSE file](https://github.com/shoheiyokoyama/Koyomi/blob/master/LICENSE) for more info.
