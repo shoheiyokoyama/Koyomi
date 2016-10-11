@@ -40,6 +40,23 @@ Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demon
         .setWeekFont(size: 8)
 ```
 
+## Customize properties
+
+```swift
+    @IBInspectable var sectionSpace: CGFloa
+    @IBInspectable var cellSpace: CGFloat
+    @IBInspectable var weekCellHeight: CGFloat
+    
+    @IBInspectable public var sectionSeparatorColor: UIColor
+    @IBInspectable public var separatorColor: UIColor
+    @IBInspectable public var weekColor: UIColor
+    @IBInspectable public var weekdayColor: UIColor
+    @IBInspectable public var holidayColor: UIColor
+    @IBInspectable public var otherMonthColor: UIColor
+    @IBInspectable public var dayBackgrondColor: UIColor
+    @IBInspectable public var weekBackgrondColor: UIColor
+```
+
 ## Requirements
 
 - iOS 9.0+
