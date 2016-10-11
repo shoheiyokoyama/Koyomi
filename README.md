@@ -7,9 +7,36 @@
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
-## Example
+## Demo
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+<p align="center">
+<img src="./DemoSource/calender_demo.gif" width="300">
+</p>
+
+## Features
+
+- Easily usable
+- Simple Calender View
+- [x] Support `@IBDesignable` and `@IBInspectable`.
+- [x] Support Swift 2.3
+- [ ] Support Swift 3.0
+
+## Demo App
+
+Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demonstration.
+
+## QuickExample
+
+```swift
+    let koyomi = Koyomi(frame: CGRect(x: 100, y: 100, width: 250, height: 250))
+    koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
+    view.addSubview(koyomi)
+    
+    // set Day and Week Label Font
+    koyomi
+        .setDayFont(size: 12) // or .setDayFont(fontName: ".SFUIText-Medium", size: 12)
+        .setWeekFont(size: 8)
+```
 
 ## Requirements
 
