@@ -17,7 +17,7 @@ final class KoyomiCell: UICollectionViewCell {
             adjustContentFrame()
         }
     }
-    var textColor: UIColor = UIColor.blackColor() {
+    var textColor: UIColor = .blackColor() {
         didSet {
             contentLabel.textColor = textColor
         }
@@ -34,7 +34,7 @@ final class KoyomiCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setContentFontWith(fontName name: String = ".SFUIText-Medium", size: CGFloat) {
+    func setContentFont(fontName name: String, size: CGFloat) {
         contentLabel.font = UIFont(name: name, size: size)
     }
 }

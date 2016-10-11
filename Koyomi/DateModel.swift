@@ -14,7 +14,7 @@ final class DateModel: NSObject {
     private var currentDates: [NSDate] = []
     private var currentDate = NSDate()
     
-    static let weeks: [String] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+    static let weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     static let maxCellCount = 42
     
     override init() {
@@ -55,7 +55,7 @@ final class DateModel: NSObject {
 private extension DateModel {
     struct DateFormat {
         static let day = "d"
-        static let yearWithMonth = "yyyy年M月"
+        static let yearWithMonth = "M/yyyy"
     }
     
     var calendar: NSCalendar {

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '29A8DD47AB887D9D11BEC280'
+               BlueprintIdentifier = '6C22C48D524793B4C882A26D'
                BlueprintName = 'Koyomi'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Koyomi.framework'>

@@ -14,12 +14,15 @@ final class KoyomiLayout: UICollectionViewLayout {
     private let sectionSpace: CGFloat
     private var layoutAttributes: [NSIndexPath: UICollectionViewLayoutAttributes] = [:]
     
+    private var weekCellHeight: CGFloat = 25
+    
     // MARK: - Initializer -
     
-    init(inset: UIEdgeInsets, cellSpace: CGFloat, sectionSpace: CGFloat) {
+    init(inset: UIEdgeInsets, cellSpace: CGFloat, sectionSpace: CGFloat, weekCellHeight: CGFloat) {
         self.inset = inset
-        self.cellSpace    = cellSpace
-        self.sectionSpace = sectionSpace
+        self.cellSpace      = cellSpace
+        self.sectionSpace   = sectionSpace
+        self.weekCellHeight = weekCellHeight
         super.init()
     }
     
@@ -64,22 +67,32 @@ extension KoyomiLayout {
 
 private extension KoyomiLayout {
     struct Constant {
-        static let columnCount = 7
         static let maxLineSpaceCount = 5
-        static let maxRowCount = 7
+        static let maxRowCount = 6
+        static var columnCount: CGFloat {
+            return CGFloat(DateModel.weeks.count)
+        }
+    }
+    
+    private var width: CGFloat {
+        return (collectionView?.frame.width ?? 0)
+    }
+    private var height: CGFloat {
+        return (collectionView?.frame.height ?? 0)
     }
     
     func frame(at indexPath: NSIndexPath) -> CGRect {
-        let count = CGFloat(DateModel.weeks.count)
-        let availableWidth: CGFloat = (collectionView?.frame.width ?? 0) - cellSpace * CGFloat(count - 1) - inset.right - inset.left
-        let availableHeight: CGFloat = (collectionView?.frame.height ?? 0) - (cellSpace * CGFloat(Constant.maxLineSpaceCount) + inset.bottom + inset.top + sectionSpace)
-        let size = CGSize(width: availableWidth / count, height: availableHeight / CGFloat(Constant.maxRowCount))
+        let isWeekCell = indexPath.section == 0
         
-        let row = floor(CGFloat(indexPath.row) / count)
-        let column = CGFloat(indexPath.row) - row * count
+        let availableWidth: CGFloat  = width - (cellSpace * CGFloat(Constant.columnCount - 1) + inset.right + inset.left)
+        let availableHeight: CGFloat = height - (cellSpace * CGFloat(Constant.maxLineSpaceCount) + inset.bottom + inset.top + sectionSpace + weekCellHeight)
+        let size = CGSize(width: availableWidth / Constant.columnCount, height: isWeekCell ? weekCellHeight : availableHeight / CGFloat(Constant.maxRowCount))
+        
+        let row    = floor(CGFloat(indexPath.row) / Constant.columnCount)
+        let column = CGFloat(indexPath.row) - row * Constant.columnCount
         
         let lineSpace = row == 0 ? 0 : cellSpace
-        let y = indexPath.section == 0 ? inset.top : row * (size.height + lineSpace) + size.height + sectionSpace + inset.top
+        let y = isWeekCell ? inset.top : row * (size.height + lineSpace) + weekCellHeight + sectionSpace + inset.top
         let x = (size.width + cellSpace) * column + inset.left
         
         return CGRect(origin: CGPoint(x: x, y: y), size: size)
