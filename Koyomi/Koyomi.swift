@@ -30,6 +30,13 @@ final public class Koyomi: UICollectionView {
             backgroundColor = separatorColor
         }
     }
+    @IBInspectable public var weekColor: UIColor       = UIColor.KoyomiColor.black
+    @IBInspectable public var weekdayColor: UIColor    = UIColor.KoyomiColor.black
+    @IBInspectable public var holidayColor: UIColor    = UIColor.KoyomiColor.darkGray
+    @IBInspectable public var otherMonthColor: UIColor = UIColor.KoyomiColor.lightGray
+    
+    @IBInspectable public var dayBackgrondColor: UIColor  = .whiteColor()
+    @IBInspectable public var weekBackgrondColor: UIColor = .whiteColor()
     
     public var currentDateString: String {
         return model.dateString(in: .current)
@@ -95,7 +102,7 @@ private extension Koyomi {
         dataSource    = self
         scrollEnabled = false
         
-        backgroundColor = UIColor.grayColor()
+        backgroundColor = separatorColor
         
         registerClass(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
         
@@ -105,26 +112,25 @@ private extension Koyomi {
     }
     
     func configure(cell: KoyomiCell, at indexPath: NSIndexPath) {
-        cell.backgroundColor = .whiteColor()
-        cell.content = indexPath.section == 0 ? DateModel.weeks[indexPath.row] : model.dayString(at: indexPath)
         
+        cell.content = indexPath.section == 0 ? DateModel.weeks[indexPath.row] : model.dayString(at: indexPath)
+        cell.backgroundColor = weekBackgrondColor
         if indexPath.section == 0 {
-            cell.textColor = UIColor.KoyomiColor.black
+            cell.textColor = weekColor
             if let font = weekLabelFont {
                 cell.setContentFont(fontName: font.fontName, size: font.pointSize)
             }
         } else {
-            
+            cell.backgroundColor = dayBackgrondColor
             cell.textColor = {
                if indexPath.row < model.indexAtBeginning(in: .current) || indexPath.row > model.indexAtEnd(in: .current) {
-                    return UIColor.KoyomiColor.lightGray
+                    return otherMonthColor
                } else if indexPath.row % 7 == 0 || indexPath.row % 7 == 6 {
-                    return UIColor.KoyomiColor.darkGray
+                    return holidayColor
                } else {
-                    return UIColor.KoyomiColor.black
+                    return weekdayColor
                }
             }()
-            
             
             if let font = dayLabelFont {
                 cell.setContentFont(fontName: font.fontName, size: font.pointSize)
