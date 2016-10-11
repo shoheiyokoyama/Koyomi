@@ -12,8 +12,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		8ADDB04013749F3379C143F3 /* Pods_Koyomi_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816F0F3663E2C3364309712E /* Pods_Koyomi_Example.framework */; };
-		91DD67F0AB41463F76069EB6 /* Pods_Koyomi_Example_Koyomi_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7434E74F1E1316C609A5DAA6 /* Pods_Koyomi_Example_Koyomi_Tests.framework */; };
+		C0E5E7756F2E555D493CF82A /* Pods_Koyomi_Example_Koyomi_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4BA3DA23F036790C1E7DCB /* Pods_Koyomi_Example_Koyomi_Tests.framework */; };
+		E87DC5245C8500B984D4AD81 /* Pods_Koyomi_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAEDC11925F50C4A1AC7A5D /* Pods_Koyomi_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1851E69B8D8E1E5212E2BDAB /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		2130BE48425738334BA296B5 /* Pods-Koyomi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3CCDFCC27B1296284F9E34A2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		5809558715EC3FD7020F7A77 /* Pods-Koyomi_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		3EAEDC11925F50C4A1AC7A5D /* Pods_Koyomi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Koyomi_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koyomi_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,10 +38,12 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Koyomi_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Koyomi_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7434E74F1E1316C609A5DAA6 /* Pods_Koyomi_Example_Koyomi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example_Koyomi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		816F0F3663E2C3364309712E /* Pods_Koyomi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		765D0BA673C6F36C0E0B1EB1 /* Pods-Koyomi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7723A4D2CA55AF2483603782 /* Pods-Koyomi_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		7C4BA3DA23F036790C1E7DCB /* Pods_Koyomi_Example_Koyomi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example_Koyomi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E168AF2957A15CF8F33DD15 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7B2AB46A9E7B39C946C38E3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		D47A310DF06EDE65F74B69BE /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA260C6A4A04C6B958D5482B /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DB741F045435A171622BB909 /* Koyomi.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Koyomi.podspec; path = ../Koyomi.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ADDB04013749F3379C143F3 /* Pods_Koyomi_Example.framework in Frameworks */,
+				E87DC5245C8500B984D4AD81 /* Pods_Koyomi_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,18 +60,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91DD67F0AB41463F76069EB6 /* Pods_Koyomi_Example_Koyomi_Tests.framework in Frameworks */,
+				C0E5E7756F2E555D493CF82A /* Pods_Koyomi_Example_Koyomi_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B6EACA515A7C1AF51F738EB /* Frameworks */ = {
+		294B9615B1B09424B307355A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				816F0F3663E2C3364309712E /* Pods_Koyomi_Example.framework */,
-				7434E74F1E1316C609A5DAA6 /* Pods_Koyomi_Example_Koyomi_Tests.framework */,
+				3EAEDC11925F50C4A1AC7A5D /* Pods_Koyomi_Example.framework */,
+				7C4BA3DA23F036790C1E7DCB /* Pods_Koyomi_Example_Koyomi_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,8 +83,8 @@
 				607FACD21AFB9204008FA782 /* Example for Koyomi */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				6D602064D8ED02F9F9D2840C /* Pods */,
-				2B6EACA515A7C1AF51F738EB /* Frameworks */,
+				679585EDCBEBEFD07EB5AACE /* Pods */,
+				294B9615B1B09424B307355A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,13 +145,13 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		6D602064D8ED02F9F9D2840C /* Pods */ = {
+		679585EDCBEBEFD07EB5AACE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5809558715EC3FD7020F7A77 /* Pods-Koyomi_Example.debug.xcconfig */,
-				2130BE48425738334BA296B5 /* Pods-Koyomi_Example.release.xcconfig */,
-				D47A310DF06EDE65F74B69BE /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */,
-				1851E69B8D8E1E5212E2BDAB /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */,
+				7723A4D2CA55AF2483603782 /* Pods-Koyomi_Example.debug.xcconfig */,
+				765D0BA673C6F36C0E0B1EB1 /* Pods-Koyomi_Example.release.xcconfig */,
+				8E168AF2957A15CF8F33DD15 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */,
+				CA260C6A4A04C6B958D5482B /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -163,12 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Koyomi_Example" */;
 			buildPhases = (
-				2CE39789D44A86581089F513 /* Check Pods Manifest.lock */,
+				0818C6B10C968BBDD9DF567E /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				05E929FFE27393370DED9339 /* Embed Pods Frameworks */,
-				B1731F3C486AFBC86B5F6F80 /* Copy Pods Resources */,
+				997CF1BE32AE095F0E265F89 /* [CP] Embed Pods Frameworks */,
+				494ACF1D4F52F3D2E8E7D5BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,12 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Koyomi_Tests" */;
 			buildPhases = (
-				46A49DD81E875DB71219D94C /* Check Pods Manifest.lock */,
+				2E7AAACBBEFC09667C6C1E87 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				DB532C8B730657B3083B79CA /* Embed Pods Frameworks */,
-				671FE848685F7C54FC179891 /* Copy Pods Resources */,
+				4F55CC881769124285AF6B4C /* [CP] Embed Pods Frameworks */,
+				506A22861C61422E1C53C3CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,74 +261,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05E929FFE27393370DED9339 /* Embed Pods Frameworks */ = {
+		0818C6B10C968BBDD9DF567E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2CE39789D44A86581089F513 /* Check Pods Manifest.lock */ = {
+		2E7AAACBBEFC09667C6C1E87 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		46A49DD81E875DB71219D94C /* Check Pods Manifest.lock */ = {
+		494ACF1D4F52F3D2E8E7D5BB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		671FE848685F7C54FC179891 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B1731F3C486AFBC86B5F6F80 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,19 +306,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB532C8B730657B3083B79CA /* Embed Pods Frameworks */ = {
+		4F55CC881769124285AF6B4C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		506A22861C61422E1C53C3CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		997CF1BE32AE095F0E265F89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -484,7 +484,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5809558715EC3FD7020F7A77 /* Pods-Koyomi_Example.debug.xcconfig */;
+			baseConfigurationReference = 7723A4D2CA55AF2483603782 /* Pods-Koyomi_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Koyomi/Info.plist;
@@ -498,7 +498,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2130BE48425738334BA296B5 /* Pods-Koyomi_Example.release.xcconfig */;
+			baseConfigurationReference = 765D0BA673C6F36C0E0B1EB1 /* Pods-Koyomi_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Koyomi/Info.plist;
@@ -512,7 +512,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D47A310DF06EDE65F74B69BE /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */;
+			baseConfigurationReference = 8E168AF2957A15CF8F33DD15 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -532,7 +532,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1851E69B8D8E1E5212E2BDAB /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */;
+			baseConfigurationReference = CA260C6A4A04C6B958D5482B /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

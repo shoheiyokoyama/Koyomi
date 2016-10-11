@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21E70C53E1ED6527FBDC8D2938D149D9 /* Pods-Koyomi_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C749D11ED668272F482BB7CD8333C349 /* Pods-Koyomi_Example-dummy.m */; };
+		1B48406B7467917F780F05311C172887 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		264AF3C9C8EA4CDD1E94FA35A02B891D /* KoyomiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9AF5D5EC263C0CB97B50AC968D7240 /* KoyomiCell.swift */; };
-		2C61762EC6CAFFC5848D3A6664795C67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		2E512457012ABFA414EAF96198C083AE /* Koyomi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBA0A45E01EBB037C88FB117091A98E /* Koyomi.swift */; };
+		389146A7369BCF20FCD4CAD3B81AFD04 /* Pods-Koyomi_Example-Koyomi_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0913791FDE09E68E8A1BB0F7010A5A1 /* Pods-Koyomi_Example-Koyomi_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53DD50398A6A0802F2B22BBEE5D740E7 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423064E6F4E541F81039F7CA22AD4E61 /* DateModel.swift */; };
+		54700AB3D04C333C92D68B1736773B2A /* Pods-Koyomi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97AC50DB4CB9613DBB2DC233153A6748 /* Pods-Koyomi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55632BAF9742CCAFFEFD8CA9689E873B /* Koyomi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E5BDA903E4F69C08DB29D574FE82FF7 /* Koyomi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5807336498E7F512561A7CADB85EA41A /* Pods-Koyomi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97AC50DB4CB9613DBB2DC233153A6748 /* Pods-Koyomi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D87262851A194625410F8249C5F7E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		747720E8787D7477281E3399DC0863A9 /* KoyomiLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E2F12EDFD4DF9A4F7402DAADFC91 /* KoyomiLayout.swift */; };
-		989630DE6FE89FBF7B0B6D9B55CF84C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		9F192D4FC88BA88D05BD415272BB7316 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075196A3B5AE2011527F0A343DF3A0FD /* UIColorExtension.swift */; };
 		AC7234B8ED2B7505A813536085E40A2B /* Koyomi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C227DDD822F46154E33FE7E4DCEBA438 /* Koyomi-dummy.m */; };
-		C696B67563EA6EAC2E6AF499439BD3EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		D80EDC60D80D58F0239B672235BED940 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F856D86C259D0DBE6CE20DD78BB17921 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m */; };
-		E17952A288195C616A3B96838C0D7CF8 /* Pods-Koyomi_Example-Koyomi_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0913791FDE09E68E8A1BB0F7010A5A1 /* Pods-Koyomi_Example-Koyomi_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB6A2DFAA9406D1D0618FFF44203A626 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F856D86C259D0DBE6CE20DD78BB17921 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m */; };
+		F22C3B069C914CA6F6AAE7F37CD5BC0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		FD63AF505116E2DB47A1EAD27180A1D8 /* Pods-Koyomi_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C749D11ED668272F482BB7CD8333C349 /* Pods-Koyomi_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		766572E6006EDFB6F1C3C8BDC2561CFC /* PBXContainerItemProxy */ = {
+		628045413746E0A7F0B2C3ECD1EF0DD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F03ED00553D411368945B553426CEF7B;
 			remoteInfo = Koyomi;
 		};
-		E0C66B78EEFF2CA5E48D58A904BF6AF4 /* PBXContainerItemProxy */ = {
+		C82C651B2266DC9DF49F23EEEAF2CF94 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -48,28 +48,28 @@
 		249DAECECBC456768E4B93D508F1E61E /* Pods-Koyomi_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Koyomi_Example.modulemap"; sourceTree = "<group>"; };
 		27A8BCE0DE2DFB32B099877B27A4388E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D509D12A8BEB81CAE1852BA9052A0CD /* Pods-Koyomi_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		311306C6F72855D9EDAE0098753A9695 /* Pods_Koyomi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3458D3FFF9D95F67DB699B689D0CDF79 /* Pods-Koyomi_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Koyomi_Example-resources.sh"; sourceTree = "<group>"; };
 		3B9AF5D5EC263C0CB97B50AC968D7240 /* KoyomiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KoyomiCell.swift; sourceTree = "<group>"; };
 		3DBA0A45E01EBB037C88FB117091A98E /* Koyomi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Koyomi.swift; sourceTree = "<group>"; };
-		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3E620B9362361125665BF3CF0EB688EA /* Pods-Koyomi_Example-Koyomi_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Koyomi_Example-Koyomi_Tests.modulemap"; sourceTree = "<group>"; };
 		423064E6F4E541F81039F7CA22AD4E61 /* DateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		4540B9342B6C7C2B36AAB722F3A75516 /* Pods-Koyomi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4651FA6B0AEC74174B28EC007DD36D3E /* Pods-Koyomi_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Koyomi_Example-frameworks.sh"; sourceTree = "<group>"; };
 		5A7FBC432D08F91A532195889BC28BC3 /* Koyomi.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Koyomi.xcconfig; sourceTree = "<group>"; };
-		5DB6C225A5EADF6E9CE95DE6D51BB0CA /* Pods_Koyomi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E2B855C767EA0BA867480518D071C3 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7117DD6C39480B40582C3212D7951791 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80CA3FF376FAB24E502B510C1D6F8716 /* Pods-Koyomi_Example-Koyomi_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Koyomi_Example-Koyomi_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		88BC76B3D859E81312EE628F305F691B /* Koyomi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koyomi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97AC50DB4CB9613DBB2DC233153A6748 /* Pods-Koyomi_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Koyomi_Example-umbrella.h"; sourceTree = "<group>"; };
-		9D943219B243FE3433722D07AD6EDB17 /* Pods_Koyomi_Example_Koyomi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example_Koyomi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EBF5610C2D886A39771DEA99F9ADB86 /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9F8A7501DADF233ACB6E748496A530A7 /* Pods_Koyomi_Example_Koyomi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example_Koyomi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F0D084FE732412FD58FBA333F0F910 /* Koyomi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Koyomi.modulemap; sourceTree = "<group>"; };
-		B7C3C171398ED45A9199E2DFE5B2EC0A /* Koyomi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koyomi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C227DDD822F46154E33FE7E4DCEBA438 /* Koyomi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Koyomi-dummy.m"; sourceTree = "<group>"; };
 		C749D11ED668272F482BB7CD8333C349 /* Pods-Koyomi_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Koyomi_Example-dummy.m"; sourceTree = "<group>"; };
 		CB1BB5CF01197E1C7BDE5B91D9F02002 /* Pods-Koyomi_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Koyomi_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E0913791FDE09E68E8A1BB0F7010A5A1 /* Pods-Koyomi_Example-Koyomi_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Koyomi_Example-Koyomi_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E09C334C3AF940E2C0CB8D0F5DFC0AC0 /* Koyomi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Koyomi-prefix.pch"; sourceTree = "<group>"; };
 		E1E9E2F12EDFD4DF9A4F7402DAADFC91 /* KoyomiLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KoyomiLayout.swift; sourceTree = "<group>"; };
@@ -80,11 +80,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		72E25E342BB3ACA17B0B3E14D2CED0A4 /* Frameworks */ = {
+		2CEACF7D9359005672C6EBA0CC421BA4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C696B67563EA6EAC2E6AF499439BD3EB /* Foundation.framework in Frameworks */,
+				5D87262851A194625410F8249C5F7E14 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,37 +92,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				989630DE6FE89FBF7B0B6D9B55CF84C2 /* Foundation.framework in Frameworks */,
+				1B48406B7467917F780F05311C172887 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F95EF2EEF7414F989B87E2EA6BAEEF69 /* Frameworks */ = {
+		A10F77C22A711131E60890C26033F097 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C61762EC6CAFFC5848D3A6664795C67 /* Foundation.framework in Frameworks */,
+				F22C3B069C914CA6F6AAE7F37CD5BC0E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0FDC9F8FCD756B6165987864737B5841 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B7C3C171398ED45A9199E2DFE5B2EC0A /* Koyomi.framework */,
-				5DB6C225A5EADF6E9CE95DE6D51BB0CA /* Pods_Koyomi_Example.framework */,
-				9D943219B243FE3433722D07AD6EDB17 /* Pods_Koyomi_Example_Koyomi_Tests.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		163DB97940D72578C602D5EB1457ED3F /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
 				67820DBD2CD404ABE86449F4B1B7116D /* Koyomi */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		22BC36AC8D357256C8F8148446E322A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88BC76B3D859E81312EE628F305F691B /* Koyomi.framework */,
+				311306C6F72855D9EDAE0098753A9695 /* Pods_Koyomi_Example.framework */,
+				9F8A7501DADF233ACB6E748496A530A7 /* Pods_Koyomi_Example_Koyomi_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		67820DBD2CD404ABE86449F4B1B7116D /* Koyomi */ = {
@@ -138,10 +146,10 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				163DB97940D72578C602D5EB1457ED3F /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				0FDC9F8FCD756B6165987864737B5841 /* Products */,
+				22BC36AC8D357256C8F8148446E322A0 /* Products */,
 				A4665BA9FC74046345712C256F80A753 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -170,17 +178,9 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		C493E16A07B476FD1D9B3268577FDF59 /* Pods-Koyomi_Example */ = {
@@ -236,11 +236,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2569E683905CE809B5A46CF6C92A89E0 /* Headers */ = {
+		4776FE4A13264DA01637EB699F6AC652 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E17952A288195C616A3B96838C0D7CF8 /* Pods-Koyomi_Example-Koyomi_Tests-umbrella.h in Headers */,
+				389146A7369BCF20FCD4CAD3B81AFD04 /* Pods-Koyomi_Example-Koyomi_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A97AD15CCEF880CE928DDC6B4BF13BD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54700AB3D04C333C92D68B1736773B2A /* Pods-Koyomi_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,33 +260,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF03796939832031372D389C57630FB6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5807336498E7F512561A7CADB85EA41A /* Pods-Koyomi_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9F9D1EFB19F221ECA85C65A0074C16D2 /* Pods-Koyomi_Example */ = {
+		3D0BB23565B28FA4264F5785CDFF94D2 /* Pods-Koyomi_Example-Koyomi_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8E97F76FCC911B8F8884DD96E4A545D /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example" */;
+			buildConfigurationList = 511E47E39F5A47B799A7F11D362C0525 /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example-Koyomi_Tests" */;
 			buildPhases = (
-				4045868D2029813078890AA336CDA87B /* Sources */,
-				F95EF2EEF7414F989B87E2EA6BAEEF69 /* Frameworks */,
-				FF03796939832031372D389C57630FB6 /* Headers */,
+				AEF74EC6D9E3841CEED9BE6A9BCA09FE /* Sources */,
+				A10F77C22A711131E60890C26033F097 /* Frameworks */,
+				4776FE4A13264DA01637EB699F6AC652 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				85637F21D464CCA4A2B197C25C95C548 /* PBXTargetDependency */,
+				1BAC684DFE00F454A2502972931C2C99 /* PBXTargetDependency */,
+			);
+			name = "Pods-Koyomi_Example-Koyomi_Tests";
+			productName = "Pods-Koyomi_Example-Koyomi_Tests";
+			productReference = 9F8A7501DADF233ACB6E748496A530A7 /* Pods_Koyomi_Example_Koyomi_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C47C270C3A6829E5F8FC351529B5EDE6 /* Pods-Koyomi_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF1C42B05A1F22BA12F540C47DFC3E71 /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example" */;
+			buildPhases = (
+				BA39FD16F25350271CB384E975982081 /* Sources */,
+				2CEACF7D9359005672C6EBA0CC421BA4 /* Frameworks */,
+				4A97AD15CCEF880CE928DDC6B4BF13BD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C5CE0A3198F878CAD6FE175B2B6EC22 /* PBXTargetDependency */,
 			);
 			name = "Pods-Koyomi_Example";
 			productName = "Pods-Koyomi_Example";
-			productReference = 5DB6C225A5EADF6E9CE95DE6D51BB0CA /* Pods_Koyomi_Example.framework */;
+			productReference = 311306C6F72855D9EDAE0098753A9695 /* Pods_Koyomi_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F03ED00553D411368945B553426CEF7B /* Koyomi */ = {
@@ -295,25 +313,7 @@
 			);
 			name = Koyomi;
 			productName = Koyomi;
-			productReference = B7C3C171398ED45A9199E2DFE5B2EC0A /* Koyomi.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F6226D9004495EF61DB4C782324417C1 /* Pods-Koyomi_Example-Koyomi_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD332FC0666FA31DA2CBF159B66B9775 /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example-Koyomi_Tests" */;
-			buildPhases = (
-				E6E6B31C760CD337AB0443A86C084197 /* Sources */,
-				72E25E342BB3ACA17B0B3E14D2CED0A4 /* Frameworks */,
-				2569E683905CE809B5A46CF6C92A89E0 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0AC08F7ABC757C94351B5E3F97051072 /* PBXTargetDependency */,
-			);
-			name = "Pods-Koyomi_Example-Koyomi_Tests";
-			productName = "Pods-Koyomi_Example-Koyomi_Tests";
-			productReference = 9D943219B243FE3433722D07AD6EDB17 /* Pods_Koyomi_Example_Koyomi_Tests.framework */;
+			productReference = 88BC76B3D859E81312EE628F305F691B /* Koyomi.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -322,16 +322,8 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					9F9D1EFB19F221ECA85C65A0074C16D2 = {
-						LastSwiftMigration = 0800;
-					};
-					F03ED00553D411368945B553426CEF7B = {
-						LastSwiftMigration = 0800;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -341,13 +333,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 0FDC9F8FCD756B6165987864737B5841 /* Products */;
+			productRefGroup = 22BC36AC8D357256C8F8148446E322A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				F03ED00553D411368945B553426CEF7B /* Koyomi */,
-				9F9D1EFB19F221ECA85C65A0074C16D2 /* Pods-Koyomi_Example */,
-				F6226D9004495EF61DB4C782324417C1 /* Pods-Koyomi_Example-Koyomi_Tests */,
+				C47C270C3A6829E5F8FC351529B5EDE6 /* Pods-Koyomi_Example */,
+				3D0BB23565B28FA4264F5785CDFF94D2 /* Pods-Koyomi_Example-Koyomi_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -366,44 +358,114 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4045868D2029813078890AA336CDA87B /* Sources */ = {
+		AEF74EC6D9E3841CEED9BE6A9BCA09FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E70C53E1ED6527FBDC8D2938D149D9 /* Pods-Koyomi_Example-dummy.m in Sources */,
+				BB6A2DFAA9406D1D0618FFF44203A626 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6E6B31C760CD337AB0443A86C084197 /* Sources */ = {
+		BA39FD16F25350271CB384E975982081 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D80EDC60D80D58F0239B672235BED940 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m in Sources */,
+				FD63AF505116E2DB47A1EAD27180A1D8 /* Pods-Koyomi_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0AC08F7ABC757C94351B5E3F97051072 /* PBXTargetDependency */ = {
+		1BAC684DFE00F454A2502972931C2C99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Koyomi;
 			target = F03ED00553D411368945B553426CEF7B /* Koyomi */;
-			targetProxy = E0C66B78EEFF2CA5E48D58A904BF6AF4 /* PBXContainerItemProxy */;
+			targetProxy = 628045413746E0A7F0B2C3ECD1EF0DD1 /* PBXContainerItemProxy */;
 		};
-		85637F21D464CCA4A2B197C25C95C548 /* PBXTargetDependency */ = {
+		9C5CE0A3198F878CAD6FE175B2B6EC22 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Koyomi;
 			target = F03ED00553D411368945B553426CEF7B /* Koyomi */;
-			targetProxy = 766572E6006EDFB6F1C3C8BDC2561CFC /* PBXContainerItemProxy */;
+			targetProxy = C82C651B2266DC9DF49F23EEEAF2CF94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */ = {
+		1EE3FD41B150AA3F6D547FED751076F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A7FBC432D08F91A532195889BC28BC3 /* Koyomi.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Koyomi/Koyomi-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Koyomi/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Koyomi/Koyomi.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Koyomi;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		25D812951865EA34EBEC9839420A484F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4540B9342B6C7C2B36AAB722F3A75516 /* Pods-Koyomi_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Koyomi_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -417,10 +479,14 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -428,27 +494,69 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		3EEDC7E31A580E9F7A2617BB68ED616D /* Release */ = {
+		8EB1D292046C64975E4AA58C5C259CDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A7FBC432D08F91A532195889BC28BC3 /* Koyomi.xcconfig */;
+			baseConfigurationReference = 64E2B855C767EA0BA867480518D071C3 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Koyomi_Example_Koyomi_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9A185D2FC4065BBB4D74165FBF1A612F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A7FBC432D08F91A532195889BC28BC3 /* Koyomi.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Koyomi/Koyomi-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Koyomi/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Koyomi/Koyomi.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -462,41 +570,11 @@
 			};
 			name = Release;
 		};
-		4EB6A2CDE704D011C7EE645845528DC8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EBF5610C2D886A39771DEA99F9ADB86 /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_Koyomi_Example_Koyomi_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		552D02D5BA751AC2E8790D2811D496CA /* Debug */ = {
+		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -510,11 +588,14 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -527,30 +608,39 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		6A90AB006AFB5EF0B6C30F00CC0A578A /* Debug */ = {
+		C1197B7A8504DD622C6236DB440C436C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A7FBC432D08F91A532195889BC28BC3 /* Koyomi.xcconfig */;
+			baseConfigurationReference = 2D509D12A8BEB81CAE1852BA9052A0CD /* Pods-Koyomi_Example.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Koyomi/Koyomi-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Koyomi/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Koyomi/Koyomi.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Koyomi;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Koyomi_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -561,28 +651,33 @@
 			};
 			name = Debug;
 		};
-		771D43A1A2529536095B9FB421E2783D /* Release */ = {
+		F826E2BC9A33114DDCBC7F2079CAD17F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4540B9342B6C7C2B36AAB722F3A75516 /* Pods-Koyomi_Example.release.xcconfig */;
+			baseConfigurationReference = 9EBF5610C2D886A39771DEA99F9ADB86 /* Pods-Koyomi_Example-Koyomi_Tests.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_Koyomi_Example;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Koyomi_Example_Koyomi_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 2.3;
@@ -592,96 +687,23 @@
 			};
 			name = Release;
 		};
-		CC53917DE12D415A0904F6EA7B6F69B2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D509D12A8BEB81CAE1852BA9052A0CD /* Pods-Koyomi_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_Koyomi_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E78137992178AA5F8FADCBDDC4004481 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64E2B855C767EA0BA867480518D071C3 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Koyomi_Example-Koyomi_Tests/Pods-Koyomi_Example-Koyomi_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_Koyomi_Example_Koyomi_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				552D02D5BA751AC2E8790D2811D496CA /* Debug */,
-				10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */,
+				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
+				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8E97F76FCC911B8F8884DD96E4A545D /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example" */ = {
+		511E47E39F5A47B799A7F11D362C0525 /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example-Koyomi_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CC53917DE12D415A0904F6EA7B6F69B2 /* Debug */,
-				771D43A1A2529536095B9FB421E2783D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD332FC0666FA31DA2CBF159B66B9775 /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example-Koyomi_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E78137992178AA5F8FADCBDDC4004481 /* Debug */,
-				4EB6A2CDE704D011C7EE645845528DC8 /* Release */,
+				8EB1D292046C64975E4AA58C5C259CDE /* Debug */,
+				F826E2BC9A33114DDCBC7F2079CAD17F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -689,8 +711,17 @@
 		CA981FB7375B0D72154FA1A8DC53DD25 /* Build configuration list for PBXNativeTarget "Koyomi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A90AB006AFB5EF0B6C30F00CC0A578A /* Debug */,
-				3EEDC7E31A580E9F7A2617BB68ED616D /* Release */,
+				1EE3FD41B150AA3F6D547FED751076F0 /* Debug */,
+				9A185D2FC4065BBB4D74165FBF1A612F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF1C42B05A1F22BA12F540C47DFC3E71 /* Build configuration list for PBXNativeTarget "Pods-Koyomi_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1197B7A8504DD622C6236DB440C436C /* Debug */,
+				25D812951865EA34EBEC9839420A484F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
