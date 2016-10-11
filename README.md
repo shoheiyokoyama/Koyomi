@@ -7,7 +7,7 @@
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
-**Koyomi** is a simple Calender View framework for iOS, written in **Swift**.
+**Koyomi** is a simple Calender View framework for iOS, written in Swift. :calendar:
 
 ## Demo
 
@@ -17,7 +17,7 @@
 
 ## Features
 
-- Easily usable
+- Easily usable :sunglasses:
 - Simple Calender View
 - Customizable in any properties for appearance
 - [x] Support `@IBDesignable` and `@IBInspectable`
