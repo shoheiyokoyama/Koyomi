@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var segmentedControl: UISegmentedControl! {
         didSet {
             segmentedControl.setTitle("Previous", forSegmentAtIndex: 0)
-            segmentedControl.setTitle("Next", forSegmentAtIndex: 1)
+            segmentedControl.setTitle("Current", forSegmentAtIndex: 1)
+            segmentedControl.setTitle("Next", forSegmentAtIndex: 2)
         }
     }
     
@@ -32,11 +33,22 @@ class ViewController: UIViewController {
 private extension ViewController {
     func setup() {
         currentDateLabel.text = koyomi.currentDateString
+        
         koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
+        
+        koyomi
+            .setDayFont(size: 12)
+            .setWeekFont(size: 8)
     }
     
     @IBAction func tappedControl(sender: UISegmentedControl) {
-        let month: MonthType = sender.selectedSegmentIndex == 0 ? .previous : .next
+        let month: MonthType = {
+            switch sender.selectedSegmentIndex {
+            case 0:  return .previous
+            case 1:  return .current
+            default: return .next
+            }
+        }()
         koyomi.display(in: month)
         currentDateLabel.text = koyomi.currentDateString// TODO: - Delegate
     }

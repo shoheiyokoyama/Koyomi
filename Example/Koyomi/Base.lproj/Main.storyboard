@@ -22,6 +22,7 @@
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
+                                    <segment title=""/>
                                 </segments>
                                 <connections>
                                     <action selector="tappedControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="qvK-XO-ueW"/>
@@ -36,7 +37,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="5A2-hB-Awy"/>
-                                    <constraint firstAttribute="height" constant="330" id="HZo-0v-o4d"/>
+                                    <constraint firstAttribute="height" constant="300" id="HZo-0v-o4d"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LOS-Tb-WX2">
                                     <size key="itemSize" width="50" height="50"/>

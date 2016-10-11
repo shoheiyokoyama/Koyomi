@@ -31,6 +31,11 @@ final class DateModel: NSObject {
         return calendar.ordinalityOfUnit(.Day, inUnit: .WeekOfMonth, forDate: atBeginning(of: month)) - 1
     }
     
+    func indexAtEnd(in month: MonthType) -> Int {
+        let rangeDays = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: atBeginning(of: month))
+        return rangeDays.length + indexAtBeginning(in: month) - 1
+    }
+    
     func dayString(at indexPath: NSIndexPath) -> String {
         let formatter = NSDateFormatter()
         formatter.dateFormat = DateFormat.day
@@ -39,7 +44,7 @@ final class DateModel: NSObject {
     
     func display(in month: MonthType) {
         currentDates = []
-        currentDate = date(of: month)
+        currentDate = month == .current ? NSDate() : date(of: month)
         setup()
     }
     

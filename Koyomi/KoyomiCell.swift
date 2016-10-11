@@ -31,11 +31,13 @@ final class KoyomiCell: UICollectionViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        addSubview(contentLabel)
     }
     
     func setContentFont(fontName name: String, size: CGFloat) {
         contentLabel.font = UIFont(name: name, size: size)
+        adjustContentFrame()
     }
 }
 

@@ -20,12 +20,12 @@ final public class Koyomi: UICollectionView {
         }
     }
     
-    @IBInspectable public var sectionSeparatorColor: UIColor = .grayColor() {
+    @IBInspectable public var sectionSeparatorColor: UIColor = UIColor.KoyomiColor.lightGray {
         didSet {
             sectionSeparator.backgroundColor = sectionSeparatorColor
         }
     }
-    @IBInspectable public var separatorColor: UIColor = .grayColor() {
+    @IBInspectable public var separatorColor: UIColor = UIColor.KoyomiColor.lightGray {
         didSet {
             backgroundColor = separatorColor
         }
@@ -69,12 +69,14 @@ final public class Koyomi: UICollectionView {
         reloadData()
     }
     
-    public func setDayFont(fontName name: String = ".SFUIText-Medium", size: CGFloat) {
+    public func setDayFont(fontName name: String = ".SFUIText-Medium", size: CGFloat) -> Self {
         dayLabelFont = UIFont(name: name, size: size)
+        return self
     }
     
-    public func setWeekFont(fontName name: String = ".SFUIText-Medium", size: CGFloat) {
+    public func setWeekFont(fontName name: String = ".SFUIText-Medium", size: CGFloat) -> Self {
         weekLabelFont = UIFont(name: name, size: size)
+        return self
     }
     
     // MARK: - override -
@@ -98,20 +100,32 @@ private extension Koyomi {
         registerClass(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
         
         sectionSeparator.backgroundColor = sectionSeparatorColor
-        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width, height: sectionSpace)
+        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
         addSubview(sectionSeparator)
     }
     
     func configure(cell: KoyomiCell, at indexPath: NSIndexPath) {
-        cell.backgroundColor = UIColor.whiteColor()
+        cell.backgroundColor = .whiteColor()
         cell.content = indexPath.section == 0 ? DateModel.weeks[indexPath.row] : model.dayString(at: indexPath)
         
         if indexPath.section == 0 {
-            
+            cell.textColor = UIColor.KoyomiColor.black
             if let font = weekLabelFont {
                 cell.setContentFont(fontName: font.fontName, size: font.pointSize)
             }
         } else {
+            
+            cell.textColor = {
+               if indexPath.row < model.indexAtBeginning(in: .current) || indexPath.row > model.indexAtEnd(in: .current) {
+                    return UIColor.KoyomiColor.lightGray
+               } else if indexPath.row % 7 == 0 || indexPath.row % 7 == 6 {
+                    return UIColor.KoyomiColor.darkGray
+               } else {
+                    return UIColor.KoyomiColor.black
+               }
+            }()
+            
+            
             if let font = dayLabelFont {
                 cell.setContentFont(fontName: font.fontName, size: font.pointSize)
             }
