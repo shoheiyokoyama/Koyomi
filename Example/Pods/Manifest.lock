@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Koyomi: b979a4870f1a2dccf883ed496e132a6ee6d72758
+  Koyomi: ef578da999a8398cadf2f93285c5c837d3f83c2c
 
 COCOAPODS: 0.39.0

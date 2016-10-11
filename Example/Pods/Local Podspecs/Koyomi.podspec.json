@@ -1,7 +1,7 @@
 {
   "name": "Koyomi",
   "version": "0.1.0",
-  "summary": "A short description of Koyomi.",
+  "summary": "Koyomi is a simple Calender View framework for iOS, written in Swift.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/shoheiyokoyama/Koyomi",
   "license": {
@@ -12,7 +12,7 @@
     "shoheiyokoyama": "shohei.yok0602@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/Koyomi.git",
+    "git": "https://github.com/shoheiyokoyama/Koyomi.git",
     "tag": "0.1.0"
   },
   "platforms": {
