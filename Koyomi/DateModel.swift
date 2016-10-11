@@ -15,6 +15,7 @@ final class DateModel: NSObject {
     private var currentDate = NSDate()
     
     static let weeks: [String] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+    static let maxCellCount = 42
     
     override init() {
         super.init()
@@ -23,8 +24,7 @@ final class DateModel: NSObject {
     
     func cellCount(in month: MonthType) -> Int {
         let weeksRange = calendar.rangeOfUnit(.WeekOfMonth, inUnit: .Month, forDate: atBeginning(of: month))
-//        return weeksRange.length * DateModel.weeks.count
-        return 42
+        return weeksRange.length * DateModel.weeks.count
     }
     
     func indexAtBeginning(in month: MonthType) -> Int {
@@ -63,7 +63,7 @@ private extension DateModel {
     }
     
     func setup() {
-        currentDates = (0..<cellCount(in: .current)).map { index in
+        currentDates = (0..<DateModel.maxCellCount).map { index in
             let components = NSDateComponents()
             components.day = index - indexAtBeginning(in: .current)
             return calendar.dateByAddingComponents(components, toDate: atBeginning(of: .current), options: NSCalendarOptions(rawValue: 0)) ?? NSDate()

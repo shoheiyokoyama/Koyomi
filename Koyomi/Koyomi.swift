@@ -13,9 +13,17 @@ final public class Koyomi: UICollectionView {
     public var cellSpace: CGFloat    = 0.5
     public var inset = UIEdgeInsetsZero
     
+    public var currentDateString: String {
+        return model.dateString(in: .current)
+    }
+    
     private static let cellIdentifier = "KoyomiCell"
     
     private lazy var model = DateModel()
+    
+    private var layout: UICollectionViewLayout {
+        return KoyomiLayout(inset: inset, cellSpace: cellSpace, sectionSpace: sectionSpace)
+    }
     
     // MARK: - Initialization -
 
@@ -29,9 +37,11 @@ final public class Koyomi: UICollectionView {
         reloadData()
     }
     
+    // MARK: - override -
+    
     override public func reloadData() {
         super.reloadData()
-        setCollectionViewLayout(KoyomiLayout(inset: inset, cellSpace: cellSpace, sectionSpace: sectionSpace), animated: false)
+        setCollectionViewLayout(layout, animated: false)
     }
 }
 
@@ -46,16 +56,12 @@ private extension Koyomi {
         backgroundColor = UIColor.grayColor()
         
         registerClass(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
-        collectionViewLayout = KoyomiLayout(inset: inset, cellSpace: cellSpace, sectionSpace: sectionSpace)
+        collectionViewLayout = layout
     }
     
     func configure(cell: KoyomiCell, at indexPath: NSIndexPath) {
         cell.backgroundColor = UIColor.whiteColor()
-        if indexPath.section == 0 {
-            cell.content = DateModel.weeks[indexPath.row]
-        } else {
-            cell.content = model.dayString(at: indexPath)
-        }
+        cell.content = indexPath.section == 0 ? DateModel.weeks[indexPath.row] : model.dayString(at: indexPath)
     }
 }
 
@@ -76,7 +82,7 @@ extension Koyomi: UICollectionViewDataSource {
     }
     
     public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? DateModel.weeks.count : model.cellCount(in: .current)
+        return section == 0 ? DateModel.weeks.count : DateModel.maxCellCount
     }
     
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

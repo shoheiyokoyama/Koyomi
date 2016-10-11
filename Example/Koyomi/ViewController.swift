@@ -12,6 +12,7 @@ import Koyomi
 class ViewController: UIViewController {
 
     @IBOutlet private weak var koyomi: Koyomi!
+    @IBOutlet private weak var currentDateLabel: UILabel!
     
     @IBOutlet private weak var segmentedControl: UISegmentedControl! {
         didSet {
@@ -22,12 +23,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setup()
+    }
+}
+
+// MARK: - Private Methods
+
+private extension ViewController {
+    func setup() {
+        currentDateLabel.text = koyomi.currentDateString
     }
     
     @IBAction func tappedControl(sender: UISegmentedControl) {
         let month: MonthType = sender.selectedSegmentIndex == 0 ? .previous : .next
         koyomi.display(in: month)
+        currentDateLabel.text = koyomi.currentDateString// TODO: - Delegate
     }
 }
 

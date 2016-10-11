@@ -18,11 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6y-Sa-BPO">
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="tappedControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="qvK-XO-ueW"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrJ-h9-b09">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U0g-jI-g7D" customClass="Koyomi" customModule="Koyomi">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="5A2-hB-Awy"/>
-                                    <constraint firstAttribute="height" constant="300" id="HZo-0v-o4d"/>
+                                    <constraint firstAttribute="height" constant="330" id="HZo-0v-o4d"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LOS-Tb-WX2">
                                     <size key="itemSize" width="50" height="50"/>
@@ -41,25 +55,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6y-Sa-BPO">
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <connections>
-                                    <action selector="tappedControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="qvK-XO-ueW"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="N6y-Sa-BPO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="5Y6-9r-3mv"/>
                             <constraint firstItem="U0g-jI-g7D" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Lgg-Ho-Oa3"/>
-                            <constraint firstItem="N6y-Sa-BPO" firstAttribute="top" secondItem="U0g-jI-g7D" secondAttribute="bottom" constant="50" id="PL0-mk-43F"/>
-                            <constraint firstItem="U0g-jI-g7D" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="35" id="QYP-sz-qLw"/>
+                            <constraint firstItem="U0g-jI-g7D" firstAttribute="top" secondItem="YrJ-h9-b09" secondAttribute="bottom" constant="30" id="TnC-Vo-maJ"/>
+                            <constraint firstItem="YrJ-h9-b09" firstAttribute="top" secondItem="N6y-Sa-BPO" secondAttribute="bottom" constant="30" id="cD3-TB-aqM"/>
+                            <constraint firstItem="YrJ-h9-b09" firstAttribute="centerX" secondItem="N6y-Sa-BPO" secondAttribute="centerX" id="khD-ys-SAG"/>
                             <constraint firstItem="N6y-Sa-BPO" firstAttribute="centerX" secondItem="U0g-jI-g7D" secondAttribute="centerX" id="on7-rW-cHD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentDateLabel" destination="YrJ-h9-b09" id="ZiE-SC-toF"/>
                         <outlet property="koyomi" destination="U0g-jI-g7D" id="Hib-No-XqL"/>
                         <outlet property="segmentedControl" destination="N6y-Sa-BPO" id="ReB-6L-NJL"/>
                     </connections>
