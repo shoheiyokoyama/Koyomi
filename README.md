@@ -19,7 +19,8 @@
 
 - Easily usable
 - Simple Calender View
-- [x] Support `@IBDesignable` and `@IBInspectable`.
+- Customizable in any properties for appearance
+- [x] Support `@IBDesignable` and `@IBInspectable`
 - [x] Support Swift 2.3
 - [ ] Support Swift 3.0
 
@@ -28,6 +29,8 @@
 Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demonstration.
 
 ## QuickExample
+
+Koyomi is designed to be easy to use
 
 ```swift
     let koyomi = Koyomi(frame: CGRect(x: 100, y: 100, width: 250, height: 250))
