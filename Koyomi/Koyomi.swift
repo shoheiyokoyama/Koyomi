@@ -30,6 +30,15 @@ final public class Koyomi: UICollectionView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
+        collectionViewLayout = layout
+    }
+    
+    public init(frame: CGRect, sectionSpace: CGFloat, cellSpace: CGFloat, inset: UIEdgeInsets) {
+        self.sectionSpace = sectionSpace
+        self.cellSpace = cellSpace
+        self.inset = inset
+        super.init(frame: frame, collectionViewLayout: KoyomiLayout(inset: inset, cellSpace: cellSpace, sectionSpace: sectionSpace))
+        configure()
     }
     
     public func display(in month: MonthType) {
@@ -56,7 +65,6 @@ private extension Koyomi {
         backgroundColor = UIColor.grayColor()
         
         registerClass(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
-        collectionViewLayout = layout
     }
     
     func configure(cell: KoyomiCell, at indexPath: NSIndexPath) {
