@@ -54,14 +54,35 @@ Koyomi is designed to be easy to use
     koyomi.display(in: .next)
     
     // get current month string
-    let currentDateString = koyomi.currentDateString
+    let currentDateString = koyomi.currentDateString(withFormat: "M/yyyy")
 ```
 
 ## KoyomiDelegate
 
+if you want to use `KoyomiDelegate`, set `calenderDelegate`
+
 ```swift
-    // Called when tapped cell
-    optional func koyomi(_ koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
+    koyomi.calenderDelegate = self
+    
+    ...
+    
+extension ViewController: KoyomiDelegate {
+    func ...
+```
+
+Return the date user selected, when tapped cell
+
+```swift
+    optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)    
+```
+
+Return the current month string, when changed month.
+
+```swift
+    optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
+    
+    // if you want to change string format, use `currentDateFormat`
+    koyomi.currentDateFormat = "M/yyyy"
 ```
 
 ## Customize properties
