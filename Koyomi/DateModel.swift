@@ -49,9 +49,9 @@ final class DateModel: NSObject {
         setup()
     }
     
-    func dateString(in month: MonthType) -> String {
+    func dateString(in month: MonthType, withFormat format: String) -> String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = DateFormat.yearWithMonth
+        formatter.dateFormat = format
         return formatter.stringFromDate(date(of: month))
     }
     
@@ -65,7 +65,6 @@ final class DateModel: NSObject {
 private extension DateModel {
     struct DateFormat {
         static let day = "d"
-        static let yearWithMonth = "M/yyyy"
     }
     
     var calendar: NSCalendar {

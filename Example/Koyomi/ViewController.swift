@@ -36,7 +36,7 @@ class ViewController: UIViewController {
 
 private extension ViewController {
     func setup() {
-        currentDateLabel.text = koyomi.currentDateString
+        currentDateLabel.text = koyomi.currentDateString()
         
         koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
         koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -55,7 +55,6 @@ private extension ViewController {
             }
         }()
         koyomi.display(in: month)
-        currentDateLabel.text = koyomi.currentDateString// TODO: - Delegate
     }
 }
 
@@ -64,6 +63,10 @@ private extension ViewController {
 extension ViewController: KoyomiDelegate {
     func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath) {
         print(date)
+    }
+    
+    func koyomi(koyomi: Koyomi, currentDateString dateString: String) {
+        currentDateLabel.text = dateString
     }
 }
 

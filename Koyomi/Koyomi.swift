@@ -10,6 +10,7 @@ import UIKit
 
 @objc public protocol KoyomiDelegate: class {
     optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
+    optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
 }
 
 @IBDesignable
@@ -30,6 +31,7 @@ final public class Koyomi: UICollectionView {
             reloadData()
         }
     }
+    @IBInspectable public var currentDateFormat: String = "M/yyyy"
     
     @IBInspectable public var sectionSeparatorColor: UIColor = UIColor.KoyomiColor.lightGray {
         didSet {
@@ -50,11 +52,7 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var weekBackgrondColor: UIColor = .whiteColor()
     
     public weak var calenderDelegate: KoyomiDelegate?
-    
-    public var currentDateString: String {
-        return model.dateString(in: .current)
-    }
-    
+
     private static let cellIdentifier = "KoyomiCell"
     
     private lazy var model: DateModel = .init()
@@ -87,6 +85,7 @@ final public class Koyomi: UICollectionView {
     public func display(in month: MonthType) {
         model.display(in: month)
         reloadData()
+        calenderDelegate?.koyomi?(self, currentDateString: model.dateString(in: .current, withFormat: currentDateFormat))
     }
     
     public func setDayFont(fontName name: String = ".SFUIText-Medium", size: CGFloat) -> Self {
@@ -97,6 +96,10 @@ final public class Koyomi: UICollectionView {
     public func setWeekFont(fontName name: String = ".SFUIText-Medium", size: CGFloat) -> Self {
         weekLabelFont = UIFont(name: name, size: size)
         return self
+    }
+    
+    public func currentDateString(withFormat format: String = "M/yyyy") -> String {
+        return model.dateString(in: .current, withFormat: format)
     }
     
     // MARK: - override -
