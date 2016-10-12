@@ -9,16 +9,15 @@
 
 **Koyomi** is a simple calender view framework for iOS, written in Swift :calendar:
 
-## Demo
 
 <p align="center">
-<img src="./DemoSource/calender_demo.gif" width="300">
+<img src="./DemoSource/koyomi-style.jpeg" width="550">
 </p>
 
 ## Features
 
-- Easily usable :sunglasses:
 - Simple Calender View :calendar:
+- Easily usable :sunglasses:
 - Customizable in any properties for appearance
 - [x] Support `@IBDesignable` and `@IBInspectable`
 - [x] Support Swift 2.3
@@ -30,7 +29,11 @@ Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demon
 
 ## Quick Example
 
-Koyomi is designed to be easy to use
+Koyomi is designed to be easy to use :sunglasses:
+
+<p align="center">
+<img src="./DemoSource/calender_demo.gif" width="300">
+</p>
 
 ```swift
     let koyomi = Koyomi(frame: CGRect(x: 100, y: 100, width: 250, height: 250))
