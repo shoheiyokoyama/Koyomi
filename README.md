@@ -57,6 +57,13 @@ Koyomi is designed to be easy to use
     let currentDateString = koyomi.currentDateString
 ```
 
+## KoyomiDelegate
+
+```swift
+    // Called when tapped cell
+    optional func koyomi(_ koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
+```
+
 ## Customize properties
 
 ```swift
