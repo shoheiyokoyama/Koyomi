@@ -62,12 +62,10 @@ final public class Koyomi: UICollectionView {
         didSet {
             dayBackgrondColor  = style.colors.dayBackgrond
             weekBackgrondColor = style.colors.weekBackgrond
-            
             weekColor = style.colors.week
             weekdayColor    = style.colors.weekday
             holidayColor    = style.colors.holiday
             otherMonthColor = style.colors.otherMonth
-            
             backgroundColor = style.colors.separator
             sectionSeparator.backgroundColor = style.colors.separator
         }
