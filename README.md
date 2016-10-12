@@ -69,11 +69,8 @@ Return the current month string, when changed month.
 
 ```swift
     optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
-```
-
-if you want to change string format, use `currentDateFormat`
-
-```swift
+    
+    // if you want to change string format, use `currentDateFormat`
     koyomi.currentDateFormat = "M/yyyy"
 ```
 
