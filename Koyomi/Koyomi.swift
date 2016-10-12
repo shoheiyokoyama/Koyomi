@@ -20,6 +20,13 @@ final public class Koyomi: UICollectionView {
         }
     }
     
+    public var weeks: [String] = [] {
+        didSet {
+            model.weeks = weeks
+            reloadData()
+        }
+    }
+    
     @IBInspectable public var sectionSeparatorColor: UIColor = UIColor.KoyomiColor.lightGray {
         didSet {
             sectionSeparator.backgroundColor = sectionSeparatorColor
@@ -113,7 +120,7 @@ private extension Koyomi {
     
     func configure(cell: KoyomiCell, at indexPath: NSIndexPath) {
         
-        cell.content = indexPath.section == 0 ? DateModel.weeks[indexPath.row] : model.dayString(at: indexPath)
+        cell.content = indexPath.section == 0 ? model.weeks[indexPath.row] : model.dayString(at: indexPath)
         cell.backgroundColor = weekBackgrondColor
         if indexPath.section == 0 {
             cell.textColor = weekColor
@@ -156,7 +163,7 @@ extension Koyomi: UICollectionViewDataSource {
     }
     
     public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? DateModel.weeks.count : DateModel.maxCellCount
+        return section == 0 ? DateModel.dayCountPerRow : DateModel.maxCellCount
     }
     
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

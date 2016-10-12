@@ -35,6 +35,7 @@ private extension ViewController {
         currentDateLabel.text = koyomi.currentDateString
         
         koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
+        koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         
         koyomi
             .setDayFont(size: 12)
