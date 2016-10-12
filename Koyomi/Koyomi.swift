@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc public protocol KoyomiDelegate: class {
+    optional func koyomi(_ koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
+}
+
 @IBDesignable
 final public class Koyomi: UICollectionView {
     
@@ -44,6 +48,8 @@ final public class Koyomi: UICollectionView {
     
     @IBInspectable public var dayBackgrondColor: UIColor  = .whiteColor()
     @IBInspectable public var weekBackgrondColor: UIColor = .whiteColor()
+    
+    public weak var calenderDelegate: KoyomiDelegate?
     
     public var currentDateString: String {
         return model.dateString(in: .current)
@@ -151,7 +157,7 @@ private extension Koyomi {
 
 extension Koyomi: UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // TODO: -
+        calenderDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
     }
 }
 

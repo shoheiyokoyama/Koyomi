@@ -54,6 +54,10 @@ final class DateModel: NSObject {
         formatter.dateFormat = DateFormat.yearWithMonth
         return formatter.stringFromDate(date(of: month))
     }
+    
+    func date(at indexPath: NSIndexPath) -> NSDate {
+        return currentDates[indexPath.row]
+    }
 }
 
 // MARK: - Private Methods -

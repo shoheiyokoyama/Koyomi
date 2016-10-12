@@ -11,7 +11,11 @@ import Koyomi
 
 class ViewController: UIViewController {
 
-    @IBOutlet private weak var koyomi: Koyomi!
+    @IBOutlet private weak var koyomi: Koyomi! {
+        didSet {
+            koyomi.calenderDelegate = self
+        }
+    }
     @IBOutlet private weak var currentDateLabel: UILabel!
     
     @IBOutlet private weak var segmentedControl: UISegmentedControl! {
@@ -52,6 +56,14 @@ private extension ViewController {
         }()
         koyomi.display(in: month)
         currentDateLabel.text = koyomi.currentDateString// TODO: - Delegate
+    }
+}
+
+// MARK: - KoyomiDelegate
+
+extension ViewController: KoyomiDelegate {
+    func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath) {
+        print(date)
     }
 }
 
