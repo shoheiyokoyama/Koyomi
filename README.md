@@ -41,7 +41,7 @@ Koyomi is designed to be easy to use :sunglasses:
     view.addSubview(koyomi)
 ```
 
-Koyomi is Available in in Interface Builder.
+Koyomi is Available in Interface Builder.
 Set custom class of `UICollectionView `
 
 ```swift
