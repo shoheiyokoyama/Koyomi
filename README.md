@@ -62,7 +62,7 @@ Koyomi is designed to be easy to use
 Return the date user selected, when tapped cell
 
 ```swift
-    optional func koyomi(_ koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)    
+    optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)    
 ```
 
 Return the current month string, when changed month.
