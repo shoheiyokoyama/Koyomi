@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet private weak var koyomi: Koyomi! {
         didSet {
             koyomi.calenderDelegate = self
+            koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
+            koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            koyomi.style = .standard
+            koyomi
+                .setDayFont(size: 14)
+                .setWeekFont(size: 10)
         }
     }
     @IBOutlet private weak var currentDateLabel: UILabel!
@@ -28,22 +34,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-    }
-}
-
-// MARK: - Private Methods
-
-private extension ViewController {
-    func setup() {
         currentDateLabel.text = koyomi.currentDateString()
-        
-        koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
-        koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-        
-        koyomi
-            .setDayFont(size: 12)
-            .setWeekFont(size: 8)
     }
     
     @IBAction func tappedControl(sender: UISegmentedControl) {

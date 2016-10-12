@@ -9,12 +9,12 @@
 import UIKit
 
 final class KoyomiLayout: UICollectionViewLayout {
-    private let inset: UIEdgeInsets
-    private let cellSpace: CGFloat
-    private let sectionSpace: CGFloat
+    let inset: UIEdgeInsets
+    let cellSpace: CGFloat
+    let sectionSpace: CGFloat
     private var layoutAttributes: [NSIndexPath: UICollectionViewLayoutAttributes] = [:]
     
-    private var weekCellHeight: CGFloat = 25
+    let weekCellHeight: CGFloat
     
     // MARK: - Initializer -
     

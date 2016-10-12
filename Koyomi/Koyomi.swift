@@ -13,15 +13,91 @@ import UIKit
     optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
 }
 
+public enum KoyomiStyle {
+    case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
+    
+    var colors: Koyomi.Colors {
+        switch self {
+        case monotone: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray))
+        case standard: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: .whiteColor(), holiday: (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red))
+        case red: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.red, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.red)
+        case orange: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.orange, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.orange)
+        case yellow: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.yellow, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.yellow)
+        case tealBlue: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.tealBlue, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.tealBlue)
+        case blue: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.blue, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.blue)
+        case purple: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.purple, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.purple)
+        case green: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.green, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.green)
+        case pink: return Koyomi.Colors(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.pink, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.pink)
+        }
+    }
+}
+
 @IBDesignable
 final public class Koyomi: UICollectionView {
+    struct Colors {
+        let dayBackgrond: UIColor
+        let weekBackgrond: UIColor
+        
+        let week: UIColor
+        let weekday: UIColor
+        let holiday: (saturday: UIColor, sunday: UIColor)
+        let otherMonth: UIColor
+        
+        let separator: UIColor
+        
+        init(dayBackgrond: UIColor, weekBackgrond: UIColor, week: UIColor = UIColor.KoyomiColor.black, weekday: UIColor = UIColor.KoyomiColor.black, holiday: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red), otherMonth: UIColor = UIColor.KoyomiColor.lightGray, separator: UIColor = UIColor.KoyomiColor.lightGray) {
+            self.dayBackgrond  = dayBackgrond
+            self.weekBackgrond = weekBackgrond
+            
+            self.week = week
+            self.weekday = weekday
+            self.holiday.saturday = holiday.saturday
+            self.holiday.sunday   = holiday.sunday
+            self.otherMonth = otherMonth
+            self.separator  = separator
+        }
+    }
     
-    @IBInspectable var sectionSpace: CGFloat = 1.5
-    @IBInspectable var cellSpace: CGFloat = 0.5
-    @IBInspectable var weekCellHeight: CGFloat = 25
+    public var style: KoyomiStyle = .standard {
+        didSet {
+            dayBackgrondColor  = style.colors.dayBackgrond
+            weekBackgrondColor = style.colors.weekBackgrond
+            
+            weekColor = style.colors.week
+            weekdayColor    = style.colors.weekday
+            holidayColor    = style.colors.holiday
+            otherMonthColor = style.colors.otherMonth
+            
+            backgroundColor = style.colors.separator
+            sectionSeparator.backgroundColor = style.colors.separator
+        }
+    }
+    
+    @IBInspectable var sectionSpace: CGFloat = 1.5 {
+        didSet {
+            sectionSeparator.frame.size.height = sectionSpace
+        }
+    }
+    @IBInspectable var cellSpace: CGFloat = 0.5 {
+        didSet {
+            if let layout = collectionViewLayout as? KoyomiLayout where layout.cellSpace != cellSpace {
+                setCollectionViewLayout(self.layout, animated: false)
+            }
+        }
+    }
+    @IBInspectable var weekCellHeight: CGFloat = 25 {
+        didSet {
+            sectionSeparator.frame.origin.y = inset.top + weekCellHeight
+            if let layout = collectionViewLayout as? KoyomiLayout where layout.weekCellHeight != weekCellHeight {
+                setCollectionViewLayout(self.layout, animated: false)
+            }
+        }
+    }
     public var inset: UIEdgeInsets = UIEdgeInsetsZero {
         didSet {
-            setCollectionViewLayout(layout, animated: false)
+            if let layout = collectionViewLayout as? KoyomiLayout where layout.inset != inset {
+                setCollectionViewLayout(self.layout, animated: false)
+            }
         }
     }
     
@@ -45,8 +121,8 @@ final public class Koyomi: UICollectionView {
     }
     @IBInspectable public var weekColor: UIColor       = UIColor.KoyomiColor.black
     @IBInspectable public var weekdayColor: UIColor    = UIColor.KoyomiColor.black
-    @IBInspectable public var holidayColor: UIColor    = UIColor.KoyomiColor.darkGray
     @IBInspectable public var otherMonthColor: UIColor = UIColor.KoyomiColor.lightGray
+    public var holidayColor: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red)
     
     @IBInspectable public var dayBackgrondColor: UIColor  = .whiteColor()
     @IBInspectable public var weekBackgrondColor: UIColor = .whiteColor()
@@ -141,8 +217,10 @@ private extension Koyomi {
             cell.textColor = {
                if indexPath.row < model.indexAtBeginning(in: .current) || indexPath.row > model.indexAtEnd(in: .current) {
                     return otherMonthColor
-               } else if indexPath.row % 7 == 0 || indexPath.row % 7 == 6 {
-                    return holidayColor
+               } else if indexPath.row % 7 == 0 {
+                    return holidayColor.sunday
+               } else if indexPath.row % 7 == 6 {
+                    return holidayColor.saturday
                } else {
                     return weekdayColor
                }
