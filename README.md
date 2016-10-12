@@ -59,6 +59,17 @@ Koyomi is designed to be easy to use
 
 ## KoyomiDelegate
 
+if you want to use `KoyomiDelegate`, set `calenderDelegate`
+
+```swift
+    koyomi.calenderDelegate = self
+    
+    ...
+    
+extension ViewController: KoyomiDelegate {
+    func ...
+```
+
 Return the date user selected, when tapped cell
 
 ```swift
