@@ -27,7 +27,7 @@
 
 Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demonstration.
 
-## Quick Example
+## Example
 
 Koyomi is designed to be easy to use :sunglasses:
 
@@ -35,24 +35,45 @@ Koyomi is designed to be easy to use :sunglasses:
 <img src="./DemoSource/calender_demo.gif" width="300">
 </p>
 
+
 ```swift
-    let koyomi = Koyomi(frame: CGRect(x: 100, y: 100, width: 250, height: 250))
+    let koyomi = Koyomi(frame: CGRect, sectionSpace: 1.5, cellSpace: 0.5, inset: UIEdgeInsetsZero, weekCellHeight: 25)
+    view.addSubview(koyomi)
+```
+
+Koyomi is Available in in Interface Builder.
+Set custom class of `UICollectionView `
+
+```swift
+    @IBOutlet weak var koyomi: Koyomi!
+```
+
+### Customize layout
+
+```swift
     // padding for Calender
     koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
-    
-    // set weeks text
-    koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    koyomi.weekCellHeight = 25
     
     // set Day and Week Label Font
     koyomi
         .setDayFont(size: 12) 
         .setWeekFont(size: 8)
-      
+        
     // if want to change font name, use: 
     // setDayFont(fontName: ".SFUIText-Medium", size: 12)
-        
-    view.addSubview(koyomi)
-    
+ ```
+ 
+Set weeks text
+ 
+ ```swift
+    // set weeks text
+    koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+```
+
+Change month, date
+
+```swift  
     // change month
     koyomi.display(in: .next)
     
@@ -106,6 +127,19 @@ Return the current month string, when changed month.
     @IBInspectable public var otherMonthColor: UIColor
     @IBInspectable public var dayBackgrondColor: UIColor
     @IBInspectable public var weekBackgrondColor: UIColor
+```
+
+Easily customize appearance using `KoyomiStyle`
+
+```swift
+    koyomi.style = .tealBlue
+```
+
+
+```swift
+    enum KoyomiStyle {
+        case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
+    }
 ```
 
 ## Requirements
