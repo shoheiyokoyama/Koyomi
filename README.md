@@ -135,6 +135,9 @@ Easily customize appearance using `KoyomiStyle`
     koyomi.style = .tealBlue
 ```
 
+<p align="center">
+<img src="./DemoSource/style-tealBlue.png" width="300">
+</p>
 
 ```swift
     enum KoyomiStyle {
