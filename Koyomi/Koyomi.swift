@@ -9,7 +9,7 @@
 import UIKit
 
 @objc public protocol KoyomiDelegate: class {
-    optional func koyomi(_ koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
+    optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
 }
 
 @IBDesignable
