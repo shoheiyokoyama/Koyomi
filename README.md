@@ -37,7 +37,8 @@ Koyomi is designed to be easy to use :sunglasses:
 
 
 ```swift
-    let koyomi = Koyomi(frame: CGRect, sectionSpace: 1.5, cellSpace: 0.5, inset: UIEdgeInsetsZero, weekCellHeight: 25)
+    let frame = CGRect(x: 10, y : 20, width: 250, height: 300)
+    let koyomi = Koyomi(frame: frame, sectionSpace: 1.5, cellSpace: 0.5, inset: UIEdgeInsetsZero, weekCellHeight: 25)
     view.addSubview(koyomi)
 ```
 
