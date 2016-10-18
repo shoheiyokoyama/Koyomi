@@ -66,7 +66,9 @@ If you want to change displayed month, call `display(in: MonthType)`. `MonthType
     let currentDateString = koyomi.currentDateString(withFormat: "M/yyyy")
 ```
 
-### Select date
+### The selection state of date
+
+You can select specific date.
  
 ```swift
     let today = NSDate()
@@ -81,6 +83,15 @@ If you want to change displayed month, call `display(in: MonthType)`. `MonthType
 <p align="center">
 <img src="./DemoSource/selected-state-date.png" width="300">
 </p>
+
+You can also unselect available.
+
+```swift
+    koyomi.unselect(NSDate(), to: weekLaterDay) // or koyomi.unselect(NSDate())
+    
+    // unselect all date
+    koyomi.unselectAll()
+```
 
 You can configure day color in selected state.
 
