@@ -8,9 +8,19 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Koyomi'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Simple customizable calendar component in Swift'
-  s.description      = 'Koyomi is a simple Calender View framework for iOS, written in Swift. Easily usable, Customizable in any properties for appearance. Koyomi is designed to be easy to use!'
+  s.description      = <<-DESC
+
+                        Koyomi is a simple Calender View framework for iOS, written in Swift.
+                        * Easily usable,
+                        * Customizable in any properties for appearance.
+                        * Support @IBDesignable and @IBInspectable
+                        * Support Swift 2.3
+
+                        Koyomi is designed to be easy to use!!
+
+                        DESC
 
   s.homepage         = 'https://github.com/shoheiyokoyama/Koyomi'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
