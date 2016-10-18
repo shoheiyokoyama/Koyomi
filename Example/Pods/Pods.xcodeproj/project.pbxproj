@@ -15,6 +15,8 @@
 		54700AB3D04C333C92D68B1736773B2A /* Pods-Koyomi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97AC50DB4CB9613DBB2DC233153A6748 /* Pods-Koyomi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55632BAF9742CCAFFEFD8CA9689E873B /* Koyomi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E5BDA903E4F69C08DB29D574FE82FF7 /* Koyomi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D87262851A194625410F8249C5F7E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		6D6007C31DB6110C005C6F45 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6007C21DB6110C005C6F45 /* DictionaryExtension.swift */; };
+		6DC3EF4D1DAFE3EE00C1AFEA /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC3EF4C1DAFE3EE00C1AFEA /* NSDateExtension.swift */; };
 		747720E8787D7477281E3399DC0863A9 /* KoyomiLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E2F12EDFD4DF9A4F7402DAADFC91 /* KoyomiLayout.swift */; };
 		9F192D4FC88BA88D05BD415272BB7316 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075196A3B5AE2011527F0A343DF3A0FD /* UIColorExtension.swift */; };
 		AC7234B8ED2B7505A813536085E40A2B /* Koyomi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C227DDD822F46154E33FE7E4DCEBA438 /* Koyomi-dummy.m */; };
@@ -58,6 +60,8 @@
 		4651FA6B0AEC74174B28EC007DD36D3E /* Pods-Koyomi_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Koyomi_Example-frameworks.sh"; sourceTree = "<group>"; };
 		5A7FBC432D08F91A532195889BC28BC3 /* Koyomi.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Koyomi.xcconfig; sourceTree = "<group>"; };
 		64E2B855C767EA0BA867480518D071C3 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6D6007C21DB6110C005C6F45 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		6DC3EF4C1DAFE3EE00C1AFEA /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		7117DD6C39480B40582C3212D7951791 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80CA3FF376FAB24E502B510C1D6F8716 /* Pods-Koyomi_Example-Koyomi_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Koyomi_Example-Koyomi_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		88BC76B3D859E81312EE628F305F691B /* Koyomi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koyomi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				423064E6F4E541F81039F7CA22AD4E61 /* DateModel.swift */,
+				6DC3EF4C1DAFE3EE00C1AFEA /* NSDateExtension.swift */,
 				3DBA0A45E01EBB037C88FB117091A98E /* Koyomi.swift */,
+				6D6007C21DB6110C005C6F45 /* DictionaryExtension.swift */,
 				3B9AF5D5EC263C0CB97B50AC968D7240 /* KoyomiCell.swift */,
 				E1E9E2F12EDFD4DF9A4F7402DAADFC91 /* KoyomiLayout.swift */,
 				075196A3B5AE2011527F0A343DF3A0FD /* UIColorExtension.swift */,
@@ -351,10 +357,12 @@
 			files = (
 				53DD50398A6A0802F2B22BBEE5D740E7 /* DateModel.swift in Sources */,
 				AC7234B8ED2B7505A813536085E40A2B /* Koyomi-dummy.m in Sources */,
+				6DC3EF4D1DAFE3EE00C1AFEA /* NSDateExtension.swift in Sources */,
 				2E512457012ABFA414EAF96198C083AE /* Koyomi.swift in Sources */,
 				264AF3C9C8EA4CDD1E94FA35A02B891D /* KoyomiCell.swift in Sources */,
 				747720E8787D7477281E3399DC0863A9 /* KoyomiLayout.swift in Sources */,
 				9F192D4FC88BA88D05BD415272BB7316 /* UIColorExtension.swift in Sources */,
+				6D6007C31DB6110C005C6F45 /* DictionaryExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

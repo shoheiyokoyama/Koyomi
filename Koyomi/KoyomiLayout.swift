@@ -74,10 +74,10 @@ private extension KoyomiLayout {
         }
     }
     
-    private var width: CGFloat {
+    var width: CGFloat {
         return (collectionView?.frame.width ?? 0)
     }
-    private var height: CGFloat {
+    var height: CGFloat {
         return (collectionView?.frame.height ?? 0)
     }
     

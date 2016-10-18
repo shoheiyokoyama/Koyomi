@@ -12,11 +12,15 @@ public enum MonthType { case previous, current, next }
 
 final class DateModel: NSObject {
     private var currentDates: [NSDate] = []
+    private var selectedDates: [NSDate: Bool] = [:]
     private var currentDate = NSDate()
     
     static let dayCountPerRow = 7
     var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     static let maxCellCount = 42
+    
+    enum SelectionStyle { case single, multiple, none }
+    var selectionStyle: SelectionStyle = .none
     
     override init() {
         super.init()
@@ -58,6 +62,41 @@ final class DateModel: NSObject {
     func date(at indexPath: NSIndexPath) -> NSDate {
         return currentDates[indexPath.row]
     }
+    
+    func select(from fromDate: NSDate, to toDate: NSDate?) {
+        
+        if let toDate = toDate?.formated() {
+            currentDates.forEach { date in
+                selectedDates[date] = {
+                    if fromDate.compare(date) == .OrderedSame ||
+                        fromDate.compare(date) == .OrderedAscending && toDate.compare(date) == .OrderedDescending ||
+                        toDate.compare(date) == .OrderedSame {
+                        return true
+                    } else {
+                        return false
+                    }
+                }()
+            }
+        } else {
+            selectedDates[fromDate.formated()] = true
+        }
+    }
+    
+//    func select(with indexPath: NSIndexPath) {
+//        if case .single = selectionStyle {
+//            let date = currentDates[indexPath.row]
+//            selectedDates[date] = selectedDates[date] == true ? false : true
+//        } else if case .multiple = selectionStyle {
+//            
+//        } else {
+//            return
+//        }
+//    }
+    
+    func isSelect(with indexPath: NSIndexPath) -> Bool {
+        let date = currentDates[indexPath.row]
+        return selectedDates[date] ?? false
+    }
 }
 
 // MARK: - Private Methods -
@@ -66,17 +105,24 @@ private extension DateModel {
     struct DateFormat {
         static let day = "d"
     }
-    
+
     var calendar: NSCalendar {
         return NSCalendar.currentCalendar()
     }
     
     func setup() {
+        let selectedDateKeys = selectedDates.keys(of: true)
+        selectedDates = [:]
+
         currentDates = (0..<DateModel.maxCellCount).map { index in
             let components = NSDateComponents()
             components.day = index - indexAtBeginning(in: .current)
-            return calendar.dateByAddingComponents(components, toDate: atBeginning(of: .current), options: NSCalendarOptions(rawValue: 0)) ?? NSDate()
+            let date = calendar.dateByAddingComponents(components, toDate: atBeginning(of: .current), options: NSCalendarOptions(rawValue: 0)) ?? NSDate()
+            selectedDates[date] = false
+            return date
         }
+        
+        selectedDateKeys.forEach { selectedDates[$0] = true }
     }
     
     func atBeginning(of month: MonthType) -> NSDate {

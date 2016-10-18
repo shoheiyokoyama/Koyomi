@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             koyomi
                 .setDayFont(size: 14)
                 .setWeekFont(size: 10)
+                .select(date: NSDate(), to: date(NSDate(), later: 7))
         }
     }
     @IBOutlet private weak var currentDateLabel: UILabel!
@@ -47,9 +48,17 @@ class ViewController: UIViewController {
         }()
         koyomi.display(in: month)
     }
+    
+    // MARK: - Utility -
+    
+    private func date(date: NSDate, later: Int) -> NSDate {
+        let components = NSDateComponents()
+        components.day = later
+        return NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0)) ?? date
+    }
 }
 
-// MARK: - KoyomiDelegate
+// MARK: - KoyomiDelegate -
 
 extension ViewController: KoyomiDelegate {
     func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath) {
