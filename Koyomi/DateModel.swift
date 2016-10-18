@@ -82,6 +82,25 @@ final class DateModel: NSObject {
         }
     }
     
+    func unselect(from fromDate: NSDate, to toDate: NSDate?) {
+        
+        if let toDate = toDate?.formated() {
+            currentDates.forEach { date in
+                if fromDate.compare(date) == .OrderedSame ||
+                    fromDate.compare(date) == .OrderedAscending && toDate.compare(date) == .OrderedDescending ||
+                    toDate.compare(date) == .OrderedSame {
+                    selectedDates[date] = false
+                }
+            }
+        } else {
+            selectedDates[fromDate.formated()] = false
+        }
+    }
+    
+    func unselectAll() {
+        selectedDates.keys(of: true).forEach { selectedDates[$0] = false }
+    }
+    
 //    func select(with indexPath: NSIndexPath) {
 //        if case .single = selectionStyle {
 //            let date = currentDates[indexPath.row]

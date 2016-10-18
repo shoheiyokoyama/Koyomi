@@ -206,6 +206,16 @@ final public class Koyomi: UICollectionView {
         return self
     }
     
+    public func unselect(date date: NSDate, to toDate: NSDate? = nil) -> Self {
+        model.unselect(from: date, to: toDate)
+        return self
+    }
+    
+    public func unselectAll() -> Self {
+        model.unselectAll()
+        return self
+    }
+    
     // MARK: - Override Method -
     
     override public func reloadData() {
