@@ -127,7 +127,7 @@ Return the current month string, when changed month.
 ```
 
 <p align="center">
-<img src="./DemoSource/layout.png" width="450">
+<img src="./DemoSource/calender-layout.png" width="450">
 </p>
 
 ```swift
