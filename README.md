@@ -37,11 +37,12 @@ Koyomi is designed to be easy to use :sunglasses:
 
 
 ```swift
-    let koyomi = Koyomi(frame: CGRect, sectionSpace: 1.5, cellSpace: 0.5, inset: UIEdgeInsetsZero, weekCellHeight: 25)
+    let frame = CGRect(x: 10, y : 20, width: 250, height: 300)
+    let koyomi = Koyomi(frame: frame, sectionSpace: 1.5, cellSpace: 0.5, inset: UIEdgeInsetsZero, weekCellHeight: 25)
     view.addSubview(koyomi)
 ```
 
-Koyomi is Available in in Interface Builder.
+Koyomi is Available in Interface Builder.
 Set custom class of `UICollectionView `
 
 ```swift
@@ -135,6 +136,9 @@ Easily customize appearance using `KoyomiStyle`
     koyomi.style = .tealBlue
 ```
 
+<p align="center">
+<img src="./DemoSource/style-tealBlue.png" width="300">
+</p>
 
 ```swift
     enum KoyomiStyle {
