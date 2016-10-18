@@ -42,50 +42,11 @@ Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demon
     view.addSubview(koyomi)
 ```
 
-Koyomi is available in Interface Builder.
-Set custom class of `UICollectionView ` to koyomi
+`Koyomi` is available in Interface Builder.
+Set custom class of `UICollectionView ` to `Koyomi`
 
 ```swift
     @IBOutlet weak var koyomi: Koyomi!
-```
-
-### :wrench: Customize layout
-
-```swift
-    // Support @IBInspectable
-    @IBInspectable var sectionSpace: CGFloa
-    @IBInspectable var cellSpace: CGFloat
-    @IBInspectable var weekCellHeight: CGFloat
-    // Public method
-    public var inset: UIEdgeInsets
-```
-
-<p align="center">
-<img src="./DemoSource/layout.png" width="450">
-</p>
-
-```swift
-    koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
-```
-
-set `sectionSpace`, `cellSpace`, `weekCellHeight` in initialization or Interface Builder.
-
-### :wrench: Customize text font
-
-```swift
-    // set Day and Week Label Font
-    koyomi
-        .setDayFont(size: 12) 
-        .setWeekFont(size: 8)
-        
-    // if want to change font name, use: 
-    // setDayFont(fontName: ".SFUIText-Medium", size: 12)
- ```
- 
-### :wrench: Customize weeks text
- 
- ```swift
-    koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 ```
 
 ### :calendar: Change displayed month
@@ -105,38 +66,27 @@ If you want to change displayed month, call `display(in: MonthType)`. `MonthType
     let currentDateString = koyomi.currentDateString(withFormat: "M/yyyy")
 ```
 
-## :wrench: Customize color
+### Select date
+
+You can select date.
+ 
+```swift
+    let today = NSDate()
+    let components = NSDateComponents()
+    components.day = 7
+    let weekLaterDay = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: today, options: NSCalendarOptions(rawValue: 0))
+    koyomi.select(date: NSDate(), to: weekLaterDay)
+    
+    // If want to select only one day, call koyomi.select(date: today)
+```
+
+
+You can configure day color in selected state.
 
 ```swift
     // Support @IBInspectable
-    @IBInspectable public var sectionSeparatorColor: UIColor
-    @IBInspectable public var separatorColor: UIColor
-    @IBInspectable public var weekColor: UIColor
-    @IBInspectable public var weekdayColor: UIColor
-    @IBInspectable public var holidayColor: UIColor
-    @IBInspectable public var otherMonthColor: UIColor
-    @IBInspectable public var dayBackgrondColor: UIColor
-    @IBInspectable public var weekBackgrondColor: UIColor
-```
-
-You can configure the lots of color properties for appearance :weary:
-
-Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance by using `KoyomiStyle`.
-
-```swift
-    koyomi.style = .tealBlue
-```
-
-<p align="center">
-<img src="./DemoSource/style-tealBlue.png" width="300">
-</p>
-
-`KoyomiStyle` is defined by 10 types.
-
-```swift
-    enum KoyomiStyle {
-        case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
-    }
+    @IBInspectable public var selectedBackgroundColor: UIColor
+    @IBInspectable public var selectedTextColor: UIColor
 ```
 
 ## KoyomiDelegate
@@ -160,6 +110,84 @@ Return the current month string, when changed month.
     
     // if you want to change string format, use `currentDateFormat`
     koyomi.currentDateFormat = "M/yyyy"
+```
+
+## :wrench: Customize ***Koyomi***
+
+### Customize layout
+
+```swift
+    // Support @IBInspectable
+    @IBInspectable var sectionSpace: CGFloa
+    @IBInspectable var cellSpace: CGFloat
+    @IBInspectable var weekCellHeight: CGFloat
+    // Public method
+    public var inset: UIEdgeInsets
+```
+
+<p align="center">
+<img src="./DemoSource/layout.png" width="450">
+</p>
+
+```swift
+    koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
+```
+
+Set `sectionSpace`, `cellSpace`, `weekCellHeight` in initialization or Interface Builder.
+
+
+### Customize text font
+
+```swift
+    // set Day and Week Label Font
+    koyomi
+        .setDayFont(size: 12) 
+        .setWeekFont(size: 8)
+        
+    // if want to change font name, use: 
+    // setDayFont(fontName: ".SFUIText-Medium", size: 12)
+ ```
+ 
+### Customize weeks text
+ 
+ ```swift
+    koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+```
+
+## Customize color
+
+```swift
+    // Support @IBInspectable
+    @IBInspectable public var sectionSeparatorColor: UIColor
+    @IBInspectable public var separatorColor: UIColor
+    @IBInspectable public var weekColor: UIColor
+    @IBInspectable public var weekdayColor: UIColor
+    @IBInspectable public var holidayColor: UIColor
+    @IBInspectable public var otherMonthColor: UIColor
+    @IBInspectable public var dayBackgrondColor: UIColor
+    @IBInspectable public var weekBackgrondColor: UIColor
+    @IBInspectable public var selectedBackgroundColor: UIColor
+    @IBInspectable public var selectedTextColor: UIColor
+```
+
+You can configure the lots of color properties for appearance :weary:
+
+Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance by using `KoyomiStyle`.
+
+```swift
+    koyomi.style = .tealBlue
+```
+
+<p align="center">
+<img src="./DemoSource/style-tealBlue.png" width="300">
+</p>
+
+`KoyomiStyle` is defined by 10 types.
+
+```swift
+    enum KoyomiStyle {
+        case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
+    }
 ```
 
 ## :pencil: Requirements
