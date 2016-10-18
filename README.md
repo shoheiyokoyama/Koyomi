@@ -2,7 +2,7 @@
 
 ![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )
-[![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
+[![Language](http://img.shields.io/badge/language-swift 2.3-orange.svg?style=flat
 )](https://developer.apple.com/swift)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
@@ -14,7 +14,7 @@
 <img src="./DemoSource/koyomi-style.jpeg" width="550">
 </p>
 
-## Features
+## :octocat: Features
 
 - Simple Calender View :calendar:
 - Easily usable :sunglasses:
@@ -27,9 +27,9 @@
 
 Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demonstration.
 
-## Example
+## Usage
 
-Koyomi is designed to be easy to use :sunglasses:
+***Koyomi*** is designed to be easy to use :sunglasses:
 
 <p align="center">
 <img src="./DemoSource/calender_demo.gif" width="300">
@@ -42,20 +42,37 @@ Koyomi is designed to be easy to use :sunglasses:
     view.addSubview(koyomi)
 ```
 
-Koyomi is Available in Interface Builder.
-Set custom class of `UICollectionView `
+Koyomi is available in Interface Builder.
+Set custom class of `UICollectionView ` to koyomi
 
 ```swift
     @IBOutlet weak var koyomi: Koyomi!
 ```
 
-### Customize layout
+### :wrench: Customize layout
 
 ```swift
-    // padding for Calender
+    // Support @IBInspectable
+    @IBInspectable var sectionSpace: CGFloa
+    @IBInspectable var cellSpace: CGFloat
+    @IBInspectable var weekCellHeight: CGFloat
+    // Public method
+    public var inset: UIEdgeInsets
+```
+
+<p align="center">
+<img src="./DemoSource/layout.png" width="450">
+</p>
+
+```swift
     koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
-    koyomi.weekCellHeight = 25
-    
+```
+
+set `sectionSpace`, `cellSpace`, `weekCellHeight` in initialization or Interface Builder.
+
+### :wrench: Customize text font
+
+```swift
     // set Day and Week Label Font
     koyomi
         .setDayFont(size: 12) 
@@ -65,34 +82,69 @@ Set custom class of `UICollectionView `
     // setDayFont(fontName: ".SFUIText-Medium", size: 12)
  ```
  
-Set weeks text
+### :wrench: Customize weeks text
  
  ```swift
-    // set weeks text
     koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 ```
 
-Change month, date
+### :calendar: Change displayed month
 
-```swift  
+If you want to change displayed month, call `display(in: MonthType)`. `MonthType` is defined by three types.
+
+```swift
+    public enum MonthType { case previous, current, next }
+    
     // change month
     koyomi.display(in: .next)
-    
-    // get current month string
+```
+
+### Get current month string
+
+```swift  
     let currentDateString = koyomi.currentDateString(withFormat: "M/yyyy")
+```
+
+## :wrench: Customize color
+
+```swift
+    // Support @IBInspectable
+    @IBInspectable public var sectionSeparatorColor: UIColor
+    @IBInspectable public var separatorColor: UIColor
+    @IBInspectable public var weekColor: UIColor
+    @IBInspectable public var weekdayColor: UIColor
+    @IBInspectable public var holidayColor: UIColor
+    @IBInspectable public var otherMonthColor: UIColor
+    @IBInspectable public var dayBackgrondColor: UIColor
+    @IBInspectable public var weekBackgrondColor: UIColor
+```
+
+You can configure the lots of color properties for appearance :weary:
+
+Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance by using `KoyomiStyle`.
+
+```swift
+    koyomi.style = .tealBlue
+```
+
+<p align="center">
+<img src="./DemoSource/style-tealBlue.png" width="300">
+</p>
+
+`KoyomiStyle` is defined by 10 types.
+
+```swift
+    enum KoyomiStyle {
+        case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
+    }
 ```
 
 ## KoyomiDelegate
 
-if you want to use `KoyomiDelegate`, set `calenderDelegate`
+If you want to use `KoyomiDelegate`, set `calenderDelegate` to `target`
 
 ```swift
     koyomi.calenderDelegate = self
-    
-    ...
-    
-extension ViewController: KoyomiDelegate {
-    func ...
 ```
 
 Return the date user selected, when tapped cell
@@ -110,58 +162,22 @@ Return the current month string, when changed month.
     koyomi.currentDateFormat = "M/yyyy"
 ```
 
-## Customize properties
-
-```swift
-    // Customize layout
-    @IBInspectable var sectionSpace: CGFloa
-    @IBInspectable var cellSpace: CGFloat
-    @IBInspectable var weekCellHeight: CGFloat
-    public var inset: UIEdgeInsets
-    
-    // Customize color
-    @IBInspectable public var sectionSeparatorColor: UIColor
-    @IBInspectable public var separatorColor: UIColor
-    @IBInspectable public var weekColor: UIColor
-    @IBInspectable public var weekdayColor: UIColor
-    @IBInspectable public var holidayColor: UIColor
-    @IBInspectable public var otherMonthColor: UIColor
-    @IBInspectable public var dayBackgrondColor: UIColor
-    @IBInspectable public var weekBackgrondColor: UIColor
-```
-
-Easily customize appearance using `KoyomiStyle`
-
-```swift
-    koyomi.style = .tealBlue
-```
-
-<p align="center">
-<img src="./DemoSource/style-tealBlue.png" width="300">
-</p>
-
-```swift
-    enum KoyomiStyle {
-        case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
-    }
-```
-
-## Requirements
+## :pencil: Requirements
 
 - iOS 8.0+
 - Xcode 8.0+
 
-## Installation
+## :computer: Installation
 Koyomi is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "Koyomi"
 ```
 
-## Author
+## :coffee: Author
 
 shoheiyokoyama, shohei.yok0602@gmail.com
 
-## License
+## :unlock: License
 
 ***Koyomi*** is available under the MIT license. See the [LICENSE file](https://github.com/shoheiyokoyama/Koyomi/blob/master/LICENSE) for more info.
