@@ -39,8 +39,8 @@ extension KoyomiLayout {
         (0..<sectionCount).forEach { section in
             let itemCount = collectionView?.numberOfItemsInSection(section) ?? 0
             (0..<itemCount).forEach { row in
-                let indexPath = NSIndexPath(forRow: row, inSection: section)
-                let attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                let indexPath: NSIndexPath = .init(forRow: row, inSection: section)
+                let attribute: UICollectionViewLayoutAttributes = .init(forCellWithIndexPath: indexPath)
                 attribute.frame = frame(at: indexPath)
                 layoutAttributes[indexPath] = attribute
             }
@@ -48,10 +48,7 @@ extension KoyomiLayout {
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return layoutAttributes.filter {
-            if rect.contains($0.1.frame) { return true }
-            return false
-        }.map { $0.1 }
+        return layoutAttributes.filter{ rect.contains($0.1.frame) }.map{ $0.1 }
     }
     
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
@@ -74,12 +71,8 @@ private extension KoyomiLayout {
         }
     }
     
-    var width: CGFloat {
-        return (collectionView?.frame.width ?? 0)
-    }
-    var height: CGFloat {
-        return (collectionView?.frame.height ?? 0)
-    }
+    var width: CGFloat { return (collectionView?.frame.width ?? 0) }
+    var height: CGFloat { return (collectionView?.frame.height ?? 0) }
     
     func frame(at indexPath: NSIndexPath) -> CGRect {
         let isWeekCell = indexPath.section == 0
@@ -95,6 +88,6 @@ private extension KoyomiLayout {
         let y = isWeekCell ? inset.top : row * (size.height + lineSpace) + weekCellHeight + sectionSpace + inset.top
         let x = (size.width + cellSpace) * column + inset.left
         
-        return CGRect(origin: CGPoint(x: x, y: y), size: size)
+        return .init(origin: CGPoint(x: x, y: y), size: size)
     }
 }

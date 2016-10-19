@@ -13,7 +13,7 @@ public enum MonthType { case previous, current, next }
 final class DateModel: NSObject {
     private var currentDates: [NSDate] = []
     private var selectedDates: [NSDate: Bool] = [:]
-    private var currentDate = NSDate()
+    private var currentDate: NSDate = .init()
     
     static let dayCountPerRow = 7
     var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
@@ -43,7 +43,7 @@ final class DateModel: NSObject {
     
     func dayString(at indexPath: NSIndexPath) -> String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = DateFormat.day
+        formatter.dateFormat = "d"
         return formatter.stringFromDate(currentDates[indexPath.row])
     }
     
@@ -64,34 +64,16 @@ final class DateModel: NSObject {
     }
     
     func select(from fromDate: NSDate, to toDate: NSDate?) {
-        
         if let toDate = toDate?.formated() {
-            currentDates.forEach { date in
-                selectedDates[date] = {
-                    if fromDate.compare(date) == .OrderedSame ||
-                        fromDate.compare(date) == .OrderedAscending && toDate.compare(date) == .OrderedDescending ||
-                        toDate.compare(date) == .OrderedSame {
-                        return true
-                    } else {
-                        return false
-                    }
-                }()
-            }
+            set(true, withFrom: fromDate, to: toDate)
         } else {
             selectedDates[fromDate.formated()] = true
         }
     }
     
     func unselect(from fromDate: NSDate, to toDate: NSDate?) {
-        
         if let toDate = toDate?.formated() {
-            currentDates.forEach { date in
-                if fromDate.compare(date) == .OrderedSame ||
-                    fromDate.compare(date) == .OrderedAscending && toDate.compare(date) == .OrderedDescending ||
-                    toDate.compare(date) == .OrderedSame {
-                    selectedDates[date] = false
-                }
-            }
+            set(false, withFrom: fromDate, to: toDate)
         } else {
             selectedDates[fromDate.formated()] = false
         }
@@ -121,13 +103,7 @@ final class DateModel: NSObject {
 // MARK: - Private Methods -
 
 private extension DateModel {
-    struct DateFormat {
-        static let day = "d"
-    }
-
-    var calendar: NSCalendar {
-        return NSCalendar.currentCalendar()
-    }
+    var calendar: NSCalendar { return NSCalendar.currentCalendar() }
     
     func setup() {
         let selectedDateKeys = selectedDates.keys(of: true)
@@ -144,10 +120,20 @@ private extension DateModel {
         selectedDateKeys.forEach { selectedDates[$0] = true }
     }
     
+    func set(isSelected: Bool, withFrom fromDate: NSDate, to toDate: NSDate) {
+        currentDates.forEach { date in
+            if fromDate.compare(date) == .OrderedSame ||
+                fromDate.compare(date) == .OrderedAscending && toDate.compare(date) == .OrderedDescending ||
+                toDate.compare(date) == .OrderedSame {
+                selectedDates[date] = isSelected
+            }
+        }
+    }
+    
     func atBeginning(of month: MonthType) -> NSDate {
         let components = calendar.components([.Year, .Month, .Day], fromDate: date(of: month))
         components.day = 1
-        return calendar.dateFromComponents(components) ?? NSDate()
+        return calendar.dateFromComponents(components) ?? .init()
     }
     
     func date(of month: MonthType) -> NSDate {
@@ -159,6 +145,6 @@ private extension DateModel {
             case .next:     return 1
             }
         }()
-        return calendar.dateByAddingComponents(components, toDate: currentDate, options: NSCalendarOptions(rawValue: 0)) ?? NSDate()
+        return calendar.dateByAddingComponents(components, toDate: currentDate, options: NSCalendarOptions(rawValue: 0)) ?? .init()
     }
 }

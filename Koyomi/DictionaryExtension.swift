@@ -10,11 +10,6 @@ import UIKit
 
 extension Dictionary where Key: NSDate, Value: BooleanType {
     func keys(of element: Bool) -> [Key] {
-        return self.filter{
-            if $0.1.boolValue == element {
-                return true
-            }
-            return false
-        }.map { $0.0 }
+        return self.filter{ $0.1.boolValue == element }.map{ $0.0 }
     }
 }

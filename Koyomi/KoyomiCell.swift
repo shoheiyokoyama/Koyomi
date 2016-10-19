@@ -9,7 +9,7 @@
 import UIKit
 
 final class KoyomiCell: UICollectionViewCell {
-    private let contentLabel = UILabel()
+    private let contentLabel: UILabel = .init()
     
     var content = "" {
         didSet {
