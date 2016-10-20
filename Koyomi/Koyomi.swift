@@ -146,7 +146,7 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var selectedTextColor: UIColor = .whiteColor()
     
     // KoyomiDelegate
-    public weak var calenderDelegate: KoyomiDelegate?
+    public weak var calendarDelegate: KoyomiDelegate?
 
     // Private properties
     private static let cellIdentifier = "KoyomiCell"
@@ -183,7 +183,7 @@ final public class Koyomi: UICollectionView {
     public func display(in month: MonthType) {
         model.display(in: month)
         reloadData()
-        calenderDelegate?.koyomi?(self, currentDateString: model.dateString(in: .current, withFormat: currentDateFormat))
+        calendarDelegate?.koyomi?(self, currentDateString: model.dateString(in: .current, withFormat: currentDateFormat))
     }
     
     public func setDayFont(fontName name: String = ".SFUIText-Medium", size: CGFloat) -> Self {
@@ -276,7 +276,7 @@ private extension Koyomi {
 
 extension Koyomi: UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        calenderDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
+        calendarDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
     }
 }
 
