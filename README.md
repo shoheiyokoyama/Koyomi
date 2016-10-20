@@ -7,7 +7,7 @@
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
-**Koyomi** is a simple calender view framework for iOS, written in Swift :calendar:
+**Koyomi** is a simple calendar view framework for iOS, written in Swift :calendar:
 
 
 <p align="center">
@@ -103,10 +103,10 @@ You can configure day color in selected state.
 
 ## KoyomiDelegate
 
-If you want to use `KoyomiDelegate`, set `calenderDelegate` to `target`
+If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
 
 ```swift
-    koyomi.calenderDelegate = self
+    koyomi.calendarDelegate = self
 ```
 
 Return the date user selected, when tapped cell
