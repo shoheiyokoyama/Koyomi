@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet private weak var koyomi: Koyomi! {
         didSet {
-            koyomi.calenderDelegate = self
+            koyomi.calendarDelegate = self
             koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
             koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             koyomi.style = .standard
