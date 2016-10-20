@@ -16,7 +16,7 @@
 
 ## :octocat: Features
 
-- Simple Calender View :calendar:
+- Simple Calendar View :calendar:
 - Easily usable :sunglasses:
 - Customizable in any properties for appearance
 - [x] Support `@IBDesignable` and `@IBInspectable`
