@@ -32,7 +32,7 @@ Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demon
 ***Koyomi*** is designed to be easy to use :sunglasses:
 
 <p align="center">
-<img src="./DemoSource/calender_demo.gif" width="300">
+<img src="./DemoSource/calendar_demo.gif" width="300">
 </p>
 
 
@@ -68,7 +68,48 @@ If you want to change displayed month, call `display(in: MonthType)`. `MonthType
 
 ### The selection state of date
 
-You can select specific date.
+#### SelectionStyle
+
+You can configure style in selected state.
+
+```swift
+    public enum SelectionStyle { case background, circle }
+```
+
+- background
+
+<p align="center">
+<img src="./DemoSource/select-style-background.png" width="300">
+</p>
+
+- circle
+
+<p align="center">
+<img src="./DemoSource/select-style-circle.png" width="300">
+</p>
+
+#### SelectionMode
+
+You can configure modeway of selection.
+
+```swift
+    public enum SelectionMode { case single, multiple, none }
+```
+
+- single
+
+<p align="center">
+<img src="./DemoSource/select-mode-single.gif" width="300">
+</p>
+
+- multiple
+
+<p align="center">
+<img src="./DemoSource/select-mode-multiple.gif" width="300">
+</p>
+
+
+You can select specific date .
  
 ```swift
     let today = NSDate()
@@ -138,7 +179,7 @@ Return the current month string, when changed month.
 ```
 
 <p align="center">
-<img src="./DemoSource/calender-layout.png" width="450">
+<img src="./DemoSource/calendar-layout.png" width="450">
 </p>
 
 ```swift
