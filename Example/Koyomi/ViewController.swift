@@ -35,11 +35,75 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var monotoneButton: MyButton! {
+        didSet {
+            monotoneButton.color = UIColor.Color.lightGray
+        }
+    }
+    @IBOutlet weak var standardButton: MyButton! {
+        didSet {
+            standardButton.color = UIColor.Color.darkGray
+        }
+    }
+    @IBOutlet weak var redButton: MyButton! {
+        didSet {
+            redButton.color = UIColor.Color.red
+        }
+    }
+    @IBOutlet weak var orangeButton: MyButton! {
+        didSet {
+            orangeButton.color = UIColor.Color.orange
+        }
+    }
+    @IBOutlet weak var yellowButton: MyButton! {
+        didSet {
+            yellowButton.color = UIColor.Color.yellow
+        }
+    }
+    @IBOutlet weak var tealBlueButton: MyButton! {
+        didSet {
+            tealBlueButton.color = UIColor.Color.tealBlue
+        }
+    }
+    @IBOutlet weak var blueButton: MyButton! {
+        didSet {
+            blueButton.color = UIColor.Color.blue
+        }
+    }
+    @IBOutlet weak var purpleButton: MyButton! {
+        didSet {
+            purpleButton.color = UIColor.Color.purple
+        }
+    }
+    @IBOutlet weak var greenButton: MyButton! {
+        didSet {
+            greenButton.color = UIColor.Color.green
+        }
+    }
+    @IBOutlet weak var pinkButton: MyButton! {
+        didSet {
+            pinkButton.color = UIColor.Color.pink
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentDateLabel.text = koyomi.currentDateString()
     }
     
+    // MARK: - Utility -
+    
+    private func date(date: NSDate, later: Int) -> NSDate {
+        let components = NSDateComponents()
+        components.day = later
+        return NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0)) ?? date
+    }
+}
+
+
+// MARK: - Tap Action
+
+extension ViewController {
     @IBAction func tappedControl(sender: UISegmentedControl) {
         let month: MonthType = {
             switch sender.selectedSegmentIndex {
@@ -51,12 +115,46 @@ class ViewController: UIViewController {
         koyomi.display(in: month)
     }
     
-    // MARK: - Utility -
-    
-    private func date(date: NSDate, later: Int) -> NSDate {
-        let components = NSDateComponents()
-        components.day = later
-        return NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0)) ?? date
+    // change koyomi style
+    @IBAction func tappedMonotone(sender: AnyObject) {
+        koyomi.style = .monotone
+        koyomi.reloadData()
+    }
+    @IBAction func tappedStandard(sender: AnyObject) {
+        koyomi.style = .standard
+        koyomi.reloadData()
+    }
+    @IBAction func tappedRedButton(sender: AnyObject) {
+        koyomi.style = .red
+        koyomi.reloadData()
+    }
+    @IBAction func tappedOrange(sender: AnyObject) {
+        koyomi.style = .orange
+        koyomi.reloadData()
+    }
+    @IBAction func tappedYellow(sender: AnyObject) {
+        koyomi.style = .yellow
+        koyomi.reloadData()
+    }
+    @IBAction func tappedTealBlue(sender: AnyObject) {
+        koyomi.style = .tealBlue
+        koyomi.reloadData()
+    }
+    @IBAction func tappedBlue(sender: AnyObject) {
+        koyomi.style = .blue
+        koyomi.reloadData()
+    }
+    @IBAction func purpleButton(sender: AnyObject) {
+        koyomi.style = .purple
+        koyomi.reloadData()
+    }
+    @IBAction func tappedGreen(sender: AnyObject) {
+        koyomi.style = .green
+        koyomi.reloadData()
+    }
+    @IBAction func tappedPink(sender: AnyObject) {
+        koyomi.style = .pink
+        koyomi.reloadData()
     }
 }
 

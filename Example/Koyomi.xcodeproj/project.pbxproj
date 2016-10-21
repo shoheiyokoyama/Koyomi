@@ -12,6 +12,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		6D6007C71DB9E604005C6F45 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6007C61DB9E604005C6F45 /* MyButton.swift */; };
+		6D6007C91DB9E62D005C6F45 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6007C81DB9E62D005C6F45 /* UIColorExtension.swift */; };
 		C0E5E7756F2E555D493CF82A /* Pods_Koyomi_Example_Koyomi_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4BA3DA23F036790C1E7DCB /* Pods_Koyomi_Example_Koyomi_Tests.framework */; };
 		E87DC5245C8500B984D4AD81 /* Pods_Koyomi_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAEDC11925F50C4A1AC7A5D /* Pods_Koyomi_Example.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Koyomi_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Koyomi_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D6007C61DB9E604005C6F45 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		6D6007C81DB9E62D005C6F45 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		765D0BA673C6F36C0E0B1EB1 /* Pods-Koyomi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7723A4D2CA55AF2483603782 /* Pods-Koyomi_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koyomi_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koyomi_Example/Pods-Koyomi_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7C4BA3DA23F036790C1E7DCB /* Pods_Koyomi_Example_Koyomi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example_Koyomi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,8 +104,10 @@
 		607FACD21AFB9204008FA782 /* Example for Koyomi */ = {
 			isa = PBXGroup;
 			children = (
+				6D6007C61DB9E604005C6F45 /* MyButton.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				6D6007C81DB9E62D005C6F45 /* UIColorExtension.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -360,6 +366,8 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				6D6007C71DB9E604005C6F45 /* MyButton.swift in Sources */,
+				6D6007C91DB9E62D005C6F45 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

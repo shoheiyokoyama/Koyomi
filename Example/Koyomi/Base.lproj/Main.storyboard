@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6y-Sa-BPO">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6y-Sa-BPO">
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -70,21 +71,111 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-O9-Aaa" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="monotone"/>
+                                <connections>
+                                    <action selector="tappedMonotone:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="amg-iz-HZf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8R-yy-gHj" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="standard"/>
+                                <connections>
+                                    <action selector="tappedStandard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xFD-vL-psG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyB-al-qHt" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="red"/>
+                                <connections>
+                                    <action selector="tappedRedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rhL-G1-ZDi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgA-TV-hAJ" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="orange"/>
+                                <connections>
+                                    <action selector="tappedOrange:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tUg-1M-RQL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0C-o4-AKh" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="yellow"/>
+                                <connections>
+                                    <action selector="tappedYellow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="erZ-rB-fkq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvN-jd-Klf" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="tealBlue"/>
+                                <connections>
+                                    <action selector="tappedTealBlue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ozm-22-fNb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf4-j4-Fc9" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="blue"/>
+                                <connections>
+                                    <action selector="tappedBlue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ri9-s1-Hs4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkD-bP-1CD" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="purple"/>
+                                <connections>
+                                    <action selector="purpleButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4A4-iR-iwO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ap-hs-gl0" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="green"/>
+                                <connections>
+                                    <action selector="tappedGreen:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DZ1-sQ-pFz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eG-vF-aez" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="pink"/>
+                                <connections>
+                                    <action selector="tappedPink:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ygi-7n-662"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8ap-hs-gl0" firstAttribute="leading" secondItem="S0C-o4-AKh" secondAttribute="leading" id="1kx-Cu-xjB"/>
                             <constraint firstItem="N6y-Sa-BPO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="5Y6-9r-3mv"/>
+                            <constraint firstItem="Zf4-j4-Fc9" firstAttribute="centerY" secondItem="NvN-jd-Klf" secondAttribute="centerY" id="6fA-ip-u6Q"/>
+                            <constraint firstItem="ILJ-O9-Aaa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="15" id="8q5-Dc-HvT"/>
+                            <constraint firstItem="9eG-vF-aez" firstAttribute="leading" secondItem="8ap-hs-gl0" secondAttribute="trailing" constant="15" id="8yM-9h-eyI"/>
+                            <constraint firstItem="tkD-bP-1CD" firstAttribute="centerY" secondItem="Zf4-j4-Fc9" secondAttribute="centerY" id="Ay9-J8-wrk"/>
+                            <constraint firstItem="S0C-o4-AKh" firstAttribute="top" secondItem="ILJ-O9-Aaa" secondAttribute="bottom" constant="10" id="HC2-bC-fRk"/>
+                            <constraint firstItem="MgA-TV-hAJ" firstAttribute="leading" secondItem="UyB-al-qHt" secondAttribute="trailing" constant="15" id="LS8-2p-uKM"/>
                             <constraint firstItem="U0g-jI-g7D" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Lgg-Ho-Oa3"/>
+                            <constraint firstItem="NvN-jd-Klf" firstAttribute="leading" secondItem="S0C-o4-AKh" secondAttribute="trailing" constant="15" id="LiA-G0-3Ex"/>
+                            <constraint firstItem="tkD-bP-1CD" firstAttribute="leading" secondItem="Zf4-j4-Fc9" secondAttribute="trailing" constant="15" id="OFb-Y3-7kX"/>
+                            <constraint firstItem="UyB-al-qHt" firstAttribute="leading" secondItem="e8R-yy-gHj" secondAttribute="trailing" constant="15" id="Pr7-2Z-vOS"/>
+                            <constraint firstItem="ILJ-O9-Aaa" firstAttribute="top" secondItem="U0g-jI-g7D" secondAttribute="bottom" constant="20" id="TcG-V6-IHN"/>
                             <constraint firstItem="U0g-jI-g7D" firstAttribute="top" secondItem="YrJ-h9-b09" secondAttribute="bottom" constant="30" id="TnC-Vo-maJ"/>
+                            <constraint firstItem="9eG-vF-aez" firstAttribute="centerY" secondItem="8ap-hs-gl0" secondAttribute="centerY" id="WnQ-gc-CgS"/>
+                            <constraint firstItem="UyB-al-qHt" firstAttribute="centerY" secondItem="e8R-yy-gHj" secondAttribute="centerY" id="ZbQ-9y-77W"/>
                             <constraint firstItem="YrJ-h9-b09" firstAttribute="top" secondItem="N6y-Sa-BPO" secondAttribute="bottom" constant="30" id="cD3-TB-aqM"/>
+                            <constraint firstItem="S0C-o4-AKh" firstAttribute="leading" secondItem="ILJ-O9-Aaa" secondAttribute="leading" id="dd7-DF-eNh"/>
+                            <constraint firstItem="8ap-hs-gl0" firstAttribute="top" secondItem="S0C-o4-AKh" secondAttribute="bottom" constant="15" id="jPf-et-wJa"/>
+                            <constraint firstItem="e8R-yy-gHj" firstAttribute="centerY" secondItem="ILJ-O9-Aaa" secondAttribute="centerY" id="jzG-KH-9GB"/>
                             <constraint firstItem="YrJ-h9-b09" firstAttribute="centerX" secondItem="N6y-Sa-BPO" secondAttribute="centerX" id="khD-ys-SAG"/>
                             <constraint firstItem="N6y-Sa-BPO" firstAttribute="centerX" secondItem="U0g-jI-g7D" secondAttribute="centerX" id="on7-rW-cHD"/>
+                            <constraint firstItem="e8R-yy-gHj" firstAttribute="leading" secondItem="ILJ-O9-Aaa" secondAttribute="trailing" constant="15" id="pLg-D9-HEO"/>
+                            <constraint firstItem="MgA-TV-hAJ" firstAttribute="centerY" secondItem="UyB-al-qHt" secondAttribute="centerY" id="pf8-yj-z9C"/>
+                            <constraint firstItem="NvN-jd-Klf" firstAttribute="centerY" secondItem="S0C-o4-AKh" secondAttribute="centerY" id="qcH-GX-Mft"/>
+                            <constraint firstItem="Zf4-j4-Fc9" firstAttribute="leading" secondItem="NvN-jd-Klf" secondAttribute="trailing" constant="15" id="sYn-wb-ZaC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blueButton" destination="Zf4-j4-Fc9" id="aGr-Ph-aBY"/>
                         <outlet property="currentDateLabel" destination="YrJ-h9-b09" id="ZiE-SC-toF"/>
+                        <outlet property="greenButton" destination="8ap-hs-gl0" id="E8T-3Z-WG1"/>
                         <outlet property="koyomi" destination="U0g-jI-g7D" id="Hib-No-XqL"/>
+                        <outlet property="monotoneButton" destination="ILJ-O9-Aaa" id="xQS-Cm-z5t"/>
+                        <outlet property="orangeButton" destination="MgA-TV-hAJ" id="giU-Kg-wlI"/>
+                        <outlet property="pinkButton" destination="9eG-vF-aez" id="tYj-oI-VVP"/>
+                        <outlet property="purpleButton" destination="tkD-bP-1CD" id="pYw-2W-aiA"/>
+                        <outlet property="redButton" destination="UyB-al-qHt" id="Xeq-1o-yxJ"/>
                         <outlet property="segmentedControl" destination="N6y-Sa-BPO" id="ReB-6L-NJL"/>
+                        <outlet property="standardButton" destination="e8R-yy-gHj" id="GKL-jo-Eag"/>
+                        <outlet property="tealBlueButton" destination="NvN-jd-Klf" id="IEd-61-T7v"/>
+                        <outlet property="yellowButton" destination="S0C-o4-AKh" id="J7u-Z8-HzV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
