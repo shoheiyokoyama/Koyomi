@@ -19,8 +19,8 @@ final class DateModel: NSObject {
     var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     static let maxCellCount = 42
     
-    enum SelectionStyle { case single, multiple, none }
-    var selectionStyle: SelectionStyle = .none
+    enum SelectionMode { case single, multiple, none }
+    var selectionMode: SelectionMode = .none
     
     override init() {
         super.init()
@@ -83,16 +83,22 @@ final class DateModel: NSObject {
         selectedDates.keys(of: true).forEach { selectedDates[$0] = false }
     }
     
-//    func select(with indexPath: NSIndexPath) {
-//        if case .single = selectionStyle {
-//            let date = currentDates[indexPath.row]
-//            selectedDates[date] = selectedDates[date] == true ? false : true
-//        } else if case .multiple = selectionStyle {
-//            
-//        } else {
-//            return
-//        }
-//    }
+    func select(with indexPath: NSIndexPath) {
+        let selectedDate = date(at: indexPath)
+        
+        if case .single = selectionMode {
+            selectedDates.forEach { [weak self] date, isSelect in
+                guard let me = self else { return }
+                if selectedDate == date {
+                    me.selectedDates[date] = me.selectedDates[date] == true ? false : true
+                } else if isSelect {
+                    me.selectedDates[date] = false
+                }
+            }
+        } else if case .multiple = selectionMode {
+            selectedDates[date(at: indexPath)] = selectedDates[date(at: indexPath)] == true ? false : true
+        }
+    }
     
     func isSelect(with indexPath: NSIndexPath) -> Bool {
         let date = currentDates[indexPath.row]

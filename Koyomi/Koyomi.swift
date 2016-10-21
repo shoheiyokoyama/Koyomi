@@ -32,8 +32,8 @@ public enum KoyomiStyle {
     }
 }
 
-// use near future (issue #4)
-public enum SelectionStyle { case single, multiple, none }
+public enum SelectionMode { case single, multiple, none }
+public enum SelectionStyle { case background, circle }
 
 @IBDesignable
 final public class Koyomi: UICollectionView {
@@ -66,19 +66,18 @@ final public class Koyomi: UICollectionView {
             dayBackgrondColor  = style.colors.dayBackgrond
             weekBackgrondColor = style.colors.weekBackgrond
             weekColor = style.colors.week
-            weekdayColor    = style.colors.weekday
-            holidayColor    = style.colors.holiday
+            weekdayColor = style.colors.weekday
+            holidayColor = style.colors.holiday
             otherMonthColor = style.colors.otherMonth
             backgroundColor = style.colors.separator
             sectionSeparator.backgroundColor = style.colors.separator
         }
     }
     
-    // use near future (issue #4)
-    public var selectionStyle: SelectionStyle = .none {
+    public var selectionMode: SelectionMode = .none {
         didSet {
-            model.selectionStyle = {
-                switch selectionStyle {
+            model.selectionMode = {
+                switch selectionMode {
                 case .single:   return .single
                 case .multiple: return .multiple
                 case .none:     return .none
@@ -86,6 +85,7 @@ final public class Koyomi: UICollectionView {
             }()
         }
     }
+    public var selectionStyle: SelectionStyle = .background
     
     // Layout properties
     @IBInspectable var sectionSpace: CGFloat = 1.5 {
@@ -116,6 +116,7 @@ final public class Koyomi: UICollectionView {
         }
     }
     
+    // Week cell text
     public var weeks: [String] = [] {
         didSet {
             model.weeks = weeks
@@ -135,12 +136,12 @@ final public class Koyomi: UICollectionView {
             backgroundColor = separatorColor
         }
     }
-    @IBInspectable public var weekColor       = UIColor.KoyomiColor.black
-    @IBInspectable public var weekdayColor    = UIColor.KoyomiColor.black
+    @IBInspectable public var weekColor    = UIColor.KoyomiColor.black
+    @IBInspectable public var weekdayColor = UIColor.KoyomiColor.black
     @IBInspectable public var otherMonthColor = UIColor.KoyomiColor.lightGray
-    public var holidayColor: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red)
     @IBInspectable public var dayBackgrondColor: UIColor  = .whiteColor()
     @IBInspectable public var weekBackgrondColor: UIColor = .whiteColor()
+    public var holidayColor: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red)
     
     @IBInspectable public var selectedBackgroundColor = UIColor.KoyomiColor.red
     @IBInspectable public var selectedTextColor: UIColor = .whiteColor()
@@ -242,32 +243,60 @@ private extension Koyomi {
     
     func configure(cell: KoyomiCell, at indexPath: NSIndexPath) {
         
-        cell.content = indexPath.section == 0 ? model.weeks[indexPath.row] : model.dayString(at: indexPath)
-        cell.backgroundColor = weekBackgrondColor
+        // Appearance properties
+        let style: KoyomiCell.CellStyle
+        let textColor: UIColor
+        let isSelected: Bool
+        let backgroundColor: UIColor
+        let font: UIFont?
+        let content: String
+        
         if indexPath.section == 0 {
-            cell.textColor = weekColor
-            if let font = weekLabelFont {
-                cell.setContentFont(fontName: font.fontName, size: font.pointSize)
-            }
-        } else {
             
-            (cell.textColor, cell.backgroundColor) = {
+            // Configure appearance properties for week cell
+            style = .background
+            textColor = weekColor
+            isSelected  = false
+            backgroundColor = weekBackgrondColor
+            font = weekLabelFont
+            content = model.weeks[indexPath.row]
+            
+        } else {
+
+            // Configure appearance properties for day cell
+            (textColor, isSelected) = {
                 if model.isSelect(with: indexPath) {
-                    return (selectedTextColor, selectedBackgroundColor)
+                    return (selectedTextColor, true)
                 } else if indexPath.row < model.indexAtBeginning(in: .current) || indexPath.row > model.indexAtEnd(in: .current) {
-                    return (otherMonthColor, dayBackgrondColor)
+                    return (otherMonthColor, false)
                 } else if indexPath.row % 7 == 0 {
-                    return (holidayColor.sunday, dayBackgrondColor)
+                    return (holidayColor.sunday, false)
                 } else if indexPath.row % 7 == 6 {
-                    return (holidayColor.saturday, dayBackgrondColor)
+                    return (holidayColor.saturday, false)
                 } else {
-                    return (weekdayColor, dayBackgrondColor)
+                    return (weekdayColor, false)
                 }
             }()
             
-            if let font = dayLabelFont {
-                cell.setContentFont(fontName: font.fontName, size: font.pointSize)
-            }
+            style = {
+                switch (selectionStyle, isSelected) {
+                case (_, false), (.background, true):
+                    return .background
+                case (.circle, true):
+                    return .circle
+                }
+            }()
+            
+            font = dayLabelFont
+            content = model.dayString(at: indexPath)
+        }
+        
+        // Set cell to appearance properties
+        cell.content   = content
+        cell.textColor = textColor
+        cell.configureAppearanse(of: style, withColor: selectedBackgroundColor, backgroundColor: dayBackgrondColor, isSelected: isSelected)
+        if let font = font {
+            cell.setContentFont(fontName: font.fontName, size: font.pointSize)
         }
     }
 }
@@ -277,6 +306,10 @@ private extension Koyomi {
 extension Koyomi: UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         calendarDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
+        if selectionMode != .none {
+            model.select(with: indexPath)
+            reloadData()
+        }
     }
 }
 
