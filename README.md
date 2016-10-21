@@ -244,7 +244,7 @@ Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance 
 ```
 
 <p align="center">
-<img src="./DemoSource/style-tealBlue.png" width="300">
+<img src="./DemoSource/change-style.gif" width="300">
 </p>
 
 `KoyomiStyle` is defined by 10 types.
