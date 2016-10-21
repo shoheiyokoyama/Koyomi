@@ -75,7 +75,9 @@ You can configure style in selected state.
 ```swift
     public enum SelectionStyle { case background, circle }
     
+    // default value is background
     public var selectionStyle: SelectionStyle
+    // call selectionStyle
     koyomi.selectionStyle = .background
 ```
 
@@ -98,8 +100,10 @@ You can configure mode of selection.
 ```swift
     public enum SelectionMode { case single, multiple, none }
     
+    // default value is none
     public var selectionMode: SelectionMode
     
+    // call selectionMode
     koyomi.selectionMode = .single
 ```
 
