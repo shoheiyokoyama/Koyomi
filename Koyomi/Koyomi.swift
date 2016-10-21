@@ -287,6 +287,7 @@ private extension Koyomi {
                 }
             }()
             
+            backgroundColor = dayBackgrondColor
             font = dayLabelFont
             content = model.dayString(at: indexPath)
         }
@@ -294,7 +295,7 @@ private extension Koyomi {
         // Set cell to appearance properties
         cell.content   = content
         cell.textColor = textColor
-        cell.configureAppearanse(of: style, withColor: selectedBackgroundColor, backgroundColor: dayBackgrondColor, isSelected: isSelected)
+        cell.configureAppearanse(of: style, withColor: selectedBackgroundColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
         }
