@@ -74,15 +74,18 @@ You can configure style in selected state.
 
 ```swift
     public enum SelectionStyle { case background, circle }
+    
+    public var selectionStyle: SelectionStyle
+    koyomi.selectionStyle = .background
 ```
 
-- background
+- ***background***
 
 <p align="center">
 <img src="./DemoSource/select-style-background.png" width="300">
 </p>
 
-- circle
+- ***circle***
 
 <p align="center">
 <img src="./DemoSource/select-style-circle.png" width="300">
@@ -94,15 +97,19 @@ You can configure mode of selection.
 
 ```swift
     public enum SelectionMode { case single, multiple, none }
+    
+    public var selectionMode: SelectionMode
+    
+    koyomi.selectionMode = .single
 ```
 
-- single
+- ***single***
 
 <p align="center">
 <img src="./DemoSource/select-mode-single.gif" width="300">
 </p>
 
-- multiple
+- ***multiple***
 
 <p align="center">
 <img src="./DemoSource/select-mode-multiple.gif" width="300">
