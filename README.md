@@ -108,6 +108,7 @@ You can configure modeway of selection.
 <img src="./DemoSource/select-mode-multiple.gif" width="300">
 </p>
 
+#### Select date in programmatically
 
 You can select specific date .
  
