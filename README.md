@@ -90,7 +90,7 @@ You can configure style in selected state.
 
 #### SelectionMode
 
-You can configure modeway of selection.
+You can configure mode of selection.
 
 ```swift
     public enum SelectionMode { case single, multiple, none }
