@@ -15,6 +15,13 @@ class MyButton: UIButton {
             setTitleColor(color, forState: .Normal)
         }
     }
+    var deepColor: UIColor = .whiteColor() {
+        didSet {
+            layer.borderColor = deepColor.CGColor
+            backgroundColor = deepColor
+            setTitleColor(.whiteColor(), forState: .Normal)
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

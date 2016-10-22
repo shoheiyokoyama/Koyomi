@@ -38,7 +38,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="5A2-hB-Awy"/>
-                                    <constraint firstAttribute="height" constant="300" id="HZo-0v-o4d"/>
+                                    <constraint firstAttribute="height" constant="260" id="HZo-0v-o4d"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LOS-Tb-WX2">
                                     <size key="itemSize" width="50" height="50"/>
@@ -61,7 +61,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cellSpace">
-                                        <real key="value" value="0.5"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="weekHeight">
                                         <real key="value" value="35"/>
@@ -131,40 +131,121 @@
                                     <action selector="tappedPink:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ygi-7n-662"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0g-XD-S2q" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepBlack"/>
+                                <connections>
+                                    <action selector="tappedDeepBlack:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pse-cP-3uG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMK-ui-kwO" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepRed"/>
+                                <connections>
+                                    <action selector="tappedDeepRed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="u0n-Zp-VT4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyK-bS-rq5" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepOrange"/>
+                                <connections>
+                                    <action selector="tappedDeepOrange:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Z2s-JM-M4p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4R-Sl-YyP" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepYellow"/>
+                                <connections>
+                                    <action selector="tappedDeepYellow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ahH-Fi-COL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSG-Nh-IRN" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepTealBlue"/>
+                                <connections>
+                                    <action selector="tappedDeepTealBlueButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GHs-hj-AqM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSV-t8-0LO" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepBlue"/>
+                                <connections>
+                                    <action selector="tappedDeepBlue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="l9f-Gg-V4t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TD-du-AnO" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepPurple"/>
+                                <connections>
+                                    <action selector="tappedDeepPurple:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eOW-r3-edr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kY-Ny-6Bl" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepGreen"/>
+                                <connections>
+                                    <action selector="tappedDeepGreen:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="C0U-5G-eAW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXD-kG-0Mw" customClass="MyButton" customModule="Koyomi_Example" customModuleProvider="target">
+                                <state key="normal" title="deepPink"/>
+                                <connections>
+                                    <action selector="tappedDeepPink:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="apn-9y-Zm8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8ap-hs-gl0" firstAttribute="leading" secondItem="S0C-o4-AKh" secondAttribute="leading" id="1kx-Cu-xjB"/>
-                            <constraint firstItem="N6y-Sa-BPO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="5Y6-9r-3mv"/>
+                            <constraint firstItem="hyK-bS-rq5" firstAttribute="leading" secondItem="8ap-hs-gl0" secondAttribute="leading" id="218-1W-yE9"/>
+                            <constraint firstItem="GSV-t8-0LO" firstAttribute="top" secondItem="hyK-bS-rq5" secondAttribute="bottom" constant="15" id="4zl-gK-R1G"/>
+                            <constraint firstItem="N6y-Sa-BPO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="5Y6-9r-3mv"/>
                             <constraint firstItem="Zf4-j4-Fc9" firstAttribute="centerY" secondItem="NvN-jd-Klf" secondAttribute="centerY" id="6fA-ip-u6Q"/>
+                            <constraint firstItem="b4R-Sl-YyP" firstAttribute="leading" secondItem="hyK-bS-rq5" secondAttribute="trailing" constant="15" id="7RD-KK-dlD"/>
                             <constraint firstItem="ILJ-O9-Aaa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="15" id="8q5-Dc-HvT"/>
                             <constraint firstItem="9eG-vF-aez" firstAttribute="leading" secondItem="8ap-hs-gl0" secondAttribute="trailing" constant="15" id="8yM-9h-eyI"/>
                             <constraint firstItem="tkD-bP-1CD" firstAttribute="centerY" secondItem="Zf4-j4-Fc9" secondAttribute="centerY" id="Ay9-J8-wrk"/>
+                            <constraint firstItem="3TD-du-AnO" firstAttribute="centerY" secondItem="GSV-t8-0LO" secondAttribute="centerY" id="C3M-Yp-dfx"/>
+                            <constraint firstItem="8kY-Ny-6Bl" firstAttribute="centerY" secondItem="3TD-du-AnO" secondAttribute="centerY" id="D66-yH-UTK"/>
+                            <constraint firstItem="3TD-du-AnO" firstAttribute="leading" secondItem="GSV-t8-0LO" secondAttribute="trailing" constant="15" id="ElL-G9-MdW"/>
                             <constraint firstItem="S0C-o4-AKh" firstAttribute="top" secondItem="ILJ-O9-Aaa" secondAttribute="bottom" constant="10" id="HC2-bC-fRk"/>
+                            <constraint firstItem="hyK-bS-rq5" firstAttribute="top" secondItem="8ap-hs-gl0" secondAttribute="bottom" constant="15" id="KB4-BF-bQH"/>
                             <constraint firstItem="MgA-TV-hAJ" firstAttribute="leading" secondItem="UyB-al-qHt" secondAttribute="trailing" constant="15" id="LS8-2p-uKM"/>
                             <constraint firstItem="U0g-jI-g7D" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Lgg-Ho-Oa3"/>
                             <constraint firstItem="NvN-jd-Klf" firstAttribute="leading" secondItem="S0C-o4-AKh" secondAttribute="trailing" constant="15" id="LiA-G0-3Ex"/>
                             <constraint firstItem="tkD-bP-1CD" firstAttribute="leading" secondItem="Zf4-j4-Fc9" secondAttribute="trailing" constant="15" id="OFb-Y3-7kX"/>
                             <constraint firstItem="UyB-al-qHt" firstAttribute="leading" secondItem="e8R-yy-gHj" secondAttribute="trailing" constant="15" id="Pr7-2Z-vOS"/>
+                            <constraint firstItem="GSV-t8-0LO" firstAttribute="leading" secondItem="hyK-bS-rq5" secondAttribute="leading" id="QFZ-Sq-gm1"/>
+                            <constraint firstItem="b4R-Sl-YyP" firstAttribute="centerY" secondItem="hyK-bS-rq5" secondAttribute="centerY" id="QPW-Ci-Ghf"/>
                             <constraint firstItem="ILJ-O9-Aaa" firstAttribute="top" secondItem="U0g-jI-g7D" secondAttribute="bottom" constant="20" id="TcG-V6-IHN"/>
-                            <constraint firstItem="U0g-jI-g7D" firstAttribute="top" secondItem="YrJ-h9-b09" secondAttribute="bottom" constant="30" id="TnC-Vo-maJ"/>
+                            <constraint firstItem="JSG-Nh-IRN" firstAttribute="centerY" secondItem="b4R-Sl-YyP" secondAttribute="centerY" id="TmJ-gz-bnp"/>
+                            <constraint firstItem="U0g-jI-g7D" firstAttribute="top" secondItem="YrJ-h9-b09" secondAttribute="bottom" constant="15" id="TnC-Vo-maJ"/>
                             <constraint firstItem="9eG-vF-aez" firstAttribute="centerY" secondItem="8ap-hs-gl0" secondAttribute="centerY" id="WnQ-gc-CgS"/>
+                            <constraint firstItem="JSG-Nh-IRN" firstAttribute="leading" secondItem="b4R-Sl-YyP" secondAttribute="trailing" constant="15" id="Wxt-Qh-2CH"/>
                             <constraint firstItem="UyB-al-qHt" firstAttribute="centerY" secondItem="e8R-yy-gHj" secondAttribute="centerY" id="ZbQ-9y-77W"/>
-                            <constraint firstItem="YrJ-h9-b09" firstAttribute="top" secondItem="N6y-Sa-BPO" secondAttribute="bottom" constant="30" id="cD3-TB-aqM"/>
+                            <constraint firstItem="v0g-XD-S2q" firstAttribute="leading" secondItem="9eG-vF-aez" secondAttribute="trailing" constant="15" id="aUL-e1-sJ5"/>
+                            <constraint firstItem="fMK-ui-kwO" firstAttribute="centerY" secondItem="v0g-XD-S2q" secondAttribute="centerY" id="bVL-Rh-VZH"/>
+                            <constraint firstItem="YrJ-h9-b09" firstAttribute="top" secondItem="N6y-Sa-BPO" secondAttribute="bottom" constant="20" id="cD3-TB-aqM"/>
                             <constraint firstItem="S0C-o4-AKh" firstAttribute="leading" secondItem="ILJ-O9-Aaa" secondAttribute="leading" id="dd7-DF-eNh"/>
                             <constraint firstItem="8ap-hs-gl0" firstAttribute="top" secondItem="S0C-o4-AKh" secondAttribute="bottom" constant="15" id="jPf-et-wJa"/>
                             <constraint firstItem="e8R-yy-gHj" firstAttribute="centerY" secondItem="ILJ-O9-Aaa" secondAttribute="centerY" id="jzG-KH-9GB"/>
                             <constraint firstItem="YrJ-h9-b09" firstAttribute="centerX" secondItem="N6y-Sa-BPO" secondAttribute="centerX" id="khD-ys-SAG"/>
                             <constraint firstItem="N6y-Sa-BPO" firstAttribute="centerX" secondItem="U0g-jI-g7D" secondAttribute="centerX" id="on7-rW-cHD"/>
+                            <constraint firstItem="fMK-ui-kwO" firstAttribute="leading" secondItem="v0g-XD-S2q" secondAttribute="trailing" constant="15" id="pFJ-uj-wdS"/>
                             <constraint firstItem="e8R-yy-gHj" firstAttribute="leading" secondItem="ILJ-O9-Aaa" secondAttribute="trailing" constant="15" id="pLg-D9-HEO"/>
                             <constraint firstItem="MgA-TV-hAJ" firstAttribute="centerY" secondItem="UyB-al-qHt" secondAttribute="centerY" id="pf8-yj-z9C"/>
                             <constraint firstItem="NvN-jd-Klf" firstAttribute="centerY" secondItem="S0C-o4-AKh" secondAttribute="centerY" id="qcH-GX-Mft"/>
+                            <constraint firstItem="8kY-Ny-6Bl" firstAttribute="leading" secondItem="3TD-du-AnO" secondAttribute="trailing" constant="15" id="rsY-Mr-MXR"/>
                             <constraint firstItem="Zf4-j4-Fc9" firstAttribute="leading" secondItem="NvN-jd-Klf" secondAttribute="trailing" constant="15" id="sYn-wb-ZaC"/>
+                            <constraint firstItem="v0g-XD-S2q" firstAttribute="centerY" secondItem="9eG-vF-aez" secondAttribute="centerY" id="zMY-0V-u1F"/>
+                            <constraint firstItem="FXD-kG-0Mw" firstAttribute="leading" secondItem="GSV-t8-0LO" secondAttribute="leading" id="zhf-gx-SYg"/>
+                            <constraint firstItem="FXD-kG-0Mw" firstAttribute="top" secondItem="GSV-t8-0LO" secondAttribute="bottom" constant="15" id="zps-mZ-mWY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="blueButton" destination="Zf4-j4-Fc9" id="aGr-Ph-aBY"/>
                         <outlet property="currentDateLabel" destination="YrJ-h9-b09" id="ZiE-SC-toF"/>
+                        <outlet property="deepBlackButton" destination="v0g-XD-S2q" id="MfQ-RD-xR7"/>
+                        <outlet property="deepBlueButton" destination="GSV-t8-0LO" id="eBb-xw-Q3R"/>
+                        <outlet property="deepGreenButton" destination="8kY-Ny-6Bl" id="j14-4H-uCe"/>
+                        <outlet property="deepOrangeButton" destination="hyK-bS-rq5" id="z6r-sR-jwI"/>
+                        <outlet property="deepPinkButton" destination="FXD-kG-0Mw" id="WEl-UZ-hML"/>
+                        <outlet property="deepPurpleButton" destination="3TD-du-AnO" id="lGQ-Br-bB0"/>
+                        <outlet property="deepRedButton" destination="fMK-ui-kwO" id="p22-xY-FQ7"/>
+                        <outlet property="deepTealBlueButton" destination="JSG-Nh-IRN" id="Tyx-eF-hPA"/>
+                        <outlet property="deepYellowButton" destination="b4R-Sl-YyP" id="cbH-ea-gWi"/>
                         <outlet property="greenButton" destination="8ap-hs-gl0" id="E8T-3Z-WG1"/>
                         <outlet property="koyomi" destination="U0g-jI-g7D" id="Hib-No-XqL"/>
                         <outlet property="monotoneButton" destination="ILJ-O9-Aaa" id="xQS-Cm-z5t"/>

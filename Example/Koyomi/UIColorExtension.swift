@@ -17,6 +17,7 @@ extension UIColor {
     }
     
     struct Color {
+        static let darkBlack: UIColor = .init(hex: 0x1F1F21)
         static let lightGray: UIColor = .init(hex: 0xc3c3ca)
         static let darkGray: UIColor  = .init(hex: 0x878787)
         static let red: UIColor       = .init(hex: 0xff3b30)

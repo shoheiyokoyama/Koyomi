@@ -14,11 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet private weak var koyomi: Koyomi! {
         didSet {
             koyomi.calendarDelegate = self
-            koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
+            koyomi.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             koyomi.style = .standard
-            koyomi.selectionMode  = .single(style: .background)
-            koyomi.selectedBackgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+            koyomi.selectionMode  = .sequence(style: .semicircleEdge)
+            koyomi.selectedBackgroundColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
             koyomi
                 .setDayFont(size: 14)
                 .setWeekFont(size: 10)
@@ -86,14 +86,59 @@ class ViewController: UIViewController {
             pinkButton.color = UIColor.Color.pink
         }
     }
-    
+    @IBOutlet weak var deepBlackButton: MyButton! {
+        didSet {
+            deepBlackButton.deepColor = UIColor.Color.darkBlack
+        }
+    }
+    @IBOutlet weak var deepRedButton: MyButton! {
+        didSet {
+            deepRedButton.deepColor = UIColor.Color.red
+        }
+    }
+    @IBOutlet weak var deepOrangeButton: MyButton! {
+        didSet {
+            deepOrangeButton.deepColor = UIColor.Color.orange
+        }
+    }
+    @IBOutlet weak var deepYellowButton: MyButton! {
+        didSet {
+            deepYellowButton.deepColor = UIColor.Color.yellow
+        }
+    }
+    @IBOutlet weak var deepTealBlueButton: MyButton! {
+        didSet {
+            deepTealBlueButton.deepColor = UIColor.Color.tealBlue
+        }
+    }
+    @IBOutlet weak var deepBlueButton: MyButton! {
+        didSet {
+            deepBlueButton.deepColor = UIColor.Color.blue
+        }
+    }
+    @IBOutlet weak var deepPurpleButton: MyButton! {
+        didSet {
+            deepPurpleButton.deepColor = UIColor.Color.purple
+        }
+    }
+    @IBOutlet weak var deepGreenButton: MyButton! {
+        didSet {
+            deepGreenButton.deepColor = UIColor.Color.green
+        }
+    }
+    @IBOutlet weak var deepPinkButton: MyButton! {
+        didSet {
+            deepPinkButton.deepColor = UIColor.Color.pink
+        }
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         currentDateLabel.text = koyomi.currentDateString()
     }
     
     // MARK: - Utility -
-    
+
     private func date(date: NSDate, later: Int) -> NSDate {
         let components = NSDateComponents()
         components.day = later
@@ -145,6 +190,33 @@ extension ViewController {
     }
     @IBAction func tappedPink(sender: AnyObject) {
         configureStyle(.pink)
+    }
+    @IBAction func tappedDeepBlack(sender: AnyObject) {
+        configureStyle(.deepBlack)
+    }
+    @IBAction func tappedDeepRed(sender: AnyObject) {
+        configureStyle(.deepRed)
+    }
+    @IBAction func tappedDeepOrange(sender: AnyObject) {
+        configureStyle(.deepOrange)
+    }
+    @IBAction func tappedDeepYellow(sender: AnyObject) {
+        configureStyle(.deepYellow)
+    }
+    @IBAction func tappedDeepTealBlueButton(sender: AnyObject) {
+        configureStyle(.deepTealBlue)
+    }
+    @IBAction func tappedDeepBlue(sender: AnyObject) {
+        configureStyle(.deepBlue)
+    }
+    @IBAction func tappedDeepPurple(sender: AnyObject) {
+        configureStyle(.deepPurple)
+    }
+    @IBAction func tappedDeepGreen(sender: AnyObject) {
+        configureStyle(.deepGreen)
+    }
+    @IBAction func tappedDeepPink(sender: AnyObject) {
+        configureStyle(.deepPink)
     }
     
     func configureStyle(style: KoyomiStyle) {
