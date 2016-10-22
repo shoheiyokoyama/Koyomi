@@ -19,6 +19,7 @@
 - Simple Calendar View :calendar:
 - Easily usable :sunglasses:
 - Customizable in any properties for appearance
+- Selectable calender
 - [x] Support `@IBDesignable` and `@IBInspectable`
 - [x] Support Swift 2.3
 - [ ] Support Swift 3.0
