@@ -74,63 +74,46 @@ If you want to change displayed month, call `display(in: MonthType)`. `MonthType
 
 ### The selection state of date
 
-#### SelectionStyle
+You can configure ***SelectionMode*** with style.
 
-You can configure style in selected state.
+***SelectionMode*** has nested enumerations type: `SequenceStyle`, `Style`.
 
 ```swift
-    public enum SelectionStyle { case background, circle }
+    public enum SelectionMode {
+        case single(style: Style), multiple(style: Style), sequence(style: SequenceStyle), none
     
-    // default value is background
-    public var selectionStyle: SelectionStyle
+        
+        public enum SequenceStyle { case background, circle, semicircleEdge }
+        public enum Style { case background, circle }
+   }
+    
+    // default selectionMode is single, circle style
+    public var selectionMode: SelectionMode = .single(style: .circle)
+    
     // call selectionStyle
-    koyomi.selectionStyle = .background
+    koyomi.selectionMode = .single(style: circle)
 ```
 
-- ***background***
 
-<p align="center">
-<img src="./DemoSource/select-style-background.png" width="230">
-</p>
 
-- ***circle***
-
-<p align="center">
-<img src="./DemoSource/select-style-circle.png" width="230">
-</p>
-
-#### SelectionMode
-
-You can configure mode of selection.
-
-```swift
-    public enum SelectionMode { case single, multiple, none }
-    
-    // default value is single
-    public var selectionMode: SelectionMode
-    
-    // call selectionMode
-    koyomi.selectionMode = .single
-```
-
-- ***single***
-
-<p align="center">
-<img src="./DemoSource/select-mode-single.gif" width="300">
-</p>
-
-- ***multiple***
-
-<p align="center">
-<img src="./DemoSource/select-mode-multiple.gif" width="300">
-</p>
-
+ **single** |<img src="./DemoSource/single-background-mode.gif" width="130"> | <img src="./DemoSource/single-circle-mode.gif" width="130">
+----  |  ----  |  ----  |
+ ***SelectionMode*** |  `.single(style: .background)`  |   `.single(style: .circle)` | 
+ 
+ 
+  **multiple** |<img src="./DemoSource/multiple-background-mode.gif" width="130"> | <img src="./DemoSource/multiple-circle-mode.gif" width="130">
+----  |  ----  |  ----  |
+ ***SelectionMode*** |  `.multiple(style: .background)`  |   `.multiple(style: .circle)` | 
+ 
+ 
+  **sequence** | <img src="./DemoSource/sequence-background-mode.gif" width="130"> | <img src="./DemoSource/sequence-circle-mode.gif" width="130"> | <img src="./DemoSource/sequence-semicircleEdge-mode.gif" width="130">
+----  |  ----  |  ----  | ----  |
+ ***SelectionMode*** |  `.sequence(style: .background)`  |   `.sequence(style: .circle)` |  `.sequence(style: .semicircleEdge)` |
 
 > NOTE
 
 > If you don't want to allow user to select date by user interaction, set `selectionMode` to `.none`. 
 
-> default `selectionMode` is `.single`
 
 #### Select date in programmatically
 
