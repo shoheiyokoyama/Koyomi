@@ -17,9 +17,19 @@ extension UIColor {
     }
     
     struct KoyomiColor {
-        static let black: UIColor     = .init(hex: 0x333333)
-        static let lightGray: UIColor = .init(hex: 0xc3c3ca)
-        static let darkGray: UIColor  = .init(hex: 0x878787)
+        
+        // Using [iOS 7 colors] as reference.
+        // http://ios7colors.com/
+        
+        static let lightBlack: UIColor  = .init(hex: 0x4A4A4A)
+        static let black: UIColor       = .init(hex: 0x2B2B2B)
+        static let darkBlack: UIColor   = .init(hex: 0x1F1F21)
+        static let lightGray: UIColor   = .init(hex: 0xDBDDDE)
+        static let darkGray: UIColor    = .init(hex: 0x8E8E93)
+        static let lightYellow: UIColor = .init(hex: 0xFFDB4C)
+        static let lightPurple: UIColor = .init(hex: 0xC86EDF)
+        static let lightGreen: UIColor  = .init(hex: 0xA4E786)
+        static let lightPink: UIColor   = .init(hex: 0xFFD3E0)
         
         // Using [iOS Human Interface Guidelines] as reference.
         // https://developer.apple.com/ios/human-interface-guidelines/visual-design/color/
@@ -33,5 +43,4 @@ extension UIColor {
         static let tealBlue: UIColor = .init(hex: 0x5ac8fa)
         static let pink: UIColor     = .init(hex: 0xff2d55)
     }
-
 }
