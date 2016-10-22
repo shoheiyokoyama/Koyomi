@@ -11,7 +11,7 @@
 
 
 <p align="center">
-<img src="./DemoSource/koyomi-style.jpeg" width="550">
+<img src="./DemoSource/sample-demo.gif" width="400">
 </p>
 
 ## :octocat: Features
@@ -30,11 +30,6 @@ Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demon
 ## Usage
 
 ***Koyomi*** is designed to be easy to use :sunglasses:
-
-<p align="center">
-<img src="./DemoSource/calendar_demo.gif" width="250">
-</p>
-
 
 ```swift
     let frame = CGRect(x: 10, y : 20, width: 250, height: 300)
@@ -256,7 +251,7 @@ Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance 
 ```
 
 <p align="center">
-<img src="./DemoSource/change-style.gif" width="300">
+<img src="./DemoSource/color-style.gif" width="300">
 </p>
 
 `KoyomiStyle` is defined by 19 types.
@@ -265,9 +260,9 @@ used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-inte
 
 ```swift
     enum KoyomiStyle {
-        // basic color 
+        // basic color style
         case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
-        // deep color
+        // deep color style
         case deepBlack, deepRed, deepOrange, deepYellow, deepTealBlue, deepBlue, deepPurple, deepGreen, deepPink
     }
 ```
