@@ -8,10 +8,14 @@
 
 import UIKit
 
+// MARK: - KoyomiDelegate -
+
 @objc public protocol KoyomiDelegate: class {
     optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
     optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
 }
+
+// MARK: - KoyomiStyle -
 
 public enum KoyomiStyle {
     case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
@@ -32,12 +36,16 @@ public enum KoyomiStyle {
     }
 }
 
+// MARK: - SelectionMode -
+
 public enum SelectionMode {
     case single(style: Style), multiple(style: Style), sequence(style: SequenceStyle), none
     
     public enum SequenceStyle { case background, circle, semicircleEdge }
     public enum Style { case background, circle }
 }
+
+// MARK: - Koyomi -
 
 @IBDesignable
 final public class Koyomi: UICollectionView {
