@@ -14,7 +14,7 @@ public enum MonthType { case previous, current, next }
 
 final class DateModel: NSObject {
     
-    // type methods
+    // Type methods
     static let dayCountPerRow = 7
     static let maxCellCount = 42
     
@@ -130,8 +130,7 @@ final class DateModel: NSObject {
             // user has selected a date
             } else if let start = sequenceDates.start where sequenceDates.end == nil && start != selectedDate {
                 
-                // selectedDate < start
-                let isSelectedBeforeDay = selectedDate.compare(start) == .OrderedAscending
+                let isSelectedBeforeDay = selectedDate < start
                 
                 let comparisonResult: NSComparisonResult
                 let componentDay: Int
@@ -190,9 +189,7 @@ private extension DateModel {
     
     func set(isSelected: Bool, withFrom fromDate: NSDate, to toDate: NSDate) {
         currentDates.forEach { date in
-            if fromDate.compare(date) == .OrderedSame ||
-                fromDate.compare(date) == .OrderedAscending && toDate.compare(date) == .OrderedDescending ||
-                toDate.compare(date) == .OrderedSame {
+            if fromDate <= date && toDate >= date {
                 selectedDates[date] = isSelected
             }
         }

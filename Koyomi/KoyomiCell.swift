@@ -96,8 +96,8 @@ final class KoyomiCell: UICollectionViewCell {
                 // for bug: unnecessary line
                 leftSemicircleView.frame.size.width = bounds.width / 2 + 1
                 
-                setMaskLayer(leftSemicircleView, with: .left)
-                setMaskLayer(rightSemicircleView, with: .none)
+                leftSemicircleView.mask(with: .left)
+                rightSemicircleView.mask(with: .none)
             } else if case .middle = position {
                 rightSemicircleView.hidden = true
                 leftSemicircleView.hidden  = true
@@ -113,10 +113,9 @@ final class KoyomiCell: UICollectionViewCell {
                 leftSemicircleView.backgroundColor  = color
                 rightSemicircleView.backgroundColor = color
                 
-                setMaskLayer(leftSemicircleView, with: .none)
-                setMaskLayer(rightSemicircleView, with: .right)
+                leftSemicircleView.mask(with: .none)
+                rightSemicircleView.mask(with: .right)
             }
-            break
         }
     }
 }
@@ -140,24 +139,6 @@ private extension KoyomiCell {
         addSubview(rightSemicircleView)
         
         addSubview(contentLabel)
-    }
-    
-    private enum RectCornerType { case left, right, none }
-    func setMaskLayer(semicircleView: UIView, with style: RectCornerType) {
-        let corner: UIRectCorner = {
-            switch style {
-            case .left:  return [.TopLeft, .BottomLeft]
-            case .none:  return []
-            case .right: return [.TopRight, .BottomRight]
-            }
-        }()
-        
-        let path: UIBezierPath = .init(roundedRect: semicircleView.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: semicircleView.bounds.width / 2, height: semicircleView.bounds.height / 2))
-        
-        let maskLayer: CAShapeLayer = .init()
-        maskLayer.frame = semicircleView.bounds
-        maskLayer.path  = path.CGPath
-        semicircleView.layer.mask = corner.isEmpty ? nil : maskLayer
     }
     
     func adjustSubViewsFrame() {

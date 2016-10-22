@@ -14,6 +14,8 @@
 		5AE29634E0950A471DCB973C69D6B5A7 /* Koyomi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 31BEBA86F486A6543F9F1A6297015A55 /* Koyomi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D87262851A194625410F8249C5F7E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		625859D0D44A11493C7269CBDE7D4031 /* KoyomiLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD35FAF0E086638C739237A86D0E87 /* KoyomiLayout.swift */; };
+		6D247D761DBB778E004DD858 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D247D751DBB778E004DD858 /* UIViewExtension.swift */; };
+		6D247D781DBB7AC0004DD858 /* ComparisonOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D247D771DBB7AC0004DD858 /* ComparisonOperator.swift */; };
 		71339C15D3C54E102DC0E1E031D360D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		B52F80AFD6DBE3B52FEAEDDF186ABA09 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32505B74847B66888DA285973BECD19D /* DateModel.swift */; };
 		BB6A2DFAA9406D1D0618FFF44203A626 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F856D86C259D0DBE6CE20DD78BB17921 /* Pods-Koyomi_Example-Koyomi_Tests-dummy.m */; };
@@ -62,6 +64,8 @@
 		51B4FE3FD50D314B45B297A1FC5B972B /* DictionaryExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		59F012F8DA2EEE8B4AC12BBE68B93654 /* Koyomi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Koyomi-prefix.pch"; sourceTree = "<group>"; };
 		64E2B855C767EA0BA867480518D071C3 /* Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example-Koyomi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6D247D751DBB778E004DD858 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		6D247D771DBB7AC0004DD858 /* ComparisonOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonOperator.swift; sourceTree = "<group>"; };
 		7117DD6C39480B40582C3212D7951791 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D44F977515E506782710BB54639DBEC /* NSDateExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		80CA3FF376FAB24E502B510C1D6F8716 /* Pods-Koyomi_Example-Koyomi_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Koyomi_Example-Koyomi_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -141,8 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				32505B74847B66888DA285973BECD19D /* DateModel.swift */,
+				6D247D771DBB7AC0004DD858 /* ComparisonOperator.swift */,
 				51B4FE3FD50D314B45B297A1FC5B972B /* DictionaryExtension.swift */,
 				84EA7CD3E3A91584348ED78A97A6FD35 /* Koyomi.swift */,
+				6D247D751DBB778E004DD858 /* UIViewExtension.swift */,
 				1E7D4EA3D526B55738086B6BE9F443D6 /* KoyomiCell.swift */,
 				E8BD35FAF0E086638C739237A86D0E87 /* KoyomiLayout.swift */,
 				7D44F977515E506782710BB54639DBEC /* NSDateExtension.swift */,
@@ -371,12 +377,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D247D781DBB7AC0004DD858 /* ComparisonOperator.swift in Sources */,
 				B52F80AFD6DBE3B52FEAEDDF186ABA09 /* DateModel.swift in Sources */,
 				233473FD4275E42BEB498242BBC94F58 /* DictionaryExtension.swift in Sources */,
 				EDC6AEB567F875BB8E1D781FF93FF767 /* Koyomi-dummy.m in Sources */,
 				F83D980A1B663663051BEF2840F9B086 /* Koyomi.swift in Sources */,
 				CAE0ABD6C551806F89284EF769083AF7 /* KoyomiCell.swift in Sources */,
 				625859D0D44A11493C7269CBDE7D4031 /* KoyomiLayout.swift in Sources */,
+				6D247D761DBB778E004DD858 /* UIViewExtension.swift in Sources */,
 				FE323AB222B6AF05A2014FDAE9922E31 /* NSDateExtension.swift in Sources */,
 				1E0EACC02B86734C1E6FBB60467D3656 /* UIColorExtension.swift in Sources */,
 			);

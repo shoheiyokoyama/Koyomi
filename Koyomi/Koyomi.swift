@@ -344,6 +344,8 @@ private extension Koyomi {
 
 extension Koyomi: UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        guard indexPath.section != 0 else { return }
+        
         calendarDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
         
         if case .none = selectionMode { return }
