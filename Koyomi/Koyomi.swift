@@ -23,6 +23,8 @@ public enum KoyomiStyle {
     
     var colors: Koyomi.Colors {
         switch self {
+            
+        // Basic color
         case monotone: return .init(dayBackgrond: .whiteColor(), weekBackgrond: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray))
         case standard: return .init(dayBackgrond: .whiteColor(), weekBackgrond: .whiteColor(), holiday: (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red))
         case red:      return .init(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.red, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.red)
@@ -33,15 +35,17 @@ public enum KoyomiStyle {
         case purple:   return .init(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.purple, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.purple)
         case green:    return .init(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.green, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.green)
         case pink:     return .init(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.pink, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.pink)
-        case deepBlack: return .init(dayBackgrond: UIColor.KoyomiColor.black, weekBackgrond: UIColor.KoyomiColor.black, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.darkBlack)
-        case deepRed: return .init(dayBackgrond: UIColor.KoyomiColor.red, weekBackgrond: UIColor.KoyomiColor.red, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.orange)
-        case deepOrange: return .init(dayBackgrond: UIColor.KoyomiColor.orange, weekBackgrond: UIColor.KoyomiColor.orange, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.yellow)
-        case deepYellow: return .init(dayBackgrond: UIColor.KoyomiColor.yellow, weekBackgrond: UIColor.KoyomiColor.yellow, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightYellow)
+            
+        // Deep color
+        case deepBlack:    return .init(dayBackgrond: UIColor.KoyomiColor.black, weekBackgrond: UIColor.KoyomiColor.black, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.darkBlack)
+        case deepRed:      return .init(dayBackgrond: UIColor.KoyomiColor.red, weekBackgrond: UIColor.KoyomiColor.red, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.orange)
+        case deepOrange:   return .init(dayBackgrond: UIColor.KoyomiColor.orange, weekBackgrond: UIColor.KoyomiColor.orange, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.yellow)
+        case deepYellow:   return .init(dayBackgrond: UIColor.KoyomiColor.yellow, weekBackgrond: UIColor.KoyomiColor.yellow, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightYellow)
         case deepTealBlue: return .init(dayBackgrond: UIColor.KoyomiColor.tealBlue, weekBackgrond: UIColor.KoyomiColor.tealBlue, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.blue)
-        case deepBlue: return .init(dayBackgrond: UIColor.KoyomiColor.blue, weekBackgrond: UIColor.KoyomiColor.blue, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.tealBlue)
-        case deepPurple: return .init(dayBackgrond: UIColor.KoyomiColor.purple, weekBackgrond: UIColor.KoyomiColor.purple, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightPurple)
-        case deepGreen: return .init(dayBackgrond: UIColor.KoyomiColor.green, weekBackgrond: UIColor.KoyomiColor.green, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightGreen)
-        case deepPink: return .init(dayBackgrond: UIColor.KoyomiColor.pink, weekBackgrond: UIColor.KoyomiColor.pink, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightPink)
+        case deepBlue:     return .init(dayBackgrond: UIColor.KoyomiColor.blue, weekBackgrond: UIColor.KoyomiColor.blue, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.tealBlue)
+        case deepPurple:   return .init(dayBackgrond: UIColor.KoyomiColor.purple, weekBackgrond: UIColor.KoyomiColor.purple, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightPurple)
+        case deepGreen:    return .init(dayBackgrond: UIColor.KoyomiColor.green, weekBackgrond: UIColor.KoyomiColor.green, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightGreen)
+        case deepPink:     return .init(dayBackgrond: UIColor.KoyomiColor.pink, weekBackgrond: UIColor.KoyomiColor.pink, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightPink)
         }
     }
 }

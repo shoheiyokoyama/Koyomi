@@ -8,8 +8,6 @@
 
 import UIKit
 
-// http://nsblogger.hatenablog.com/entry/2016/05/02/swift_nsdate_compare
-
 public enum MonthType { case previous, current, next }
 
 final class DateModel: NSObject {

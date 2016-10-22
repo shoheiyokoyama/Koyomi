@@ -239,11 +239,16 @@ Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance 
 <img src="./DemoSource/change-style.gif" width="300">
 </p>
 
-`KoyomiStyle` is defined by 10 types.
+`KoyomiStyle` is defined by 19 types.
+used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/visual-design/color/) as reference
+
 
 ```swift
     enum KoyomiStyle {
+        // basic color 
         case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
+        // deep color
+        case deepBlack, deepRed, deepOrange, deepYellow, deepTealBlue, deepBlue, deepPurple, deepGreen, deepPink
     }
 ```
 
