@@ -32,7 +32,7 @@ Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demon
 ***Koyomi*** is designed to be easy to use :sunglasses:
 
 <p align="center">
-<img src="./DemoSource/calendar_demo.gif" width="300">
+<img src="./DemoSource/calendar_demo.gif" width="250">
 </p>
 
 
@@ -63,8 +63,14 @@ If you want to change displayed month, call `display(in: MonthType)`. `MonthType
 ### Get current month string
 
 ```swift  
-    let currentDateString = koyomi.currentDateString(withFormat: "M/yyyy")
+    let currentDateString = koyomi.currentDateString()
 ```
+
+> NOTE
+
+> If you want to change `dateFormat ` of `currentDateString`, set argument to format. `currentDateString(withFormat: "MM/yyyy")`
+
+> default `dateFormat ` of `currentDateString` is `M/yyyy`
 
 ### The selection state of date
 
@@ -84,13 +90,13 @@ You can configure style in selected state.
 - ***background***
 
 <p align="center">
-<img src="./DemoSource/select-style-background.png" width="300">
+<img src="./DemoSource/select-style-background.png" width="230">
 </p>
 
 - ***circle***
 
 <p align="center">
-<img src="./DemoSource/select-style-circle.png" width="300">
+<img src="./DemoSource/select-style-circle.png" width="230">
 </p>
 
 #### SelectionMode
@@ -100,7 +106,7 @@ You can configure mode of selection.
 ```swift
     public enum SelectionMode { case single, multiple, none }
     
-    // default value is none
+    // default value is single
     public var selectionMode: SelectionMode
     
     // call selectionMode
@@ -118,6 +124,13 @@ You can configure mode of selection.
 <p align="center">
 <img src="./DemoSource/select-mode-multiple.gif" width="300">
 </p>
+
+
+> NOTE
+
+> If you don't want to allow user to select date by user interaction, set `selectionMode` to `.none`. 
+
+> default `selectionMode` is `.single`
 
 #### Select date in programmatically
 
@@ -244,7 +257,7 @@ Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance 
 ```
 
 <p align="center">
-<img src="./DemoSource/style-tealBlue.png" width="300">
+<img src="./DemoSource/change-style.gif" width="300">
 </p>
 
 `KoyomiStyle` is defined by 10 types.
