@@ -129,10 +129,6 @@ You can select specific date .
     // If want to select only one day, call koyomi.select(date: today)
 ```
 
-<p align="center">
-<img src="./DemoSource/selected-state-date.png" width="300">
-</p>
-
 You can also unselect available.
 
 ```swift
