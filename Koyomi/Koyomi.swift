@@ -11,8 +11,13 @@ import UIKit
 // MARK: - KoyomiDelegate -
 
 @objc public protocol KoyomiDelegate: class {
+    // Tells the delegate that the date at the specified index path was selected.
     optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
+    // Tells the delegate that the displayed month is changed.
     optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
+    // The koyomi calls this method before select days as period only when selectionMode is sequence.
+    // return value: true if the item should be selected or false if it should not.
+    optional func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool
 }
 
 // MARK: - KoyomiStyle -
@@ -24,7 +29,7 @@ public enum KoyomiStyle {
     var colors: Koyomi.Colors {
         switch self {
             
-        // Basic color
+        // Basic color style
         case monotone: return .init(dayBackgrond: .whiteColor(), weekBackgrond: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray))
         case standard: return .init(dayBackgrond: .whiteColor(), weekBackgrond: .whiteColor(), holiday: (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red))
         case red:      return .init(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.red, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.red)
@@ -36,7 +41,7 @@ public enum KoyomiStyle {
         case green:    return .init(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.green, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.green)
         case pink:     return .init(dayBackgrond: .whiteColor(), weekBackgrond: UIColor.KoyomiColor.pink, week: .whiteColor(), holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.pink)
             
-        // Deep color
+        // Deep color style
         case deepBlack:    return .init(dayBackgrond: UIColor.KoyomiColor.black, weekBackgrond: UIColor.KoyomiColor.black, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.darkBlack)
         case deepRed:      return .init(dayBackgrond: UIColor.KoyomiColor.red, weekBackgrond: UIColor.KoyomiColor.red, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.orange)
         case deepOrange:   return .init(dayBackgrond: UIColor.KoyomiColor.orange, weekBackgrond: UIColor.KoyomiColor.orange, week: .whiteColor(), weekday: .whiteColor(), holiday: (.whiteColor(), .whiteColor()), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.yellow)
@@ -353,6 +358,12 @@ extension Koyomi: UICollectionViewDelegate {
         calendarDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
         
         if case .none = selectionMode { return }
+        
+        let period = model.selectedPeriod(with: indexPath)
+        if case .sequence(_) = selectionMode where calendarDelegate?.koyomi?(self, willSelectPeriod: period, forItemAt: indexPath) == false {
+            return
+        }
+        
         model.select(with: indexPath)
         reloadData()
     }

@@ -19,7 +19,6 @@ final class KoyomiCell: UICollectionViewCell {
         case standard, circle, sequence(position: SequencePosition)
         
         enum SequencePosition { case left, middle, right }
-        
     }
     
     var content = "" {
@@ -48,7 +47,6 @@ final class KoyomiCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         setup()
     }
     

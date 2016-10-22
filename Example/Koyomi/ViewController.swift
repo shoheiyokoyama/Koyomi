@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     }
     @IBOutlet private weak var currentDateLabel: UILabel!
     
+    private let invalidPeriod = 90
+    
     @IBOutlet private weak var segmentedControl: UISegmentedControl! {
         didSet {
             segmentedControl.setTitle("Previous", forSegmentAtIndex: 0)
@@ -160,6 +162,14 @@ extension ViewController: KoyomiDelegate {
     
     func koyomi(koyomi: Koyomi, currentDateString dateString: String) {
         currentDateLabel.text = dateString
+    }
+    
+    func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool {
+        if period > invalidPeriod {
+            print("More than \(invalidPeriod) days are invalid period.")
+            return false
+        }
+        return true
     }
 }
 

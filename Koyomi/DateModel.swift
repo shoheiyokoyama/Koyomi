@@ -14,12 +14,12 @@ final class DateModel: NSObject {
     
     // Type methods
     static let dayCountPerRow = 7
-    static let maxCellCount = 42
+    static let maxCellCount   = 42
     
     var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     
     enum SelectionMode { case single, multiple, sequence, none }
-    var selectionMode: SelectionMode = .none
+    var selectionMode: SelectionMode = .single
     
     struct SequenceDates { var start: NSDate?, end: NSDate? }
     lazy var sequenceDates: SequenceDates = .init(start: nil, end: nil)
@@ -117,7 +117,7 @@ final class DateModel: NSObject {
             // user has selected sequence date
             } else if let _ = sequenceDates.start, let _ = sequenceDates.end {
                 sequenceDates.start = selectedDate
-                sequenceDates.end = nil
+                sequenceDates.end   = nil
                 selectedDates.forEach { selectedDates[$0.0] = selectedDate == $0.0 ? true : false }
                 
             // user select selected date
@@ -156,6 +156,19 @@ final class DateModel: NSObject {
                 sequenceDates.end   = isSelectedBeforeDay ? start : selectedDate
             }
         default: break
+        }
+    }
+    
+    // use selectionMode is sequence only.
+    func selectedPeriod(with indexPath: NSIndexPath) -> Int {
+        let selectedDate = date(at: indexPath)
+        
+        if let start = sequenceDates.start where sequenceDates.end == nil && start != selectedDate {
+            return abs(start.daysSince(selectedDate)) + 1
+        } else if let start = sequenceDates.start where sequenceDates.end == nil && start == selectedDate {
+            return 0
+        } else {
+            return 1
         }
     }
     
