@@ -1,8 +1,8 @@
 {
   "name": "Koyomi",
-  "version": "0.1.0",
-  "summary": "Koyomi is a simple Calender View framework for iOS, written in Swift.",
-  "description": "Koyomi is a simple Calender View framework for iOS, written in Swift. Easily usable, Customizable in any properties for Appearance. Koyomi is designed to be easy to use",
+  "version": "0.1.3",
+  "summary": "Simple customizable calendar component in Swift",
+  "description": "Koyomi is a simple Calender View framework for iOS, written in Swift.\n* Easily usable,\n* Customizable in any properties for appearance.\n* Support @IBDesignable and @IBInspectable\n* Support Swift 2.3\n\nKoyomi is designed to be easy to use!!",
   "homepage": "https://github.com/shoheiyokoyama/Koyomi",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/shoheiyokoyama/Koyomi.git",
-    "tag": "0.1.0"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "8.0"

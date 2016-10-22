@@ -32,8 +32,12 @@ public enum KoyomiStyle {
     }
 }
 
-public enum SelectionMode { case single, multiple, none }
-public enum SelectionStyle { case background, circle }
+public enum SelectionMode {
+    case single(style: Style), multiple(style: Style), sequence(style: SequenceStyle), none
+    
+    public enum SequenceStyle { case background, circle, semicircleEdge }
+    public enum Style { case background, circle }
+}
 
 @IBDesignable
 final public class Koyomi: UICollectionView {
@@ -74,18 +78,18 @@ final public class Koyomi: UICollectionView {
         }
     }
     
-    public var selectionMode: SelectionMode = .none {
+    public var selectionMode: SelectionMode = .single(style: .circle) {
         didSet {
             model.selectionMode = {
                 switch selectionMode {
-                case .single:   return .single
-                case .multiple: return .multiple
-                case .none:     return .none
+                case .single(_):   return .single
+                case .multiple(_): return .multiple
+                case .sequence(_): return .sequence
+                case .none:        return .none
                 }
             }()
         }
     }
-    public var selectionStyle: SelectionStyle = .background
     
     // Layout properties
     @IBInspectable var sectionSpace: CGFloat = 1.5 {
@@ -108,7 +112,7 @@ final public class Koyomi: UICollectionView {
             }
         }
     }
-    public var inset: UIEdgeInsets = UIEdgeInsetsZero {
+    public var inset = UIEdgeInsetsZero {
         didSet {
             if let layout = collectionViewLayout as? KoyomiLayout where layout.inset != inset {
                 setCollectionViewLayout(self.layout, animated: false)
@@ -254,7 +258,7 @@ private extension Koyomi {
         if indexPath.section == 0 {
             
             // Configure appearance properties for week cell
-            style = .background
+            style = .standard
             textColor = weekColor
             isSelected  = false
             backgroundColor = weekBackgrondColor
@@ -279,16 +283,32 @@ private extension Koyomi {
             }()
             
             style = {
-                switch (selectionStyle, isSelected) {
-                case (_, false), (.background, true):
-                    return .background
-                case (.circle, true):
+                switch (selectionMode, isSelected) {
+                //Not selected or background style of single, multiple, sequence mode
+                case (_, false), (.single(style: .background), true), (.multiple(style: .background), true), (.sequence(style: .background), true):
+                    return .standard
+                    
+                //Selected and circle style of single, multiple, sequence mode
+                case (.single(style: .circle), true), (.multiple(style: .circle), true), (.sequence(style: .circle), true):
                     return .circle
+                    
+                //Selected and sequence mode, semicircleEdge style
+                case (.sequence(style: .semicircleEdge), true):
+                    let date = model.date(at: indexPath)
+                    if let start = model.sequenceDates.start, let _ = model.sequenceDates.end where date == start {
+                        return .sequence(position: .left)
+                    } else if let _ = model.sequenceDates.start, let end = model.sequenceDates.end where date == end {
+                        return .sequence(position: .right)
+                    } else {
+                        return .sequence(position: .middle)
+                    }
+                    
+                default: return .standard
                 }
             }()
             
             backgroundColor = dayBackgrondColor
-            font = dayLabelFont
+            font    = dayLabelFont
             content = model.dayString(at: indexPath)
         }
         
@@ -307,10 +327,10 @@ private extension Koyomi {
 extension Koyomi: UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         calendarDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
-        if selectionMode != .none {
-            model.select(with: indexPath)
-            reloadData()
-        }
+        
+        if case .none = selectionMode { return }
+        model.select(with: indexPath)
+        reloadData()
     }
 }
 

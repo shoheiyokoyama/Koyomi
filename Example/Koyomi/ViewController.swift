@@ -17,8 +17,7 @@ class ViewController: UIViewController {
             koyomi.inset = UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
             koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             koyomi.style = .standard
-            koyomi.selectionMode  = .multiple
-            koyomi.selectionStyle = .background
+            koyomi.selectionMode  = .sequence(style: .circle)
             koyomi.selectedBackgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
             koyomi
                 .setDayFont(size: 14)
@@ -100,7 +99,6 @@ class ViewController: UIViewController {
     }
 }
 
-
 // MARK: - Tap Action
 
 extension ViewController {
@@ -117,43 +115,38 @@ extension ViewController {
     
     // change koyomi style
     @IBAction func tappedMonotone(sender: AnyObject) {
-        koyomi.style = .monotone
-        koyomi.reloadData()
+        configureStyle(.monotone)
     }
     @IBAction func tappedStandard(sender: AnyObject) {
-        koyomi.style = .standard
-        koyomi.reloadData()
+        configureStyle(.standard)
     }
     @IBAction func tappedRedButton(sender: AnyObject) {
-        koyomi.style = .red
-        koyomi.reloadData()
+        configureStyle(.red)
     }
     @IBAction func tappedOrange(sender: AnyObject) {
-        koyomi.style = .orange
-        koyomi.reloadData()
+        configureStyle(.orange)
     }
     @IBAction func tappedYellow(sender: AnyObject) {
-        koyomi.style = .yellow
-        koyomi.reloadData()
+        configureStyle(.yellow)
     }
     @IBAction func tappedTealBlue(sender: AnyObject) {
-        koyomi.style = .tealBlue
-        koyomi.reloadData()
+        configureStyle(.tealBlue)
     }
     @IBAction func tappedBlue(sender: AnyObject) {
-        koyomi.style = .blue
-        koyomi.reloadData()
+        configureStyle(.blue)
     }
     @IBAction func purpleButton(sender: AnyObject) {
-        koyomi.style = .purple
-        koyomi.reloadData()
+        configureStyle(.purple)
     }
     @IBAction func tappedGreen(sender: AnyObject) {
-        koyomi.style = .green
-        koyomi.reloadData()
+        configureStyle(.green)
     }
     @IBAction func tappedPink(sender: AnyObject) {
-        koyomi.style = .pink
+        configureStyle(.pink)
+    }
+    
+    func configureStyle(style: KoyomiStyle) {
+        koyomi.style = style
         koyomi.reloadData()
     }
 }

@@ -1,5 +1,5 @@
 PODS:
-  - Koyomi (0.1.0)
+  - Koyomi (0.1.3)
 
 DEPENDENCIES:
   - Koyomi (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Koyomi: e293a42ab20f5bb05748d4715af6d6ed8bdf74b9
+  Koyomi: 8851cbb1003076e2708e5c9afe412e018c0537e2
 
 PODFILE CHECKSUM: f2a2802b0c9487233d06d4f3264c36c10d9b9115
 

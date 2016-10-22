@@ -8,19 +8,28 @@
 
 import UIKit
 
+// http://nsblogger.hatenablog.com/entry/2016/05/02/swift_nsdate_compare
+
 public enum MonthType { case previous, current, next }
 
 final class DateModel: NSObject {
+    
+    // type methods
+    static let dayCountPerRow = 7
+    static let maxCellCount = 42
+    
+    var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+    
+    enum SelectionMode { case single, multiple, sequence, none }
+    var selectionMode: SelectionMode = .none
+    
+    struct SequenceDates { var start: NSDate?, end: NSDate? }
+    lazy var sequenceDates: SequenceDates = .init(start: nil, end: nil)
+    
+    // Private methods
     private var currentDates: [NSDate] = []
     private var selectedDates: [NSDate: Bool] = [:]
     private var currentDate: NSDate = .init()
-    
-    static let dayCountPerRow = 7
-    var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
-    static let maxCellCount = 42
-    
-    enum SelectionMode { case single, multiple, none }
-    var selectionMode: SelectionMode = .none
     
     override init() {
         super.init()
@@ -86,17 +95,70 @@ final class DateModel: NSObject {
     func select(with indexPath: NSIndexPath) {
         let selectedDate = date(at: indexPath)
         
-        if case .single = selectionMode {
-            selectedDates.forEach { [weak self] date, isSelect in
+        switch selectionMode {
+        case .single:
+            selectedDates.forEach { [weak self] date, isSelected in
                 guard let me = self else { return }
                 if selectedDate == date {
                     me.selectedDates[date] = me.selectedDates[date] == true ? false : true
-                } else if isSelect {
+                } else if isSelected {
                     me.selectedDates[date] = false
                 }
             }
-        } else if case .multiple = selectionMode {
+            
+        case .multiple:
             selectedDates[date(at: indexPath)] = selectedDates[date(at: indexPath)] == true ? false : true
+            
+        case .sequence:
+            
+            // user has selected nothing
+            if sequenceDates.start == nil && sequenceDates.end == nil {
+                sequenceDates.start = selectedDate
+                selectedDates[selectedDate] = true
+                
+            // user has selected sequence date
+            } else if let _ = sequenceDates.start, let _ = sequenceDates.end {
+                sequenceDates.start = selectedDate
+                sequenceDates.end = nil
+                selectedDates.forEach { selectedDates[$0.0] = selectedDate == $0.0 ? true : false }
+                
+            // user select selected date
+            } else if let start = sequenceDates.start where sequenceDates.end == nil && start == selectedDate {
+                sequenceDates.start = nil
+                selectedDates[selectedDate] = false
+                
+            // user has selected a date
+            } else if let start = sequenceDates.start where sequenceDates.end == nil && start != selectedDate {
+                
+                // selectedDate < start
+                let isSelectedBeforeDay = selectedDate.compare(start) == .OrderedAscending
+                
+                let comparisonResult: NSComparisonResult
+                let componentDay: Int
+                
+                if isSelectedBeforeDay {
+                    comparisonResult = .OrderedAscending
+                    componentDay = -1
+                } else {
+                    comparisonResult = .OrderedDescending
+                    componentDay = 1
+                }
+                
+                var date = start
+                let components = NSDateComponents()
+                while selectedDate.compare(date) == comparisonResult {
+                    components.day = componentDay
+                    guard let nextDay = calendar.dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0)) else {
+                        break
+                    }
+                    selectedDates[nextDay] = true
+                    date = nextDay
+                }
+                
+                sequenceDates.start = isSelectedBeforeDay ? selectedDate : start
+                sequenceDates.end   = isSelectedBeforeDay ? start : selectedDate
+            }
+        default: break
         }
     }
     

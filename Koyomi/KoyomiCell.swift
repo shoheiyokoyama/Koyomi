@@ -12,12 +12,20 @@ final class KoyomiCell: UICollectionViewCell {
     private let contentLabel: UILabel = .init()
     private let circularView: UIView  = .init()
     
-    enum CellStyle { case background, circle }
+    private let leftSemicircleView: UIView  = .init()
+    private let rightSemicircleView: UIView = .init()
+    
+    enum CellStyle {
+        case standard, circle, sequence(position: SequencePosition)
+        
+        enum SequencePosition { case left, middle, right }
+        
+    }
     
     var content = "" {
         didSet {
             contentLabel.text = content
-            adjustContentFrame()
+            adjustSubViewsFrame()
         }
     }
     var textColor: UIColor = .blackColor() {
@@ -40,23 +48,75 @@ final class KoyomiCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         setup()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        adjustSubViewsFrame()
     }
     
     func setContentFont(fontName name: String, size: CGFloat) {
         contentLabel.font = UIFont(name: name, size: size)
-        adjustContentFrame()
+        adjustSubViewsFrame()
     }
     
     func configureAppearanse(of style: CellStyle, withColor color: UIColor, backgroundColor: UIColor, isSelected: Bool) {
         switch style {
-        case .background:
+        case .standard:
             self.backgroundColor = isSelected ? color : backgroundColor
-            circularView.hidden = true
+            circularView.hidden  = true
+            
+            rightSemicircleView.hidden = true
+            leftSemicircleView.hidden  = true
+            
+        // isSelected is always true
         case .circle:
             circularView.backgroundColor = color
             self.backgroundColor = backgroundColor
-            circularView.hidden = false
+            circularView.hidden  = false
+            
+            rightSemicircleView.hidden = true
+            leftSemicircleView.hidden  = true
+            
+        // isSelected is always true
+        case .sequence(let position):
+            
+            circularView.hidden = true
+            
+            if case .left = position {
+                rightSemicircleView.hidden = false
+                leftSemicircleView.hidden  = false
+                self.backgroundColor = backgroundColor
+                
+                leftSemicircleView.backgroundColor  = color
+                rightSemicircleView.backgroundColor = color
+                
+                // for bug: unnecessary line
+                leftSemicircleView.frame.size.width = bounds.width / 2 + 1
+                
+                setMaskLayer(leftSemicircleView, with: .left)
+                setMaskLayer(rightSemicircleView, with: .none)
+            } else if case .middle = position {
+                rightSemicircleView.hidden = true
+                leftSemicircleView.hidden  = true
+                self.backgroundColor = color
+                
+                leftSemicircleView.frame.size.width = bounds.width / 2
+                
+            } else if case .right = position {
+                rightSemicircleView.hidden = false
+                leftSemicircleView.hidden  = false
+                self.backgroundColor = backgroundColor
+                
+                leftSemicircleView.backgroundColor  = color
+                rightSemicircleView.backgroundColor = color
+                
+                setMaskLayer(leftSemicircleView, with: .none)
+                setMaskLayer(rightSemicircleView, with: .right)
+            }
+            break
         }
     }
 }
@@ -65,17 +125,50 @@ final class KoyomiCell: UICollectionViewCell {
 
 private extension KoyomiCell {
     func setup() {
-        let diameter = frame.width * 0.75
-        circularView.frame = CGRect(x: (frame.width - diameter) / 2, y: (frame.width - diameter) / 2, width: diameter, height: diameter)
+        let diameter = bounds.width * 0.75
+        circularView.frame = CGRect(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
         circularView.layer.cornerRadius = diameter / 2
         circularView.hidden = true
         addSubview(circularView)
         
+        leftSemicircleView.frame = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+        leftSemicircleView.hidden = true
+        addSubview(leftSemicircleView)
+        
+        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
+        rightSemicircleView.hidden = true
+        addSubview(rightSemicircleView)
+        
         addSubview(contentLabel)
     }
     
-    func adjustContentFrame() {
+    private enum RectCornerType { case left, right, none }
+    func setMaskLayer(semicircleView: UIView, with style: RectCornerType) {
+        let corner: UIRectCorner = {
+            switch style {
+            case .left:  return [.TopLeft, .BottomLeft]
+            case .none:  return []
+            case .right: return [.TopRight, .BottomRight]
+            }
+        }()
+        
+        let path: UIBezierPath = .init(roundedRect: semicircleView.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: semicircleView.bounds.width / 2, height: semicircleView.bounds.height / 2))
+        
+        let maskLayer: CAShapeLayer = .init()
+        maskLayer.frame = semicircleView.bounds
+        maskLayer.path  = path.CGPath
+        semicircleView.layer.mask = corner.isEmpty ? nil : maskLayer
+    }
+    
+    func adjustSubViewsFrame() {
         contentLabel.sizeToFit()
         contentLabel.frame.origin = CGPoint(x: (frame.width - contentLabel.frame.width) / 2, y: (frame.height - contentLabel.frame.height) / 2)
+        
+        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
+        leftSemicircleView.frame  = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+
+        let diameter = bounds.width * 0.75
+        circularView.frame = CGRect(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
+        circularView.layer.cornerRadius = diameter / 2
     }
 }
