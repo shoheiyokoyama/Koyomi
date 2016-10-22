@@ -154,13 +154,15 @@ If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
     koyomi.calendarDelegate = self
 ```
 
-Return the date user selected, when tapped cell
+### Declaration
 
 ```swift
     optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)    
 ```
 
-Return the current month string, when changed month.
+Tells the delegate that the date at the specified index path was selected.
+`date`: the date user selected, when tapped cell
+
 
 ```swift
     optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
@@ -168,6 +170,24 @@ Return the current month string, when changed month.
     // if you want to change string format, use `currentDateFormat`
     koyomi.currentDateFormat = "M/yyyy"
 ```
+Tells the delegate that the displayed month is changed.
+`currentDateString`: the current month string, when changed month.
+
+
+```swift
+    optional func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool
+    
+    //　control period user selected.
+    func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool {
+        if period > 90 {
+            print("More than 90 days are invalid period.")
+            return false
+        }
+        return true
+    }
+```
+`koyomi` calls this method before select days as period only when `selectionMode` is `sequence`.
+return value: true if the item should be selected or false if it should not.
 
 ## :wrench: Customize ***Koyomi***
 
