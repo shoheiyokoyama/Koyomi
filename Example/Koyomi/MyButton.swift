@@ -9,17 +9,17 @@
 import UIKit
 
 class MyButton: UIButton {
-    var color: UIColor = .blueColor() {
+    var color: UIColor = .blue {
         didSet {
-            layer.borderColor = color.CGColor
-            setTitleColor(color, forState: .Normal)
+            layer.borderColor = color.cgColor
+            setTitleColor(color, for: UIControlState())
         }
     }
-    var deepColor: UIColor = .whiteColor() {
+    var deepColor: UIColor = .white {
         didSet {
-            layer.borderColor = deepColor.CGColor
+            layer.borderColor = deepColor.cgColor
             backgroundColor = deepColor
-            setTitleColor(.whiteColor(), forState: .Normal)
+            setTitleColor(.white, for: UIControlState())
         }
     }
     
@@ -29,8 +29,8 @@ class MyButton: UIButton {
     }
     
     func configure() {
-        backgroundColor = .clearColor()
-        layer.borderColor  = color.CGColor
+        backgroundColor = .clear
+        layer.borderColor  = color.cgColor
         layer.borderWidth  = 0.5
         layer.cornerRadius = 14
         contentEdgeInsets  = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)

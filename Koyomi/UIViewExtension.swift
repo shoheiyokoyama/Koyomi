@@ -15,9 +15,9 @@ extension UIView {
     func mask(with style: RectCornerType) {
         let corner: UIRectCorner = {
             switch style {
-            case .left:  return [.TopLeft, .BottomLeft]
+            case .left:  return [.topLeft, .bottomLeft]
             case .none:  return []
-            case .right: return [.TopRight, .BottomRight]
+            case .right: return [.topRight, .bottomRight]
             }
         }()
         
@@ -25,7 +25,7 @@ extension UIView {
         
         let maskLayer: CAShapeLayer = .init()
         maskLayer.frame = bounds
-        maskLayer.path  = path.CGPath
+        maskLayer.path  = path.cgPath
         layer.mask = corner.isEmpty ? nil : maskLayer
     }
 }

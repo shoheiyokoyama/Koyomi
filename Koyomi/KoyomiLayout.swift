@@ -9,10 +9,14 @@
 import UIKit
 
 final class KoyomiLayout: UICollectionViewLayout {
+    
+    // Internal properties
     let inset: UIEdgeInsets
     let cellSpace: CGFloat
     let sectionSpace: CGFloat
-    private var layoutAttributes: [NSIndexPath: UICollectionViewLayoutAttributes] = [:]
+    
+    // Fileprivate properties
+    fileprivate var layoutAttributes: [IndexPath: UICollectionViewLayoutAttributes] = [:]
     
     let weekCellHeight: CGFloat
     
@@ -34,28 +38,28 @@ final class KoyomiLayout: UICollectionViewLayout {
 // MARK: - Override Methods -
 
 extension KoyomiLayout {
-    override func prepareLayout() {
-        let sectionCount = collectionView?.numberOfSections() ?? 0
+    override func prepare() {
+        let sectionCount = collectionView?.numberOfSections ?? 0
         (0..<sectionCount).forEach { section in
-            let itemCount = collectionView?.numberOfItemsInSection(section) ?? 0
+            let itemCount = collectionView?.numberOfItems(inSection: section) ?? 0
             (0..<itemCount).forEach { row in
-                let indexPath: NSIndexPath = .init(forRow: row, inSection: section)
-                let attribute: UICollectionViewLayoutAttributes = .init(forCellWithIndexPath: indexPath)
+                let indexPath: IndexPath = .init(row: row, section: section)
+                let attribute: UICollectionViewLayoutAttributes = .init(forCellWith: indexPath)
                 attribute.frame = frame(at: indexPath)
                 layoutAttributes[indexPath] = attribute
             }
         }
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return layoutAttributes.filter{ rect.contains($0.1.frame) }.map{ $0.1 }
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return layoutAttributes[indexPath]
     }
     
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize: CGSize {
         return collectionView?.frame.size ?? .zero
     }
 }
@@ -74,7 +78,7 @@ private extension KoyomiLayout {
     var width: CGFloat { return (collectionView?.frame.width ?? 0) }
     var height: CGFloat { return (collectionView?.frame.height ?? 0) }
     
-    func frame(at indexPath: NSIndexPath) -> CGRect {
+    func frame(at indexPath: IndexPath) -> CGRect {
         let isWeekCell = indexPath.section == 0
         
         let availableWidth: CGFloat  = width - (cellSpace * CGFloat(Constant.columnCount - 1) + inset.right + inset.left)

@@ -8,8 +8,11 @@
 
 import UIKit
 
-extension Dictionary where Key: NSDate, Value: BooleanType {
+protocol DateConvertible {}
+extension Date: DateConvertible {}
+
+extension Dictionary where Key: DateConvertible {
     func keys(of element: Bool) -> [Key] {
-        return filter{ $0.1.boolValue == element }.map{ $0.0 }
+        return filter{ $0.1 as? Bool == element }.map { $0.0 }
     }
 }
