@@ -12,77 +12,91 @@ public enum MonthType { case previous, current, next }
 
 final class DateModel: NSObject {
     
-    // Type methods
+    // Type properties
     static let dayCountPerRow = 7
     static let maxCellCount   = 42
     
+    // Week text
     var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     
     enum SelectionMode { case single, multiple, sequence, none }
     var selectionMode: SelectionMode = .single
     
-    struct SequenceDates { var start: NSDate?, end: NSDate? }
+    struct SequenceDates { var start: Date?, end: Date? }
     lazy var sequenceDates: SequenceDates = .init(start: nil, end: nil)
     
-    // Private methods
-    private var currentDates: [NSDate] = []
-    private var selectedDates: [NSDate: Bool] = [:]
-    private var currentDate: NSDate = .init()
+    // Fileprivate properties
+    fileprivate var currentDates: [Date] = []
+    fileprivate var selectedDates: [Date: Bool] = [:]
+    fileprivate var currentDate: Date = .init()
+    
+    // MARK: - Initialization
     
     override init() {
         super.init()
         setup()
     }
     
+    // MARK: - Internal Methods -
+    
     func cellCount(in month: MonthType) -> Int {
-        let weeksRange = calendar.rangeOfUnit(.WeekOfMonth, inUnit: .Month, forDate: atBeginning(of: month))
-        return weeksRange.length * DateModel.dayCountPerRow
+        if let weeksRange = calendar.range(of: .weekOfMonth, in: .month, for: atBeginning(of: month)) {
+            let count = weeksRange.upperBound - weeksRange.lowerBound
+            return count * DateModel.dayCountPerRow
+        }
+        return 0
     }
     
-    func indexAtBeginning(in month: MonthType) -> Int {
-        return calendar.ordinalityOfUnit(.Day, inUnit: .WeekOfMonth, forDate: atBeginning(of: month)) - 1
+    func indexAtBeginning(in month: MonthType) -> Int? {
+        if let index = calendar.ordinality(of: .day, in: .weekOfMonth, for: atBeginning(of: month)) {
+            return index - 1
+        }
+        return nil
     }
     
-    func indexAtEnd(in month: MonthType) -> Int {
-        let rangeDays = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: atBeginning(of: month))
-        return rangeDays.length + indexAtBeginning(in: month) - 1
+    func indexAtEnd(in month: MonthType) -> Int? {
+        if let rangeDays = calendar.range(of: .day, in: .month, for: atBeginning(of: month)), let beginning = indexAtBeginning(in: month) {
+            let count = rangeDays.upperBound - rangeDays.lowerBound
+            return count + beginning - 1
+        }
+        return nil
     }
     
-    func dayString(at indexPath: NSIndexPath) -> String {
-        let formatter = NSDateFormatter()
+    func dayString(at indexPath: IndexPath) -> String {
+        let formatter = DateFormatter()
         formatter.dateFormat = "d"
-        return formatter.stringFromDate(currentDates[indexPath.row])
+        return formatter.string(from: currentDates[indexPath.row])
     }
     
     func display(in month: MonthType) {
         currentDates = []
-        currentDate = month == .current ? NSDate() : date(of: month)
+        currentDate = month == .current ? Date() : date(of: month)
         setup()
     }
     
     func dateString(in month: MonthType, withFormat format: String) -> String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = format
-        return formatter.stringFromDate(date(of: month))
+        return formatter.string(from: date(of: month))
     }
     
-    func date(at indexPath: NSIndexPath) -> NSDate {
+    func date(at indexPath: IndexPath) -> Date {
         return currentDates[indexPath.row]
     }
     
-    func select(from fromDate: NSDate, to toDate: NSDate?) {
+    func select(from fromDate: Date, to toDate: Date?) {
         if let toDate = toDate?.formated() {
             set(true, withFrom: fromDate, to: toDate)
-        } else {
-            selectedDates[fromDate.formated()] = true
+        } else if let fromDate = fromDate.formated() {
+            selectedDates[fromDate] = true
         }
     }
     
-    func unselect(from fromDate: NSDate, to toDate: NSDate?) {
+    func unselect(from fromDate: Date, to toDate: Date?) {
         if let toDate = toDate?.formated() {
             set(false, withFrom: fromDate, to: toDate)
-        } else {
-            selectedDates[fromDate.formated()] = false
+        } else if let fromDate = fromDate.formated() {
+            selectedDates[fromDate] = false
         }
     }
     
@@ -90,7 +104,7 @@ final class DateModel: NSObject {
         selectedDates.keys(of: true).forEach { selectedDates[$0] = false }
     }
     
-    func select(with indexPath: NSIndexPath) {
+    func select(with indexPath: IndexPath) {
         let selectedDate = date(at: indexPath)
         
         switch selectionMode {
@@ -121,31 +135,32 @@ final class DateModel: NSObject {
                 selectedDates.forEach { selectedDates[$0.0] = selectedDate == $0.0 ? true : false }
                 
             // user select selected date
-            } else if let start = sequenceDates.start where sequenceDates.end == nil && start == selectedDate {
+            } else if let start = sequenceDates.start , sequenceDates.end == nil && start == selectedDate {
                 sequenceDates.start = nil
                 selectedDates[selectedDate] = false
                 
             // user has selected a date
-            } else if let start = sequenceDates.start where sequenceDates.end == nil && start != selectedDate {
+            } else if let start = sequenceDates.start , sequenceDates.end == nil && start != selectedDate {
                 
                 let isSelectedBeforeDay = selectedDate < start
                 
-                let comparisonResult: NSComparisonResult
+                let comparisonResult: ComparisonResult
                 let componentDay: Int
                 
                 if isSelectedBeforeDay {
-                    comparisonResult = .OrderedAscending
+                    comparisonResult = .orderedAscending
                     componentDay = -1
                 } else {
-                    comparisonResult = .OrderedDescending
+                    comparisonResult = .orderedDescending
                     componentDay = 1
                 }
                 
                 var date = start
-                let components = NSDateComponents()
+                var components = DateComponents()
                 while selectedDate.compare(date) == comparisonResult {
                     components.day = componentDay
-                    guard let nextDay = calendar.dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0)) else {
+                    
+                    guard let nextDay = calendar.date(byAdding: components, to: date) else {
                         break
                     }
                     selectedDates[nextDay] = true
@@ -160,19 +175,19 @@ final class DateModel: NSObject {
     }
     
     // use selectionMode is sequence only.
-    func selectedPeriod(with indexPath: NSIndexPath) -> Int {
+    func selectedPeriod(with indexPath: IndexPath) -> Int {
         let selectedDate = date(at: indexPath)
         
-        if let start = sequenceDates.start where sequenceDates.end == nil && start != selectedDate {
-            return abs(start.daysSince(selectedDate)) + 1
-        } else if let start = sequenceDates.start where sequenceDates.end == nil && start == selectedDate {
+        if let start = sequenceDates.start, let period = start.daysSince(selectedDate), sequenceDates.end == nil && start != selectedDate {
+            return abs(period) + 1
+        } else if let start = sequenceDates.start , sequenceDates.end == nil && start == selectedDate {
             return 0
         } else {
             return 1
         }
     }
     
-    func isSelect(with indexPath: NSIndexPath) -> Bool {
+    func isSelect(with indexPath: IndexPath) -> Bool {
         let date = currentDates[indexPath.row]
         return selectedDates[date] ?? false
     }
@@ -181,24 +196,28 @@ final class DateModel: NSObject {
 // MARK: - Private Methods -
 
 private extension DateModel {
-    var calendar: NSCalendar { return NSCalendar.currentCalendar() }
+    var calendar: Calendar { return Calendar.current }
     
     func setup() {
         let selectedDateKeys = selectedDates.keys(of: true)
         selectedDates = [:]
+        
+        guard let indexAtBeginning = indexAtBeginning(in: .current) else { return }
 
-        currentDates = (0..<DateModel.maxCellCount).map { index in
-            let components = NSDateComponents()
-            components.day = index - indexAtBeginning(in: .current)
-            let date = calendar.dateByAddingComponents(components, toDate: atBeginning(of: .current), options: NSCalendarOptions(rawValue: 0)) ?? NSDate()
-            selectedDates[date] = false
-            return date
-        }
+        var components = DateComponents()
+        currentDates = CountableRange(0..<DateModel.maxCellCount).map { index in
+                components.day = index - indexAtBeginning
+                return calendar.date(byAdding: components, to: atBeginning(of: .current))
+            }.flatMap { $0 }
+            .map { (date: Date) in
+                selectedDates[date] = false
+                return date
+            }
         
         selectedDateKeys.forEach { selectedDates[$0] = true }
     }
     
-    func set(isSelected: Bool, withFrom fromDate: NSDate, to toDate: NSDate) {
+    func set(_ isSelected: Bool, withFrom fromDate: Date, to toDate: Date) {
         currentDates.forEach { date in
             if fromDate <= date && toDate >= date {
                 selectedDates[date] = isSelected
@@ -206,14 +225,14 @@ private extension DateModel {
         }
     }
     
-    func atBeginning(of month: MonthType) -> NSDate {
-        let components = calendar.components([.Year, .Month, .Day], fromDate: date(of: month))
+    func atBeginning(of month: MonthType) -> Date {
+        var components = calendar.dateComponents([.year, .month, .day], from: date(of: month))
         components.day = 1
-        return calendar.dateFromComponents(components) ?? .init()
+        return calendar.date(from: components) ?? .init()
     }
     
-    func date(of month: MonthType) -> NSDate {
-        let components = NSDateComponents()
+    func date(of month: MonthType) -> Date {
+        var components = DateComponents()
         components.month = {
             switch month {
             case .previous: return -1
@@ -221,6 +240,6 @@ private extension DateModel {
             case .next:     return 1
             }
         }()
-        return calendar.dateByAddingComponents(components, toDate: currentDate, options: NSCalendarOptions(rawValue: 0)) ?? .init()
+        return calendar.date(byAdding: components, to: currentDate) ?? .init()
     }
 }

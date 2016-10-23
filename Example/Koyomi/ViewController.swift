@@ -11,28 +11,28 @@ import Koyomi
 
 class ViewController: UIViewController {
 
-    @IBOutlet private weak var koyomi: Koyomi! {
+    @IBOutlet fileprivate weak var koyomi: Koyomi! {
         didSet {
             koyomi.calendarDelegate = self
             koyomi.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             koyomi.style = .standard
-            koyomi.selectionMode  = .sequence(style: .semicircleEdge)
+            koyomi.selectionMode = .sequence(style: .semicircleEdge)
             koyomi.selectedBackgroundColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
             koyomi
                 .setDayFont(size: 14)
                 .setWeekFont(size: 10)
         }
     }
-    @IBOutlet private weak var currentDateLabel: UILabel!
+    @IBOutlet fileprivate weak var currentDateLabel: UILabel!
     
-    private let invalidPeriod = 90
+    fileprivate let invalidPeriod = 90
     
-    @IBOutlet private weak var segmentedControl: UISegmentedControl! {
+    @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl! {
         didSet {
-            segmentedControl.setTitle("Previous", forSegmentAtIndex: 0)
-            segmentedControl.setTitle("Current", forSegmentAtIndex: 1)
-            segmentedControl.setTitle("Next", forSegmentAtIndex: 2)
+            segmentedControl.setTitle("Previous", forSegmentAt: 0)
+            segmentedControl.setTitle("Current", forSegmentAt: 1)
+            segmentedControl.setTitle("Next", forSegmentAt: 2)
         }
     }
     
@@ -139,17 +139,17 @@ class ViewController: UIViewController {
     
     // MARK: - Utility -
 
-    private func date(date: NSDate, later: Int) -> NSDate {
-        let components = NSDateComponents()
+    fileprivate func date(_ date: Date, later: Int) -> Date {
+        var components = DateComponents()
         components.day = later
-        return NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0)) ?? date
+        return (Calendar.current as NSCalendar).date(byAdding: components, to: date, options: NSCalendar.Options(rawValue: 0)) ?? date
     }
 }
 
 // MARK: - Tap Action
 
 extension ViewController {
-    @IBAction func tappedControl(sender: UISegmentedControl) {
+    @IBAction func tappedControl(_ sender: UISegmentedControl) {
         let month: MonthType = {
             switch sender.selectedSegmentIndex {
             case 0:  return .previous
@@ -161,65 +161,65 @@ extension ViewController {
     }
     
     // change koyomi style
-    @IBAction func tappedMonotone(sender: AnyObject) {
+    @IBAction func tappedMonotone(_ sender: AnyObject) {
         configureStyle(.monotone)
     }
-    @IBAction func tappedStandard(sender: AnyObject) {
+    @IBAction func tappedStandard(_ sender: AnyObject) {
         configureStyle(.standard)
     }
-    @IBAction func tappedRedButton(sender: AnyObject) {
+    @IBAction func tappedRedButton(_ sender: AnyObject) {
         configureStyle(.red)
     }
-    @IBAction func tappedOrange(sender: AnyObject) {
+    @IBAction func tappedOrange(_ sender: AnyObject) {
         configureStyle(.orange)
     }
-    @IBAction func tappedYellow(sender: AnyObject) {
+    @IBAction func tappedYellow(_ sender: AnyObject) {
         configureStyle(.yellow)
     }
-    @IBAction func tappedTealBlue(sender: AnyObject) {
+    @IBAction func tappedTealBlue(_ sender: AnyObject) {
         configureStyle(.tealBlue)
     }
-    @IBAction func tappedBlue(sender: AnyObject) {
+    @IBAction func tappedBlue(_ sender: AnyObject) {
         configureStyle(.blue)
     }
-    @IBAction func purpleButton(sender: AnyObject) {
+    @IBAction func purpleButton(_ sender: AnyObject) {
         configureStyle(.purple)
     }
-    @IBAction func tappedGreen(sender: AnyObject) {
+    @IBAction func tappedGreen(_ sender: AnyObject) {
         configureStyle(.green)
     }
-    @IBAction func tappedPink(sender: AnyObject) {
+    @IBAction func tappedPink(_ sender: AnyObject) {
         configureStyle(.pink)
     }
-    @IBAction func tappedDeepBlack(sender: AnyObject) {
+    @IBAction func tappedDeepBlack(_ sender: AnyObject) {
         configureStyle(.deepBlack)
     }
-    @IBAction func tappedDeepRed(sender: AnyObject) {
+    @IBAction func tappedDeepRed(_ sender: AnyObject) {
         configureStyle(.deepRed)
     }
-    @IBAction func tappedDeepOrange(sender: AnyObject) {
+    @IBAction func tappedDeepOrange(_ sender: AnyObject) {
         configureStyle(.deepOrange)
     }
-    @IBAction func tappedDeepYellow(sender: AnyObject) {
+    @IBAction func tappedDeepYellow(_ sender: AnyObject) {
         configureStyle(.deepYellow)
     }
-    @IBAction func tappedDeepTealBlueButton(sender: AnyObject) {
+    @IBAction func tappedDeepTealBlueButton(_ sender: AnyObject) {
         configureStyle(.deepTealBlue)
     }
-    @IBAction func tappedDeepBlue(sender: AnyObject) {
+    @IBAction func tappedDeepBlue(_ sender: AnyObject) {
         configureStyle(.deepBlue)
     }
-    @IBAction func tappedDeepPurple(sender: AnyObject) {
+    @IBAction func tappedDeepPurple(_ sender: AnyObject) {
         configureStyle(.deepPurple)
     }
-    @IBAction func tappedDeepGreen(sender: AnyObject) {
+    @IBAction func tappedDeepGreen(_ sender: AnyObject) {
         configureStyle(.deepGreen)
     }
-    @IBAction func tappedDeepPink(sender: AnyObject) {
+    @IBAction func tappedDeepPink(_ sender: AnyObject) {
         configureStyle(.deepPink)
     }
     
-    func configureStyle(style: KoyomiStyle) {
+    func configureStyle(_ style: KoyomiStyle) {
         koyomi.style = style
         koyomi.reloadData()
     }
@@ -228,15 +228,15 @@ extension ViewController {
 // MARK: - KoyomiDelegate -
 
 extension ViewController: KoyomiDelegate {
-    func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath) {
+    func koyomi(_ koyomi: Koyomi, didSelect date: Date, forItemAt indexPath: IndexPath) {
         print(date)
     }
     
-    func koyomi(koyomi: Koyomi, currentDateString dateString: String) {
+    func koyomi(_ koyomi: Koyomi, currentDateString dateString: String) {
         currentDateLabel.text = dateString
     }
     
-    func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool {
+    func koyomi(_ koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: IndexPath) -> Bool {
         if period > invalidPeriod {
             print("More than \(invalidPeriod) days are invalid period.")
             return false
