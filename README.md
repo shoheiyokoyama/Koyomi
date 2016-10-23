@@ -37,7 +37,7 @@ Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demon
 
 ```swift
     let frame = CGRect(x: 10, y : 20, width: 250, height: 300)
-    let koyomi = Koyomi(frame: frame, sectionSpace: 1.5, cellSpace: 0.5, inset: UIEdgeInsetsZero, weekCellHeight: 25)
+    let koyomi = Koyomi(frame: frame, sectionSpace: 1.5, cellSpace: 0.5, inset: .zero, weekCellHeight: 25)
     view.addSubview(koyomi)
 ```
 
@@ -133,7 +133,7 @@ You can also unselect available.
 
 ```swift
     koyomi.unselect(Date(), to: weekLaterDay) 
-    // // If want to unselect only one day.
+    // If want to unselect only one day.
     koyomi.unselect(Date())
     
     // unselect all date
@@ -143,7 +143,7 @@ You can also unselect available.
 You can configure day color in selected state.
 
 ```swift
-    // Support @IBInspectable
+    // Support @IBInspectable properties
     @IBInspectable public var selectedBackgroundColor: UIColor
     @IBInspectable public var selectedTextColor: UIColor
 ```
