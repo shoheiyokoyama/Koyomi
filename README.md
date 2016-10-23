@@ -2,12 +2,13 @@
 
 ![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )
+[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
+)](http://mit-license.org)
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 [![Language](http://img.shields.io/badge/language-swift 2.3-orange.svg?style=flat
 )](https://developer.apple.com/swift)
 [![Language](http://img.shields.io/badge/language-swift 3.0-orange.svg?style=flat
 )](https://developer.apple.com/swift)
-[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
-)](http://mit-license.org)
 
 **Koyomi** is a simple calendar view framework for iOS, written in Swift :calendar:
 
