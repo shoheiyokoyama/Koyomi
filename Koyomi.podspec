@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Koyomi'
-  s.version          = '0.1.5'
+  s.version          = '1.0.0'
   s.summary          = 'Simple customizable calendar component in Swift'
   s.description      = <<-DESC
 
@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
                         * Customizable in any properties for appearance.
                         * Support @IBDesignable and @IBInspectable
                         * Support Swift 2.3
+                        * Support Swift 3.0
 
                         Koyomi is designed to be easy to use!!
 
