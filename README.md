@@ -4,6 +4,8 @@
 )
 [![Language](http://img.shields.io/badge/language-swift 2.3-orange.svg?style=flat
 )](https://developer.apple.com/swift)
+[![Language](http://img.shields.io/badge/language-swift 3.0-orange.svg?style=flat
+)](https://developer.apple.com/swift)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
@@ -21,8 +23,9 @@
 - Customizable in any properties for appearance
 - Selectable calender
 - [x] Support `@IBDesignable` and `@IBInspectable`
-- [x] Support Swift 2.3
-- [ ] Support Swift 3.0
+- [x] Support ***Swift 2.3***. please use the release ***version 0.1.5 or earlier***.
+- [x] Support ***Swift 3.0***
+
 
 ## Demo App
 
@@ -116,19 +119,22 @@ You can configure ***SelectionMode*** with style.
 You can select specific date .
  
 ```swift
-    let today = NSDate()
-    let components = NSDateComponents()
+    let today = Date()
+    let components = DateComponents()
     components.day = 7
-    let weekLaterDay = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: today, options: NSCalendarOptions(rawValue: 0))
-    koyomi.select(date: NSDate(), to: weekLaterDay)
+    let weekLaterDay = Calendar.current.date(byAdding: components, toDate: today)
+    koyomi.select(date: today, to: weekLaterDay)
     
-    // If want to select only one day, call koyomi.select(date: today)
+    // If want to select only one day. 
+    call koyomi.select(date: today)
 ```
 
 You can also unselect available.
 
 ```swift
-    koyomi.unselect(NSDate(), to: weekLaterDay) // or koyomi.unselect(NSDate())
+    koyomi.unselect(Date(), to: weekLaterDay) 
+    // // If want to unselect only one day.
+    koyomi.unselect(Date())
     
     // unselect all date
     koyomi.unselectAll()
@@ -153,7 +159,7 @@ If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
 ### Declaration
 
 ```swift
-    optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)    
+    optional func koyomi(_ koyomi: Koyomi, didSelect date: Date, forItemAt indexPath: IndexPath) 
 ```
 
 Tells the delegate that the date at the specified index path was selected.
@@ -161,7 +167,7 @@ Tells the delegate that the date at the specified index path was selected.
 
 
 ```swift
-    optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
+   optional func koyomi(_ koyomi: Koyomi, currentDateString dateString: String)
     
     // if you want to change string format, use `currentDateFormat`
     koyomi.currentDateFormat = "M/yyyy"
@@ -171,10 +177,10 @@ Tells the delegate that the displayed month is changed.
 
 
 ```swift
-    optional func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool
+    optional func koyomi(_ koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: IndexPath) -> Bool
     
     //　control period user selected.
-    func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool {
+    func koyomi(_ koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: IndexPath) -> Bool {
         if period > 90 {
             print("More than 90 days are invalid period.")
             return false
@@ -187,14 +193,14 @@ return value: true if the item should be selected or false if it should not.
 
 ## :wrench: Customize ***Koyomi***
 
-### Customize layout
+### Customize layout properties
 
 ```swift
-    // Support @IBInspectable
+    // Support @IBInspectable properties
     @IBInspectable var sectionSpace: CGFloa
     @IBInspectable var cellSpace: CGFloat
     @IBInspectable var weekCellHeight: CGFloat
-    // Public method
+    // Public property
     public var inset: UIEdgeInsets
 ```
 
@@ -217,8 +223,8 @@ Set `sectionSpace`, `cellSpace`, `weekCellHeight` in initialization or Interface
         .setDayFont(size: 12) 
         .setWeekFont(size: 8)
         
-    // if want to change font name, use: 
-    // setDayFont(fontName: ".SFUIText-Medium", size: 12)
+    // if want to change font name, 
+    setDayFont(fontName: ".SFUIText-Medium", size: 12)
  ```
  
 ### Customize weeks text
@@ -227,10 +233,10 @@ Set `sectionSpace`, `cellSpace`, `weekCellHeight` in initialization or Interface
     koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 ```
 
-## Customize color
+## Customize color properties
 
 ```swift
-    // Support @IBInspectable
+    // Support @IBInspectable properties
     @IBInspectable public var sectionSeparatorColor: UIColor
     @IBInspectable public var separatorColor: UIColor
     @IBInspectable public var weekColor: UIColor
@@ -272,6 +278,7 @@ used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-inte
 
 - iOS 8.0+
 - Xcode 8.0+
+- Swift 3.0+
 
 ## :computer: Installation
 Koyomi is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
