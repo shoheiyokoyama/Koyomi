@@ -286,8 +286,8 @@ private extension Koyomi {
             
             // Configure appearance properties for week cell
             style = .standard
-            textColor = weekColor
-            isSelected  = false
+            textColor  = weekColor
+            isSelected = false
             backgroundColor = weekBackgrondColor
             font = weekLabelFont
             content = model.weeks[indexPath.row]
