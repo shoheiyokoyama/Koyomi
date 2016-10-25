@@ -27,7 +27,7 @@
 - [x] Support ***Swift 2.3***.
 - [x] Support ***Swift 3.0***
 
-### install ***Swift 2.3***
+### Installation of ***Swift 2.3***
 
 Please install `swift2.3` branch.
 
