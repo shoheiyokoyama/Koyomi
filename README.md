@@ -24,8 +24,16 @@
 - Customizable in any properties for appearance
 - Selectable calender
 - [x] Support `@IBDesignable` and `@IBInspectable`
-- [x] Support ***Swift 2.3***. please use the release ***version 0.1.5 or earlier***.
+- [x] Support ***Swift 2.3***.
 - [x] Support ***Swift 3.0***
+
+### install ***Swift 2.3***
+
+Please install `swift2.3` branch.
+
+```
+pod 'Koyomi', :git => 'https://github.com/shoheiyokoyama/Koyomi', :branch => 'swift2.3'
+```
 
 
 ## Demo App
