@@ -1,5 +1,7 @@
 # Koyomi
 
+<p align="center"><strong>Koyomi</strong> is a simple calendar view framework for iOS, written in Swift :calendar:</p>
+
 ![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -10,8 +12,6 @@
 )](https://developer.apple.com/swift)
 [![Language](http://img.shields.io/badge/language-swift 3.0-orange.svg?style=flat
 )](https://developer.apple.com/swift)
-
-**Koyomi** is a simple calendar view framework for iOS, written in Swift :calendar:
 
 
 <p align="center">
