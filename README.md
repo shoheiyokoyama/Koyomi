@@ -2,6 +2,7 @@
 
 ![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
@@ -24,6 +25,7 @@
 - Customizable in any properties for appearance
 - Selectable calender
 - [x] Support `@IBDesignable` and `@IBInspectable`
+- [x] Compatible with ***Carthage***
 - [x] Support ***Swift 2.3***.
 - [x] Support ***Swift 3.0***
 
@@ -290,10 +292,22 @@ used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-inte
 - Swift 3.0+
 
 ## :computer: Installation
-Koyomi is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+### CocoaPods
+
+Koyomi is available through [CocoaPods](http://cocoapods.org). 
+To install it, simply add the following line to your `Podfile`:
 
 ```ruby
 pod "Koyomi"
+```
+
+*** Carthage
+
+Add the following line to your `Cartfile`:
+
+```ruby
+github "shoheiyokoyama/Koyomi"
 ```
 
 ## :coffee: Author
