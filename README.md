@@ -6,6 +6,7 @@
 <img src="./DemoSource/sample-demo.gif" width="400">
 </p>
 
+## :octocat: Features
 
 ![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )
@@ -17,8 +18,6 @@
 )](https://developer.apple.com/swift)
 [![Language](http://img.shields.io/badge/language-swift 3.0-orange.svg?style=flat
 )](https://developer.apple.com/swift)
-
-## :octocat: Features
 
 - Simple Calendar View :calendar:
 - Easily usable :sunglasses:
