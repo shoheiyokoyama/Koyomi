@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Koyomi'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'Simple customizable calendar component in Swift'
   s.description      = <<-DESC
 
