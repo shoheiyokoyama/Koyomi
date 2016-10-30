@@ -224,6 +224,27 @@ return value: true if the item should be selected or false if it should not.
 
 Set `sectionSpace`, `cellSpace`, `weekCellHeight` in initialization or Interface Builder.
 
+### Customize text postion
+
+```swift
+    public enum ContentPosition {
+        case topLeft, topCenter, topRight
+        case left, center, right
+        case bottomLeft, bottomCenter, bottomRight
+        case custom(x: CGFloat, y: CGFloat)
+    }
+```
+
+You can configure text postion.
+
+```swift
+    // default is .center
+    koyomi.dayPosition = .topRight
+    koyomi.weekPosition = .center
+    
+    // custom case
+    koyomi.dayPosition = .custom(x: 1.2, y: 2.3)
+```
 
 ### Customize text font
 
@@ -243,7 +264,7 @@ Set `sectionSpace`, `cellSpace`, `weekCellHeight` in initialization or Interface
     koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 ```
 
-## Customize color properties
+### Customize color properties
 
 ```swift
     // Support @IBInspectable properties
