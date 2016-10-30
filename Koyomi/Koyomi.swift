@@ -66,6 +66,15 @@ public enum SelectionMode {
     public enum Style { case background, circle }
 }
 
+// MARK: - ContentPosition -
+
+public enum ContentPosition {
+    case topLeft, topCenter, topRight
+    case left, center, right
+    case bottomLeft, bottomCenter, bottomRight
+    case custom(x: CGFloat, y: CGFloat)
+}
+
 // MARK: - Koyomi -
 
 @IBDesignable
@@ -148,6 +157,8 @@ final public class Koyomi: UICollectionView {
             }
         }
     }
+    public var dayPosition: ContentPosition  = .center
+    public var weekPosition: ContentPosition = .center
     
     // Week cell text
     public var weeks: [String] = [] {
@@ -288,6 +299,7 @@ private extension Koyomi {
         let backgroundColor: UIColor
         let font: UIFont?
         let content: String
+        let postion: ContentPosition
         
         if indexPath.section == 0 {
             
@@ -298,6 +310,7 @@ private extension Koyomi {
             backgroundColor = weekBackgrondColor
             font = weekLabelFont
             content = model.weeks[indexPath.row]
+            postion = weekPosition
             
         } else {
 
@@ -346,11 +359,13 @@ private extension Koyomi {
             backgroundColor = dayBackgrondColor
             font    = dayLabelFont
             content = model.dayString(at: indexPath)
+            postion = dayPosition
         }
         
         // Set cell to appearance properties
         cell.content   = content
         cell.textColor = textColor
+        cell.contentPosition = postion
         cell.configureAppearanse(of: style, withColor: selectedBackgroundColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)

@@ -40,6 +40,7 @@ final class KoyomiCell: UICollectionViewCell {
             backgroundColor = dayBackgroundColor
         }
     }
+    var contentPosition: ContentPosition = .center
     
     // MARK: - Initializer -
     
@@ -126,6 +127,31 @@ final class KoyomiCell: UICollectionViewCell {
 // MARK: - Private Methods
 
 private extension KoyomiCell {
+    var postion: CGPoint {
+        let dayWidth  = contentLabel.frame.width
+        let dayHeight = contentLabel.frame.height
+        let width  = frame.width
+        let height = frame.height
+        let padding: CGFloat = 2
+        
+        switch contentPosition {
+        // Top
+        case .topLeft:   return .init(x: padding, y: padding)
+        case .topCenter: return .init(x: (width - dayWidth) / 2, y: padding)
+        case .topRight:  return .init(x: width - dayWidth - padding, y: padding)
+        // Center
+        case .left:   return .init(x: padding, y: (height - dayHeight) / 2)
+        case .center: return .init(x: (width - dayWidth) / 2, y: (height - dayHeight) / 2)
+        case .right:  return .init(x: width - dayWidth - padding, y: (height - dayHeight) / 2)
+        // Bottom
+        case .bottomLeft:   return .init(x: padding, y: height - dayHeight - padding)
+        case .bottomCenter: return .init(x: (width - dayWidth) / 2, y: height - dayHeight - padding)
+        case .bottomRight:  return .init(x: width - dayWidth - padding, y: height - dayHeight - padding)
+        // Custom
+        case .custom(let x, let y): return .init(x: x, y: y)
+        }
+    }
+    
     func setup() {
         let diameter = bounds.width * 0.75
         circularView.frame = CGRect(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
@@ -146,7 +172,7 @@ private extension KoyomiCell {
     
     func adjustSubViewsFrame() {
         contentLabel.sizeToFit()
-        contentLabel.frame.origin = CGPoint(x: (frame.width - contentLabel.frame.width) / 2, y: (frame.height - contentLabel.frame.height) / 2)
+        contentLabel.frame.origin = postion
         
         rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
         leftSemicircleView.frame  = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
