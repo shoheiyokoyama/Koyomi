@@ -201,10 +201,10 @@ Tells the delegate that the displayed month is changed.
 
 
 ```swift
-    optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, WithPeriodLength lenght: Int) -> Bool
+    optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength lenght: Int) -> Bool
     
     //　control date user selected.
-    func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, WithPeriodLength lenght: Int) -> Bool {
+    func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength lenght: Int) -> Bool {
     
         if invalidStartDate <= date && invalidEndDate >= date {
             print("Your select day is invalid.")
