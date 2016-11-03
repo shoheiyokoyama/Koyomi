@@ -154,8 +154,21 @@ You can configure day color in selected state.
 
 ```swift
     // Support @IBInspectable properties
-    @IBInspectable public var selectedBackgroundColor: UIColor
-    @IBInspectable public var selectedTextColor: UIColor
+    @IBInspectable public var selectedDayBackgroundColor: UIColor
+    @IBInspectable public var selectedDayColor: UIColor
+```
+
+### highlight specific days
+
+You can change `dayColor` and `dayBackgroundColor` in specific days.
+
+```swift
+    koyomi
+        .setDayColor(.white, of: today, to: weekLaterDay)
+        .setDayBackgrondColor(.black, of: today, to: weekLaterDay)
+        
+        // set day color only one day.
+        // .setDayColor(.white, of: today)
 ```
 
 ## KoyomiDelegate
@@ -283,8 +296,8 @@ You can configure text postion.
     @IBInspectable public var otherMonthColor: UIColor
     @IBInspectable public var dayBackgrondColor: UIColor
     @IBInspectable public var weekBackgrondColor: UIColor
-    @IBInspectable public var selectedBackgroundColor: UIColor
-    @IBInspectable public var selectedTextColor: UIColor
+    @IBInspectable public var selectedDayBackgroundColor: UIColor
+    @IBInspectable public var selectedDayColor: UIColor
 ```
 
 You can configure the lots of color properties for appearance :weary:
