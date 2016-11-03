@@ -161,7 +161,7 @@ extension ViewController {
         koyomi.display(in: month)
     }
     
-    // change koyomi style
+    // Change koyomi style
     @IBAction func tappedMonotone(_ sender: AnyObject) {
         configureStyle(.monotone)
     }
@@ -220,6 +220,7 @@ extension ViewController {
         configureStyle(.deepPink)
     }
     
+    // Utility
     func configureStyle(_ style: KoyomiStyle) {
         koyomi.style = style
         koyomi.reloadData()
@@ -229,7 +230,7 @@ extension ViewController {
 // MARK: - KoyomiDelegate -
 
 extension ViewController: KoyomiDelegate {
-    func koyomi(_ koyomi: Koyomi, didSelect date: Date, forItemAt indexPath: IndexPath) {
+    func koyomi(_ koyomi: Koyomi, didSelect date: Date?, forItemAt indexPath: IndexPath) {
         print(date)
     }
     
@@ -237,8 +238,11 @@ extension ViewController: KoyomiDelegate {
         currentDateLabel.text = dateString
     }
     
-    func koyomi(_ koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: IndexPath) -> Bool {
-        if period > invalidPeriod {
+    func koyomi(_ koyomi: Koyomi, shouldSelectPeriod from: Date?, to: Date?, WithLength lenght: Int) -> Bool {
+        print(from)
+        print(to)
+        print(lenght)
+        if lenght > invalidPeriod {
             print("More than \(invalidPeriod) days are invalid period.")
             return false
         }

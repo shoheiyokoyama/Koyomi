@@ -84,6 +84,12 @@ final class DateModel: NSObject {
         return currentDates[indexPath.row]
     }
     
+    func willSelectDate(at indexPath: IndexPath) -> Date? {
+        let date = currentDates[indexPath.row]
+        return selectedDates[date] == true ? nil : date
+    }
+    
+    // Select date in programmatically
     func select(from fromDate: Date, to toDate: Date?) {
         if let toDate = toDate?.formated() {
             set(true, withFrom: fromDate, to: toDate)
@@ -92,6 +98,7 @@ final class DateModel: NSObject {
         }
     }
     
+    // Unselect date in programmatically
     func unselect(from fromDate: Date, to toDate: Date?) {
         if let toDate = toDate?.formated() {
             set(false, withFrom: fromDate, to: toDate)
@@ -174,7 +181,7 @@ final class DateModel: NSObject {
         }
     }
     
-    // use selectionMode is sequence only.
+    // Use only when selectionMode is sequence
     func selectedPeriod(with indexPath: IndexPath) -> Int {
         let selectedDate = date(at: indexPath)
         
@@ -184,6 +191,23 @@ final class DateModel: NSObject {
             return 0
         } else {
             return 1
+        }
+    }
+    
+    // Use only when selectionMode is sequence
+    func willSelectDates(with indexPath: IndexPath) -> (from: Date?, to: Date?) {
+        let willSelectedDate = date(at: indexPath)
+        
+        if sequenceDates.start == nil && sequenceDates.end == nil {
+            return (willSelectedDate, nil)
+        } else if let _ = sequenceDates.start, let _ = sequenceDates.end {
+            return (willSelectedDate, nil)
+        } else if let start = sequenceDates.start , sequenceDates.end == nil && start == willSelectedDate {
+            return (nil, nil)
+        } else if let start = sequenceDates.start , sequenceDates.end == nil && start != willSelectedDate {
+            return willSelectedDate < start ? (willSelectedDate, sequenceDates.start) : (sequenceDates.start, willSelectedDate)
+        } else {
+            return (nil, nil)
         }
     }
     
