@@ -30,10 +30,10 @@
 
 ### Installation of ***Swift 2.3***
 
-Please install `swift2.3` branch.
+Please install version `0.1.6` or earlier.
 
 ```
-pod 'Koyomi', :git => 'https://github.com/shoheiyokoyama/Koyomi', :branch => 'swift2.3'
+pod 'Koyomi', '~> 0.1.6'
 ```
 
 
