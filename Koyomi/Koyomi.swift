@@ -190,6 +190,9 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var selectedBackgroundColor = UIColor.KoyomiColor.red
     @IBInspectable public var selectedTextColor: UIColor = .white
     
+    @IBInspectable public var inactiveBackgroundColor: UIColor = .white
+    @IBInspectable public var inactiveTextColor: UIColor = .lightGray
+    
     // KoyomiDelegate
     public weak var calendarDelegate: KoyomiDelegate?
 
@@ -224,7 +227,14 @@ final public class Koyomi: UICollectionView {
     }
     
     // MARK: - Public Methods -
+    public func setFirstSelectable(date: Date) {
+        model.firstSelectableDate = date
+    }
     
+    public func setLastSelectableDate(date: Date) {
+        model.lastSelectableDate = date
+    }
+
     public func display(in month: MonthType) {
         model.display(in: month)
         reloadData()
@@ -316,7 +326,9 @@ private extension Koyomi {
 
             // Configure appearance properties for day cell
             (textColor, isSelected) = {
-                if model.isSelect(with: indexPath) {
+                if !model.isSelectable(with: indexPath) {
+                    return (inactiveTextColor, false)
+                } else if model.isSelect(with: indexPath) {
                     return (selectedTextColor, true)
                 } else if let beginning = model.indexAtBeginning(in: .current), indexPath.row < beginning {
                     return (otherMonthColor, false)
@@ -356,7 +368,7 @@ private extension Koyomi {
                 }
             }()
             
-            backgroundColor = dayBackgrondColor
+            backgroundColor = model.isSelectable(with: indexPath) ? dayBackgrondColor : inactiveBackgroundColor
             font    = dayLabelFont
             content = model.dayString(at: indexPath)
             postion = dayPosition

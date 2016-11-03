@@ -25,6 +25,10 @@ final class DateModel: NSObject {
     struct SequenceDates { var start: Date?, end: Date? }
     lazy var sequenceDates: SequenceDates = .init(start: nil, end: nil)
     
+    // Selectable range
+    var firstSelectableDate: Date = Date()
+    var lastSelectableDate : Date = Date().addingTimeInterval(60*60*24*60)
+    
     // Fileprivate properties
     fileprivate var currentDates: [Date] = []
     fileprivate var selectedDates: [Date: Bool] = [:]
@@ -91,7 +95,13 @@ final class DateModel: NSObject {
     
     // Select date in programmatically
     func select(from fromDate: Date, to toDate: Date?) {
+        guard isSelectable(date: fromDate) else {
+            return
+        }
         if let toDate = toDate?.formated() {
+            guard isSelectable(date: toDate) else {
+                return
+            }
             set(true, withFrom: fromDate, to: toDate)
         } else if let fromDate = fromDate.formated() {
             selectedDates[fromDate] = true
@@ -215,6 +225,11 @@ final class DateModel: NSObject {
         let date = currentDates[indexPath.row]
         return selectedDates[date] ?? false
     }
+    
+    func isSelectable(with indexPath: IndexPath) -> Bool {
+        let date = currentDates[indexPath.row]
+        return isSelectable(date: date)
+    }
 }
 
 // MARK: - Private Methods -
@@ -265,5 +280,13 @@ private extension DateModel {
             }
         }()
         return calendar.date(byAdding: components, to: currentDate) ?? .init()
+    }
+    
+    func isSelectable(date: Date) -> Bool {
+        if date >= firstSelectableDate && date <= lastSelectableDate {
+            return true
+        } else {
+            return false
+        }
     }
 }
