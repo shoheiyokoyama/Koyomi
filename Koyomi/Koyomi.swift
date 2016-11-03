@@ -137,7 +137,7 @@ final public class Koyomi: UICollectionView {
     }
     @IBInspectable var cellSpace: CGFloat = 0.5 {
         didSet {
-            if let layout = collectionViewLayout as? KoyomiLayout , layout.cellSpace != cellSpace {
+            if let layout = collectionViewLayout as? KoyomiLayout, layout.cellSpace != cellSpace {
                 setCollectionViewLayout(self.layout, animated: false)
             }
         }
@@ -145,14 +145,14 @@ final public class Koyomi: UICollectionView {
     @IBInspectable var weekCellHeight: CGFloat = 25 {
         didSet {
             sectionSeparator.frame.origin.y = inset.top + weekCellHeight
-            if let layout = collectionViewLayout as? KoyomiLayout , layout.weekCellHeight != weekCellHeight {
+            if let layout = collectionViewLayout as? KoyomiLayout, layout.weekCellHeight != weekCellHeight {
                 setCollectionViewLayout(self.layout, animated: false)
             }
         }
     }
     public var inset: UIEdgeInsets = .zero {
         didSet {
-            if let layout = collectionViewLayout as? KoyomiLayout , layout.inset != inset {
+            if let layout = collectionViewLayout as? KoyomiLayout, layout.inset != inset {
                 setCollectionViewLayout(self.layout, animated: false)
             }
         }

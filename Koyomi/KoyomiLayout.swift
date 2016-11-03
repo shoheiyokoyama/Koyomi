@@ -83,7 +83,7 @@ private extension KoyomiLayout {
         
         let availableWidth: CGFloat  = width - (cellSpace * CGFloat(Constant.columnCount - 1) + inset.right + inset.left)
         let availableHeight: CGFloat = height - (cellSpace * CGFloat(Constant.maxLineSpaceCount) + inset.bottom + inset.top + sectionSpace + weekCellHeight)
-        let size = CGSize(width: availableWidth / Constant.columnCount, height: isWeekCell ? weekCellHeight : availableHeight / CGFloat(Constant.maxRowCount))
+        let size: CGSize = .init(width: availableWidth / Constant.columnCount, height: isWeekCell ? weekCellHeight : availableHeight / CGFloat(Constant.maxRowCount))
         
         let row    = floor(CGFloat(indexPath.row) / Constant.columnCount)
         let column = CGFloat(indexPath.row) - row * Constant.columnCount
@@ -92,6 +92,6 @@ private extension KoyomiLayout {
         let y = isWeekCell ? inset.top : row * (size.height + lineSpace) + weekCellHeight + sectionSpace + inset.top
         let x = (size.width + cellSpace) * column + inset.left
         
-        return .init(origin: CGPoint(x: x, y: y), size: size)
+        return .init(origin: .init(x: x, y: y), size: size)
     }
 }

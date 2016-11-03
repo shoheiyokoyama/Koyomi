@@ -64,7 +64,7 @@ final class DateModel: NSObject {
     }
     
     func dayString(at indexPath: IndexPath) -> String {
-        let formatter = DateFormatter()
+        let formatter: DateFormatter = .init()
         formatter.dateFormat = "d"
         return formatter.string(from: currentDates[indexPath.row])
     }
@@ -76,7 +76,7 @@ final class DateModel: NSObject {
     }
     
     func dateString(in month: MonthType, withFormat format: String) -> String {
-        let formatter = DateFormatter()
+        let formatter: DateFormatter = .init()
         formatter.dateFormat = format
         return formatter.string(from: date(of: month))
     }
@@ -152,20 +152,20 @@ final class DateModel: NSObject {
                 
                 let isSelectedBeforeDay = selectedDate < start
                 
-                let comparisonResult: ComparisonResult
+                let result: ComparisonResult
                 let componentDay: Int
                 
                 if isSelectedBeforeDay {
-                    comparisonResult = .orderedAscending
+                    result = .orderedAscending
                     componentDay = -1
                 } else {
-                    comparisonResult = .orderedDescending
+                    result = .orderedDescending
                     componentDay = 1
                 }
                 
                 var date = start
-                var components = DateComponents()
-                while selectedDate.compare(date) == comparisonResult {
+                var components: DateComponents = .init()
+                while selectedDate.compare(date) == result {
                     components.day = componentDay
                     
                     guard let nextDay = calendar.date(byAdding: components, to: date) else {
