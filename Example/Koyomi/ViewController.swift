@@ -23,6 +23,8 @@ class ViewController: UIViewController {
             koyomi
                 .setDayFont(size: 14)
                 .setWeekFont(size: 10)
+            koyomi.setFirstSelectable(date: Date())
+            koyomi.setLastSelectableDate(date: Date().addingTimeInterval(60*60*24*60))
         }
     }
     @IBOutlet fileprivate weak var currentDateLabel: UILabel!
