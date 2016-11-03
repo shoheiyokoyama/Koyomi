@@ -28,6 +28,7 @@ final class DateModel: NSObject {
     // Fileprivate properties
     fileprivate var currentDates: [Date] = []
     fileprivate var selectedDates: [Date: Bool] = [:]
+    fileprivate var highlightedDates: [Date] = []
     fileprivate var currentDate: Date = .init()
     
     // MARK: - Initialization
@@ -182,7 +183,7 @@ final class DateModel: NSObject {
     }
     
     // Use only when selectionMode is sequence
-    func selectedPeriod(with indexPath: IndexPath) -> Int {
+    func selectedPeriodLength(with indexPath: IndexPath) -> Int {
         let selectedDate = date(at: indexPath)
         
         if let start = sequenceDates.start, let period = start.daysSince(selectedDate), sequenceDates.end == nil && start != selectedDate {
@@ -214,6 +215,50 @@ final class DateModel: NSObject {
     func isSelect(with indexPath: IndexPath) -> Bool {
         let date = currentDates[indexPath.row]
         return selectedDates[date] ?? false
+    }
+    
+    func isHighlighted(with indexPath: IndexPath) -> Bool {
+        let date = currentDates[indexPath.row]
+        return highlightedDates.contains(date)
+    }
+    
+    func setHighlightedDates(from: Date, to: Date?) {
+        guard let fromDate = from.formated() else { return }
+        
+        if !highlightedDates.contains(fromDate) {
+            highlightedDates.append(fromDate)
+        }
+        
+        if let toDate = to?.formated() {
+            let isSelectedBeforeDay = toDate < from
+            
+            let result: ComparisonResult
+            let componentDay: Int
+            
+            if isSelectedBeforeDay {
+                result       = .orderedAscending
+                componentDay = -1
+            } else {
+                result = .orderedDescending
+                componentDay = 1
+            }
+            
+            var date = fromDate
+            var components: DateComponents = .init()
+            
+            while toDate.compare(date) == result {
+                components.day = componentDay
+                
+                guard let nextDay = calendar.date(byAdding: components, to: date) else {
+                    break
+                }
+                
+                if !highlightedDates.contains(nextDay) {
+                    highlightedDates.append(nextDay)
+                }
+                date = nextDay
+            }
+        }
     }
 }
 

@@ -19,7 +19,7 @@ import UIKit
 
     // The koyomi calls this method before select days
     // return value: true if the item should be selected or false if it should not.
-    @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, WithPeriodLength lenght: Int) -> Bool
+    @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength lenght: Int) -> Bool
 }
 
 // MARK: - KoyomiStyle -
@@ -187,13 +187,16 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var weekBackgrondColor: UIColor = .white
     public var holidayColor: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red)
     
-    @IBInspectable public var selectedBackgroundColor = UIColor.KoyomiColor.red
-    @IBInspectable public var selectedTextColor: UIColor = .white
+    @IBInspectable public var selectedDayBackgroundColor = UIColor.KoyomiColor.red
+    @IBInspectable public var selectedDayColor: UIColor = .white
     
     // KoyomiDelegate
     public weak var calendarDelegate: KoyomiDelegate?
 
     // Fileprivate properties
+    fileprivate var highlightedDayColor = UIColor.KoyomiColor.black
+    fileprivate var highlightedDayBackgrondColor: UIColor = .white
+    
     fileprivate static let cellIdentifier = "KoyomiCell"
     
     fileprivate lazy var model: DateModel    = .init()
@@ -265,6 +268,20 @@ final public class Koyomi: UICollectionView {
         return self
     }
     
+    @discardableResult
+    public func setDayColor(_ dayColor: UIColor, of date: Date, to Date: Date? = nil) -> Self {
+        model.setHighlightedDates(from: date, to: Date)
+        highlightedDayColor = dayColor
+        return self
+    }
+    
+    @discardableResult
+    public func setDayBackgrondColor(_ backgroundColor: UIColor, of date: Date, to Date: Date? = nil) -> Self {
+        model.setHighlightedDates(from: date, to: Date)
+        highlightedDayBackgrondColor = backgroundColor
+        return self
+    }
+    
     // MARK: - Override Method -
     
     override public func reloadData() {
@@ -277,8 +294,8 @@ final public class Koyomi: UICollectionView {
 
 private extension Koyomi {
     func configure() {
-        delegate      = self
-        dataSource    = self
+        delegate   = self
+        dataSource = self
         isScrollEnabled = false
         
         backgroundColor = separatorColor
@@ -317,7 +334,9 @@ private extension Koyomi {
             // Configure appearance properties for day cell
             (textColor, isSelected) = {
                 if model.isSelect(with: indexPath) {
-                    return (selectedTextColor, true)
+                    return (selectedDayColor, true)
+                } else if model.isHighlighted(with: indexPath) {
+                    return (highlightedDayColor, false)
                 } else if let beginning = model.indexAtBeginning(in: .current), indexPath.row < beginning {
                     return (otherMonthColor, false)
                 } else if let end = model.indexAtEnd(in: .current), indexPath.row > end {
@@ -356,7 +375,7 @@ private extension Koyomi {
                 }
             }()
             
-            backgroundColor = dayBackgrondColor
+            backgroundColor = model.isHighlighted(with: indexPath) ? highlightedDayBackgrondColor : dayBackgrondColor
             font    = dayLabelFont
             content = model.dayString(at: indexPath)
             postion = dayPosition
@@ -366,7 +385,7 @@ private extension Koyomi {
         cell.content   = content
         cell.textColor = textColor
         cell.contentPosition = postion
-        cell.configureAppearanse(of: style, withColor: selectedBackgroundColor, backgroundColor: backgroundColor, isSelected: isSelected)
+        cell.configureAppearanse(of: style, withColor: selectedDayBackgroundColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
         }
@@ -394,12 +413,12 @@ extension Koyomi: UICollectionViewDelegate {
             let willSelectDates = model.willSelectDates(with: indexPath)
             date   = willSelectDates.from
             toDate = willSelectDates.to
-            length = model.selectedPeriod(with: indexPath)
+            length = model.selectedPeriodLength(with: indexPath)
             
         case .none: return
         }
         
-        if calendarDelegate?.koyomi?(self, shouldSelectDates: date, to: toDate, WithPeriodLength: length) == false {
+        if calendarDelegate?.koyomi?(self, shouldSelectDates: date, to: toDate, withPeriodLength: length) == false {
             return
         }
         

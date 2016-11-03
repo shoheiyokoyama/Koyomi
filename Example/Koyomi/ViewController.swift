@@ -19,7 +19,7 @@ class ViewController: UIViewController {
             koyomi.style = .standard
             koyomi.dayPosition = .topRight
             koyomi.selectionMode = .sequence(style: .semicircleEdge)
-            koyomi.selectedBackgroundColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
+            koyomi.selectedDayBackgroundColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
             koyomi
                 .setDayFont(size: 14)
                 .setWeekFont(size: 10)
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     @IBOutlet fileprivate weak var currentDateLabel: UILabel!
     
-    fileprivate let invalidPeriod = 90
+    fileprivate let invalidPeriodLength = 90
     
     @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl! {
         didSet {
@@ -231,19 +231,17 @@ extension ViewController {
 
 extension ViewController: KoyomiDelegate {
     func koyomi(_ koyomi: Koyomi, didSelect date: Date?, forItemAt indexPath: IndexPath) {
-        print(date)
+        print("You Selected: \(date)")
     }
     
     func koyomi(_ koyomi: Koyomi, currentDateString dateString: String) {
         currentDateLabel.text = dateString
     }
     
-    func koyomi(_ koyomi: Koyomi, shouldSelectPeriod from: Date?, to: Date?, WithLength lenght: Int) -> Bool {
-        print(from)
-        print(to)
-        print(lenght)
-        if lenght > invalidPeriod {
-            print("More than \(invalidPeriod) days are invalid period.")
+    @objc(koyomi:shouldSelectDates:to:withPeriodLength:)
+    func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength lenght: Int) -> Bool {
+        if lenght > invalidPeriodLength {
+            print("More than \(invalidPeriodLength) days are invalid period.")
             return false
         }
         return true
