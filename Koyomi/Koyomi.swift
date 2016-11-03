@@ -12,12 +12,14 @@ import UIKit
 
 @objc public protocol KoyomiDelegate: class {
     // Tells the delegate that the date at the specified index path was selected.
-    optional func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath)
+    optional func koyomi(koyomi: Koyomi, didSelect date: NSDate?, forItemAt indexPath: NSIndexPath)
+    
     // Tells the delegate that the displayed month is changed.
     optional func koyomi(koyomi: Koyomi, currentDateString dateString: String)
-    // The koyomi calls this method before select days as period only when selectionMode is sequence.
+    
+    // The koyomi calls this method before select days
     // return value: true if the item should be selected or false if it should not.
-    optional func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool
+    @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: NSDate?, to: NSDate?, withPeriodLength lenght: Int) -> Bool
 }
 
 // MARK: - KoyomiStyle -
@@ -355,17 +357,34 @@ extension Koyomi: UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         guard indexPath.section != 0 else { return }
         
-        calendarDelegate?.koyomi?(self, didSelect: model.date(at: indexPath), forItemAt: indexPath)
+        // KoyomiDelegate properties
+        let date: NSDate?
+        let toDate: NSDate?
+        let length: Int
         
-        if case .none = selectionMode { return }
+        switch selectionMode {
+        case .single(_), .multiple(_):
+            date   = model.date(at: indexPath)
+            toDate = nil
+            length = 1
+            
+        case .sequence(_):
+            let willSelectDates = model.willSelectDates(with: indexPath)
+            date   = willSelectDates.from
+            toDate = willSelectDates.to
+            length = model.selectedPeriodLength(with: indexPath)
+            
+        case .none: return
+        }
         
-        let period = model.selectedPeriod(with: indexPath)
-        if case .sequence(_) = selectionMode where calendarDelegate?.koyomi?(self, willSelectPeriod: period, forItemAt: indexPath) == false {
+        if calendarDelegate?.koyomi?(self, shouldSelectDates: date, to: toDate, withPeriodLength: length) == false {
             return
         }
         
         model.select(with: indexPath)
         reloadData()
+        
+        calendarDelegate?.koyomi?(self, didSelect: date, forItemAt: indexPath)
     }
 }
 

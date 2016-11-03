@@ -228,7 +228,7 @@ extension ViewController {
 // MARK: - KoyomiDelegate -
 
 extension ViewController: KoyomiDelegate {
-    func koyomi(koyomi: Koyomi, didSelect date: NSDate, forItemAt indexPath: NSIndexPath) {
+    func koyomi(koyomi: Koyomi, didSelect date: NSDate?, forItemAt indexPath: NSIndexPath) {
         print(date)
     }
     
@@ -236,8 +236,8 @@ extension ViewController: KoyomiDelegate {
         currentDateLabel.text = dateString
     }
     
-    func koyomi(koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: NSIndexPath) -> Bool {
-        if period > invalidPeriod {
+    func koyomi(koyomi: Koyomi, shouldSelectDates date: NSDate?, to: NSDate?, withPeriodLength lenght: Int) -> Bool {
+        if lenght > invalidPeriod {
             print("More than \(invalidPeriod) days are invalid period.")
             return false
         }

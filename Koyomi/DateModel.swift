@@ -159,8 +159,8 @@ final class DateModel: NSObject {
         }
     }
     
-    // use selectionMode is sequence only.
-    func selectedPeriod(with indexPath: NSIndexPath) -> Int {
+    // Use only when selectionMode is sequence
+    func selectedPeriodLength(with indexPath: NSIndexPath) -> Int {
         let selectedDate = date(at: indexPath)
         
         if let start = sequenceDates.start where sequenceDates.end == nil && start != selectedDate {
@@ -169,6 +169,23 @@ final class DateModel: NSObject {
             return 0
         } else {
             return 1
+        }
+    }
+    
+    // Use only when selectionMode is sequence
+    func willSelectDates(with indexPath: NSIndexPath) -> (from: NSDate?, to: NSDate?) {
+        let willSelectedDate = date(at: indexPath)
+        
+        if sequenceDates.start == nil && sequenceDates.end == nil {
+            return (willSelectedDate, nil)
+        } else if let _ = sequenceDates.start, let _ = sequenceDates.end {
+            return (willSelectedDate, nil)
+        } else if let start = sequenceDates.start where sequenceDates.end == nil && start == willSelectedDate {
+            return (nil, nil)
+        } else if let start = sequenceDates.start where sequenceDates.end == nil && start != willSelectedDate {
+            return willSelectedDate < start ? (willSelectedDate, sequenceDates.start) : (sequenceDates.start, willSelectedDate)
+        } else {
+            return (nil, nil)
         }
     }
     
