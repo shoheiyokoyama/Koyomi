@@ -158,7 +158,7 @@ You can configure day color in selected state.
     @IBInspectable public var selectedDayColor: UIColor
 ```
 
-### highlight specific days
+### Highlight specific days
 
 You can change `dayColor` and `dayBackgroundColor` in specific days.
 
