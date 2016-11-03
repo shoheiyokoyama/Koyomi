@@ -187,19 +187,26 @@ Tells the delegate that the displayed month is changed.
 
 
 ```swift
-    optional func koyomi(_ koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: IndexPath) -> Bool
+    optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, WithPeriodLength lenght: Int) -> Bool
     
-    //　control period user selected.
-    func koyomi(_ koyomi: Koyomi, willSelectPeriod period: Int, forItemAt indexPath: IndexPath) -> Bool {
-        if period > 90 {
+    //　control date user selected.
+    func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, WithPeriodLength lenght: Int) -> Bool {
+    
+        if invalidStartDate <= date && invalidEndDate >= date {
+            print("Your select day is invalid.")
+            return false
+        }
+    
+        if lenght > 90 {
             print("More than 90 days are invalid period.")
             return false
         }
+        
         return true
     }
 ```
-`koyomi` calls this method before select days as period only when `selectionMode` is `sequence`.
-return value: true if the item should be selected or false if it should not.
+`koyomi` calls this method before select days.
+***return value***: true if the item should be selected or false if it should not. `to` is always nil if `selectionMode` isn't `sequence`.
 
 ## :wrench: Customize ***Koyomi***
 
