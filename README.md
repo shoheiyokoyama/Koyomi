@@ -169,6 +169,7 @@ You can change `dayColor` and `dayBackgroundColor` in specific days.
         
         // set day color only one day.
         // .setDayColor(.white, of: today)
+        // .setDayBackgrondColor(.black, of: today)
 ```
 
 ## KoyomiDelegate
