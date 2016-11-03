@@ -142,9 +142,9 @@ You can select specific date .
 You can also unselect available.
 
 ```swift
-    koyomi.unselect(Date(), to: weekLaterDay) 
+    koyomi.unselect(today, to: weekLaterDay) 
     // If want to unselect only one day.
-    koyomi.unselect(Date())
+    koyomi.unselect(today)
     
     // unselect all date
     koyomi.unselectAll()
