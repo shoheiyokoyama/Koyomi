@@ -129,6 +129,8 @@ final public class Koyomi: UICollectionView {
         }
     }
     
+    @IBInspectable public var isHiddenOtherMonth: Bool = false
+    
     // Layout properties
     @IBInspectable var sectionSpace: CGFloat = 1.5 {
         didSet {
@@ -170,24 +172,24 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var currentDateFormat: String = "M/yyyy"
     
     // Color properties of the appearance
-    @IBInspectable public var sectionSeparatorColor = UIColor.KoyomiColor.lightGray {
+    @IBInspectable public var sectionSeparatorColor: UIColor = UIColor.KoyomiColor.lightGray {
         didSet {
             sectionSeparator.backgroundColor = sectionSeparatorColor
         }
     }
-    @IBInspectable public var separatorColor = UIColor.KoyomiColor.lightGray {
+    @IBInspectable public var separatorColor: UIColor = UIColor.KoyomiColor.lightGray {
         didSet {
             backgroundColor = separatorColor
         }
     }
-    @IBInspectable public var weekColor    = UIColor.KoyomiColor.black
-    @IBInspectable public var weekdayColor = UIColor.KoyomiColor.black
-    @IBInspectable public var otherMonthColor = UIColor.KoyomiColor.lightGray
+    @IBInspectable public var weekColor: UIColor    = UIColor.KoyomiColor.black
+    @IBInspectable public var weekdayColor: UIColor = UIColor.KoyomiColor.black
+    @IBInspectable public var otherMonthColor: UIColor = UIColor.KoyomiColor.lightGray
     @IBInspectable public var dayBackgrondColor: UIColor  = .white
     @IBInspectable public var weekBackgrondColor: UIColor = .white
     public var holidayColor: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red)
     
-    @IBInspectable public var selectedDayBackgroundColor = UIColor.KoyomiColor.red
+    @IBInspectable public var selectedDayBackgroundColor: UIColor = UIColor.KoyomiColor.red
     @IBInspectable public var selectedDayColor: UIColor = .white
     
     // KoyomiDelegate
@@ -377,7 +379,7 @@ private extension Koyomi {
             
             backgroundColor = model.isHighlighted(with: indexPath) ? highlightedDayBackgrondColor : dayBackgrondColor
             font    = dayLabelFont
-            content = model.dayString(at: indexPath)
+            content = model.dayString(at: indexPath, isHiddenOtherMonth: isHiddenOtherMonth)
             postion = dayPosition
         }
         
@@ -397,6 +399,11 @@ private extension Koyomi {
 extension Koyomi: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.section != 0 else { return }
+        
+        // Other month
+        if isHiddenOtherMonth && model.isOtherMonth(at: indexPath) {
+            return
+        }
         
         // KoyomiDelegate properties
         let date: Date?

@@ -63,10 +63,21 @@ final class DateModel: NSObject {
         return nil
     }
     
-    func dayString(at indexPath: IndexPath) -> String {
+    func dayString(at indexPath: IndexPath, isHiddenOtherMonth isHidden: Bool) -> String {
+        if isHidden && isOtherMonth(at: indexPath) {
+            return ""
+        }
         let formatter: DateFormatter = .init()
         formatter.dateFormat = "d"
         return formatter.string(from: currentDates[indexPath.row])
+    }
+    
+    func isOtherMonth(at indexPath: IndexPath) -> Bool {
+        if let begining = indexAtBeginning(in: .current), let end = indexAtEnd(in: .current),
+            indexPath.row < begining || indexPath.row > end {
+            return true
+        }
+        return false
     }
     
     func display(in month: MonthType) {

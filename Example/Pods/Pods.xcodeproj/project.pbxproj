@@ -15,7 +15,6 @@
 		54700AB3D04C333C92D68B1736773B2A /* Pods-Koyomi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 31C8D8470E60BE0C50F813EA2EBFDD80 /* Pods-Koyomi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D87262851A194625410F8249C5F7E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		5E87C940A93B966E08A3D8CE0804FF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		6D7922821DC317B6008F4BE6 /* Koyomi.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7922811DC317B6008F4BE6 /* Koyomi.h */; };
 		83CA969C0D4EA3C03872CB8FA96ED546 /* Koyomi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7253B6CEF511C331544485A1808C717 /* Koyomi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A89FD24F5A5DF8F349659ECEB71ADC3F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BF71D49E7C15FDEF87AC586A87E18 /* UIColorExtension.swift */; };
 		B558E3DD6B80D2251CC10EBAEC821058 /* KoyomiLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36FA310CCD269EAEF702C2F61A9587 /* KoyomiLayout.swift */; };
@@ -50,7 +49,6 @@
 		4A87065A37E825C33D695FA3C0CE9F6B /* Pods_Koyomi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		537BF71D49E7C15FDEF87AC586A87E18 /* UIColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		58EA13C6D1CA006727EA59230FC8468D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D7922811DC317B6008F4BE6 /* Koyomi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Koyomi.h; sourceTree = "<group>"; };
 		6FE9860894268578731D3292D17EF423 /* DictionaryExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		8833E1F3CE36E6F4DF6549BE8862E017 /* Pods-Koyomi_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Koyomi_Example-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -89,7 +87,6 @@
 		09831CBB7AA084CAEE0838A4B23AD56C /* Koyomi */ = {
 			isa = PBXGroup;
 			children = (
-				6D7922811DC317B6008F4BE6 /* Koyomi.h */,
 				29E5F993A671A1D1F9B15AA73D2393CE /* DateModel.swift */,
 				6FE9860894268578731D3292D17EF423 /* DictionaryExtension.swift */,
 				0A7CD74D28D65A561385F801A76B956A /* Koyomi.swift */,
@@ -211,7 +208,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D7922821DC317B6008F4BE6 /* Koyomi.h in Headers */,
 				83CA969C0D4EA3C03872CB8FA96ED546 /* Koyomi-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
