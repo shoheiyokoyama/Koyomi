@@ -73,8 +73,8 @@ final class DateModel: NSObject {
     }
     
     func isOtherMonth(at indexPath: IndexPath) -> Bool {
-        if let begining = indexAtBeginning(in: .current), let end = indexAtEnd(in: .current),
-            indexPath.row < begining || indexPath.row > end {
+        if let beginning = indexAtBeginning(in: .current), let end = indexAtEnd(in: .current),
+            indexPath.row < beginning || indexPath.row > end {
             return true
         }
         return false
