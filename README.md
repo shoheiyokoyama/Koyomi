@@ -69,6 +69,15 @@ If you want to change displayed month, call `display(in: MonthType)`. `MonthType
     koyomi.display(in: .next)
 ```
 
+### Hide days of other months
+
+If you want to hide days of other months, set `isHiddenOtherMonth` to `true`. 
+Days of other months aren't displayed and user can't select.
+
+```swift
+    koyomi.isHiddenOtherMonth = true
+```
+
 ### Get current month string
 
 ```swift  
