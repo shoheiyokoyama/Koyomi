@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04BF19F6219B9C4F1A091C155ADBA8D6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87DB6F768D00FBF511BA565BBB7F9C /* UIViewExtension.swift */; };
-		1137199B30F9302CDC73D38D83CD0997 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FAD5E24A03311ACA91589A5410BD /* NSDateExtension.swift */; };
-		16BD10D37C8649727A98FC60FAB43732 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5F993A671A1D1F9B15AA73D2393CE /* DateModel.swift */; };
-		3F8A2CD528A7937D7FCCEF17B89038FF /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9860894268578731D3292D17EF423 /* DictionaryExtension.swift */; };
-		40272C1CCBA4B01EDB50C85AAF3AE2DA /* Koyomi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7CD74D28D65A561385F801A76B956A /* Koyomi.swift */; };
+		2419DF5BF793BD131965BFE53DAE2BD9 /* Koyomi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EF3A761CA396BE6792CF8BDCAED9 /* Koyomi.swift */; };
+		46E3133ED577487036DE044361803274 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFA62491CFE7997E27242D53DDA9C75 /* DateModel.swift */; };
 		54700AB3D04C333C92D68B1736773B2A /* Pods-Koyomi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 31C8D8470E60BE0C50F813EA2EBFDD80 /* Pods-Koyomi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D87262851A194625410F8249C5F7E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		5E87C940A93B966E08A3D8CE0804FF89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		82104EB57F7D432CED68305257CA265D /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5293558A4D7DB9E38D08E3EBB071A04 /* DictionaryExtension.swift */; };
 		83CA969C0D4EA3C03872CB8FA96ED546 /* Koyomi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7253B6CEF511C331544485A1808C717 /* Koyomi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A89FD24F5A5DF8F349659ECEB71ADC3F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BF71D49E7C15FDEF87AC586A87E18 /* UIColorExtension.swift */; };
-		B558E3DD6B80D2251CC10EBAEC821058 /* KoyomiLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36FA310CCD269EAEF702C2F61A9587 /* KoyomiLayout.swift */; };
-		BEF920B40C287740C30B857D94894C97 /* Koyomi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64BF7A0CA7C279340A637946DCA16D /* Koyomi-dummy.m */; };
-		E9C04767C090C7D35CDC0D7F01D5760E /* KoyomiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE813C357E9772FDA92B38B1D5A1E3 /* KoyomiCell.swift */; };
+		AEA553264016F42340C6814AC956FBBB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A103B2BB4A28C3551DB70C878B15D95 /* UIColorExtension.swift */; };
+		B0A0FCB5E91A2EBA7F8569426BAEC047 /* Koyomi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64BF7A0CA7C279340A637946DCA16D /* Koyomi-dummy.m */; };
+		C56E9D4CEAC9AF499020EA3F17627864 /* KoyomiLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491ED8322504D99E68EB4585C11F4EB3 /* KoyomiLayout.swift */; };
+		F5565F31749A81F1B8AADEBF01CCB7B6 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7012CA71F381C0979A1E281F661A1F /* DateExtension.swift */; };
+		FA7BB296542DB9D12788E5F1C52026B3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE92D1847894D2A63AAEE83C20E84AA /* UIViewExtension.swift */; };
+		FAD43CCC81ADC439522A5CBB224D9DC0 /* KoyomiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07695D62F9F5BFC27C7B9647C46873C2 /* KoyomiCell.swift */; };
 		FD63AF505116E2DB47A1EAD27180A1D8 /* Pods-Koyomi_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8833E1F3CE36E6F4DF6549BE8862E017 /* Pods-Koyomi_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -34,33 +34,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A7CD74D28D65A561385F801A76B956A /* Koyomi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Koyomi.swift; sourceTree = "<group>"; };
+		07695D62F9F5BFC27C7B9647C46873C2 /* KoyomiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KoyomiCell.swift; sourceTree = "<group>"; };
 		101C03BC0EED3CAF82CB984CE00B3C38 /* Pods-Koyomi_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Koyomi_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		20D1FAD5E24A03311ACA91589A5410BD /* NSDateExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		2870212F19389AFBA6DF8131BEB9AA26 /* Pods-Koyomi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example.release.xcconfig"; sourceTree = "<group>"; };
-		29E5F993A671A1D1F9B15AA73D2393CE /* DateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
-		2C36FA310CCD269EAEF702C2F61A9587 /* KoyomiLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KoyomiLayout.swift; sourceTree = "<group>"; };
 		2CA5E072E295FEAF120582BCE61C1809 /* Koyomi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Koyomi.modulemap; sourceTree = "<group>"; };
 		31C8D8470E60BE0C50F813EA2EBFDD80 /* Pods-Koyomi_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Koyomi_Example-umbrella.h"; sourceTree = "<group>"; };
 		32749BBABAC7FDDBEDEA8A07694CFCEB /* Pods-Koyomi_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Koyomi_Example-frameworks.sh"; sourceTree = "<group>"; };
 		3BB24F7332347A6F6998E4ECD569EDA7 /* Koyomi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Koyomi-prefix.pch"; sourceTree = "<group>"; };
+		3BFA62491CFE7997E27242D53DDA9C75 /* DateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		3DF918FAF6EB4BCF35FBBB8E15DF79E6 /* Pods-Koyomi_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Koyomi_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3F86EF3A761CA396BE6792CF8BDCAED9 /* Koyomi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Koyomi.swift; sourceTree = "<group>"; };
 		474A52F356F48C94D03DE75EEC1C1667 /* Koyomi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koyomi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		491ED8322504D99E68EB4585C11F4EB3 /* KoyomiLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KoyomiLayout.swift; sourceTree = "<group>"; };
 		4A87065A37E825C33D695FA3C0CE9F6B /* Pods_Koyomi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koyomi_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		537BF71D49E7C15FDEF87AC586A87E18 /* UIColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		58EA13C6D1CA006727EA59230FC8468D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FE9860894268578731D3292D17EF423 /* DictionaryExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		6A103B2BB4A28C3551DB70C878B15D95 /* UIColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		8833E1F3CE36E6F4DF6549BE8862E017 /* Pods-Koyomi_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Koyomi_Example-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97A162D37CC1E4E0694C1920A6154181 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5BE813C357E9772FDA92B38B1D5A1E3 /* KoyomiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KoyomiCell.swift; sourceTree = "<group>"; };
 		B6CDE9CEF1D6CC6BE360265A1A3861FA /* Koyomi.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Koyomi.xcconfig; sourceTree = "<group>"; };
 		BA723435647A2EAF7E7CD7E315F14A2B /* Pods-Koyomi_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Koyomi_Example-resources.sh"; sourceTree = "<group>"; };
 		BE5BBEED39E042C9183301836D729A74 /* Pods-Koyomi_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Koyomi_Example.modulemap"; sourceTree = "<group>"; };
+		CBE92D1847894D2A63AAEE83C20E84AA /* UIViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		CD482313C7E3BDEE257AD649F0A143A0 /* Pods-Koyomi_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Koyomi_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D5293558A4D7DB9E38D08E3EBB071A04 /* DictionaryExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		E7253B6CEF511C331544485A1808C717 /* Koyomi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Koyomi-umbrella.h"; sourceTree = "<group>"; };
-		EC87DB6F768D00FBF511BA565BBB7F9C /* UIViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		EC7012CA71F381C0979A1E281F661A1F /* DateExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		FA64BF7A0CA7C279340A637946DCA16D /* Koyomi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Koyomi-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,21 +84,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09831CBB7AA084CAEE0838A4B23AD56C /* Koyomi */ = {
-			isa = PBXGroup;
-			children = (
-				29E5F993A671A1D1F9B15AA73D2393CE /* DateModel.swift */,
-				6FE9860894268578731D3292D17EF423 /* DictionaryExtension.swift */,
-				0A7CD74D28D65A561385F801A76B956A /* Koyomi.swift */,
-				B5BE813C357E9772FDA92B38B1D5A1E3 /* KoyomiCell.swift */,
-				2C36FA310CCD269EAEF702C2F61A9587 /* KoyomiLayout.swift */,
-				20D1FAD5E24A03311ACA91589A5410BD /* NSDateExtension.swift */,
-				537BF71D49E7C15FDEF87AC586A87E18 /* UIColorExtension.swift */,
-				EC87DB6F768D00FBF511BA565BBB7F9C /* UIViewExtension.swift */,
-			);
-			path = Koyomi;
-			sourceTree = "<group>";
-		};
 		163DB97940D72578C602D5EB1457ED3F /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +98,21 @@
 				802E71B7A809FD841557863F45560BF2 /* Pods-Koyomi_Example */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		2BC9B01114A6E68C835DA79BD0E2B148 /* Koyomi */ = {
+			isa = PBXGroup;
+			children = (
+				EC7012CA71F381C0979A1E281F661A1F /* DateExtension.swift */,
+				3BFA62491CFE7997E27242D53DDA9C75 /* DateModel.swift */,
+				D5293558A4D7DB9E38D08E3EBB071A04 /* DictionaryExtension.swift */,
+				3F86EF3A761CA396BE6792CF8BDCAED9 /* Koyomi.swift */,
+				07695D62F9F5BFC27C7B9647C46873C2 /* KoyomiCell.swift */,
+				491ED8322504D99E68EB4585C11F4EB3 /* KoyomiLayout.swift */,
+				6A103B2BB4A28C3551DB70C878B15D95 /* UIColorExtension.swift */,
+				CBE92D1847894D2A63AAEE83C20E84AA /* UIViewExtension.swift */,
+			);
+			path = Koyomi;
 			sourceTree = "<group>";
 		};
 		2CB2AD42711C8C20D6398E56CE9A2680 /* Products */ = {
@@ -135,7 +135,7 @@
 		471AFCD15CB448D77B1A47CE312E80BB /* Koyomi */ = {
 			isa = PBXGroup;
 			children = (
-				09831CBB7AA084CAEE0838A4B23AD56C /* Koyomi */,
+				2BC9B01114A6E68C835DA79BD0E2B148 /* Koyomi */,
 				6428F85ADEABAAB6E6333A0B6262A463 /* Support Files */,
 			);
 			name = Koyomi;
@@ -219,7 +219,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25FDDDB05CDFC79D233E51CBD2C566C1 /* Build configuration list for PBXNativeTarget "Koyomi" */;
 			buildPhases = (
-				4EC66A122E2D0D1978AA72057E338483 /* Sources */,
+				04F67FF74D580D3761DAE776F1D271A6 /* Sources */,
 				05E8C09080D048E7AA4D26D113D775A7 /* Frameworks */,
 				BE7CEE04DAD486FD28EDB8D379B393B8 /* Headers */,
 			);
@@ -278,19 +278,19 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4EC66A122E2D0D1978AA72057E338483 /* Sources */ = {
+		04F67FF74D580D3761DAE776F1D271A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16BD10D37C8649727A98FC60FAB43732 /* DateModel.swift in Sources */,
-				3F8A2CD528A7937D7FCCEF17B89038FF /* DictionaryExtension.swift in Sources */,
-				BEF920B40C287740C30B857D94894C97 /* Koyomi-dummy.m in Sources */,
-				40272C1CCBA4B01EDB50C85AAF3AE2DA /* Koyomi.swift in Sources */,
-				E9C04767C090C7D35CDC0D7F01D5760E /* KoyomiCell.swift in Sources */,
-				B558E3DD6B80D2251CC10EBAEC821058 /* KoyomiLayout.swift in Sources */,
-				1137199B30F9302CDC73D38D83CD0997 /* NSDateExtension.swift in Sources */,
-				A89FD24F5A5DF8F349659ECEB71ADC3F /* UIColorExtension.swift in Sources */,
-				04BF19F6219B9C4F1A091C155ADBA8D6 /* UIViewExtension.swift in Sources */,
+				F5565F31749A81F1B8AADEBF01CCB7B6 /* DateExtension.swift in Sources */,
+				46E3133ED577487036DE044361803274 /* DateModel.swift in Sources */,
+				82104EB57F7D432CED68305257CA265D /* DictionaryExtension.swift in Sources */,
+				B0A0FCB5E91A2EBA7F8569426BAEC047 /* Koyomi-dummy.m in Sources */,
+				2419DF5BF793BD131965BFE53DAE2BD9 /* Koyomi.swift in Sources */,
+				FAD43CCC81ADC439522A5CBB224D9DC0 /* KoyomiCell.swift in Sources */,
+				C56E9D4CEAC9AF499020EA3F17627864 /* KoyomiLayout.swift in Sources */,
+				AEA553264016F42340C6814AC956FBBB /* UIColorExtension.swift in Sources */,
+				FA7BB296542DB9D12788E5F1C52026B3 /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

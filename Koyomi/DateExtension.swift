@@ -1,5 +1,5 @@
 //
-//  NSDateExtension.swift
+//  DateExtension.swift
 //  Pods
 //
 //  Created by Shohei Yokoyama on 2016/10/14.
