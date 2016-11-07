@@ -19,7 +19,7 @@ import UIKit
 
     // The koyomi calls this method before select days
     // return value: true if the item should be selected or false if it should not.
-    @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength lenght: Int) -> Bool
+    @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength length: Int) -> Bool
 }
 
 // MARK: - KoyomiStyle -
