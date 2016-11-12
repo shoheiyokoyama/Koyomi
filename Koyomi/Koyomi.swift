@@ -62,8 +62,8 @@ public enum KoyomiStyle {
 public enum SelectionMode {
     case single(style: Style), multiple(style: Style), sequence(style: SequenceStyle), none
     
-    public enum SequenceStyle { case background, circle, semicircleEdge }
-    public enum Style { case background, circle }
+    public enum SequenceStyle { case background, circle, line, semicircleEdge }
+    public enum Style { case background, circle, line }
 }
 
 // MARK: - ContentPosition -
@@ -128,6 +128,14 @@ final public class Koyomi: UICollectionView {
             }()
         }
     }
+    
+    public struct LineView {
+        public enum Position { case top, center, bottom }
+        public var height: CGFloat = 1
+        public var widthRate: CGFloat = 1
+        public var position: Position = .center
+    }
+    public var lineView: LineView = .init()
     
     @IBInspectable public var isHiddenOtherMonth: Bool = false
     
@@ -364,14 +372,14 @@ private extension Koyomi {
                     
                 //Selected and sequence mode, semicircleEdge style
                 case (.sequence(style: .semicircleEdge), true):
-                    let date = model.date(at: indexPath)
-                    if let start = model.sequenceDates.start, let _ = model.sequenceDates.end , date == start {
-                        return .sequence(position: .left)
-                    } else if let _ = model.sequenceDates.start, let end = model.sequenceDates.end , date == end {
-                        return .sequence(position: .right)
-                    } else {
-                        return .sequence(position: .middle)
-                    }
+                    return .sequence(position: sequencePosition(with: indexPath))
+                    
+                case (.single(style: .line), true), (.multiple(style: .line), true):
+                    // Position is always nil.
+                    return .line(position: nil)
+                    
+                case (.sequence(style: .line), true):
+                    return .line(position: sequencePosition(with: indexPath))
                     
                 default: return .standard
                 }
@@ -387,9 +395,23 @@ private extension Koyomi {
         cell.content   = content
         cell.textColor = textColor
         cell.contentPosition = postion
+        if case .line = style {
+            cell.lineViewAppearance = lineView
+        }
         cell.configureAppearanse(of: style, withColor: selectedDayBackgroundColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
+        }
+    }
+    
+    func sequencePosition(with indexPath: IndexPath) -> KoyomiCell.CellStyle.SequencePosition {
+        let date = model.date(at: indexPath)
+        if let start = model.sequenceDates.start, let _ = model.sequenceDates.end , date == start {
+            return  .left
+        } else if let _ = model.sequenceDates.start, let end = model.sequenceDates.end , date == end {
+            return .right
+        } else {
+            return .middle
         }
     }
 }

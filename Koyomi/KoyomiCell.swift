@@ -13,12 +13,13 @@ final class KoyomiCell: UICollectionViewCell {
     // Fileprivate properties
     fileprivate let contentLabel: UILabel = .init()
     fileprivate let circularView: UIView  = .init()
+    fileprivate let lineView: UIView      = .init()
     
     fileprivate let leftSemicircleView: UIView  = .init()
     fileprivate let rightSemicircleView: UIView = .init()
     
     enum CellStyle {
-        case standard, circle, sequence(position: SequencePosition)
+        case standard, circle, sequence(position: SequencePosition)/* Cange to SemicircleEdge*/, line(position: SequencePosition?)
         
         enum SequencePosition { case left, middle, right }
     }
@@ -41,6 +42,12 @@ final class KoyomiCell: UICollectionViewCell {
         }
     }
     var contentPosition: ContentPosition = .center
+    
+    var lineViewAppearance: Koyomi.LineView? {
+        didSet {
+            configureLineView()
+        }
+    }
     
     // MARK: - Initializer -
     
@@ -70,8 +77,9 @@ final class KoyomiCell: UICollectionViewCell {
         switch style {
         case .standard:
             self.backgroundColor = isSelected ? color : backgroundColor
-            circularView.isHidden  = true
             
+            circularView.isHidden  = true
+            lineView.isHidden = true
             rightSemicircleView.isHidden = true
             leftSemicircleView.isHidden  = true
             
@@ -79,14 +87,15 @@ final class KoyomiCell: UICollectionViewCell {
         case .circle:
             circularView.backgroundColor = color
             self.backgroundColor = backgroundColor
-            circularView.isHidden  = false
             
+            circularView.isHidden  = false
+            lineView.isHidden = true
             rightSemicircleView.isHidden = true
             leftSemicircleView.isHidden  = true
             
         // isSelected is always true
         case .sequence(let position):
-            
+            lineView.isHidden = true
             circularView.isHidden = true
             
             if case .left = position {
@@ -119,6 +128,29 @@ final class KoyomiCell: UICollectionViewCell {
                 
                 leftSemicircleView.mask(with: .none)
                 rightSemicircleView.mask(with: .right)
+            }
+            
+        case .line(let position):
+            rightSemicircleView.isHidden = true
+            leftSemicircleView.isHidden  = true
+            circularView.isHidden = true
+            lineView.isHidden = false
+            lineView.backgroundColor = color
+            
+            // Config of lineView should end. (configureLineView())
+            // position is only sequence style
+            guard let position = position else {
+                lineView.frame.origin.x = (bounds.width - lineView.frame.width) / 2
+                return
+            }
+            switch position {
+            case .left:
+                lineView.frame.origin.x = bounds.width - lineView.frame.width
+            case .middle:
+                lineView.frame.size.width = bounds.width
+                lineView.frame.origin.x   = (bounds.width - lineView.frame.width) / 2
+            case .right:
+                lineView.frame.origin.x = 0
             }
         }
     }
@@ -154,31 +186,48 @@ private extension KoyomiCell {
     
     func setup() {
         let diameter = bounds.width * 0.75
-        circularView.frame = CGRect(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
+        circularView.frame = .init(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
         circularView.layer.cornerRadius = diameter / 2
         circularView.isHidden = true
         addSubview(circularView)
         
-        leftSemicircleView.frame = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+        leftSemicircleView.frame = .init(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
         leftSemicircleView.isHidden = true
         addSubview(leftSemicircleView)
         
-        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
+        rightSemicircleView.frame = .init(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
         rightSemicircleView.isHidden = true
         addSubview(rightSemicircleView)
         
         addSubview(contentLabel)
+        
+        let lineViewSize: CGSize = .init(width: bounds.width, height: 1)
+        lineView.frame = .init(origin: .init(x: 0, y: (bounds.height - lineViewSize.height) / 2), size: lineViewSize)
+        lineView.isHidden = true
+        addSubview(lineView)
     }
     
     func adjustSubViewsFrame() {
         contentLabel.sizeToFit()
         contentLabel.frame.origin = postion
         
-        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
-        leftSemicircleView.frame  = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+        rightSemicircleView.frame = .init(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
+        leftSemicircleView.frame  = .init(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
 
         let diameter = bounds.width * 0.75
-        circularView.frame = CGRect(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
+        circularView.frame = .init(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
         circularView.layer.cornerRadius = diameter / 2
+    }
+    
+    func configureLineView() {
+        guard let appearance = lineViewAppearance else { return }
+        lineView.frame.size = .init(width: bounds.width * appearance.widthRate, height: appearance.height)
+        lineView.frame.origin.y = {
+            switch appearance.position {
+            case .top:    return (bounds.height / 2 - lineView.frame.height) / 2
+            case .center: return (bounds.height - lineView.frame.height) / 2
+            case .bottom: return (bounds.height / 2 - lineView.frame.height) / 2 + bounds.height / 2
+            }
+        }()
     }
 }
