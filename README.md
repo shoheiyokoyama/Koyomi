@@ -23,6 +23,7 @@
 - Easily usable :sunglasses:
 - Customizable in any properties for appearance
 - Selectable calender
+- Complete `README`
 - [x] Support `@IBDesignable` and `@IBInspectable`
 - [x] Compatible with ***Carthage***
 - [x] Support ***Swift 2.3***.
@@ -186,9 +187,9 @@ You can configure style color and text state in selected state.
 
 ***selectedDayTextState***
 
-If you want to change day textColor when the user selects day in the `Koyomi`, set `selectedDayTextState` to `change(UIColor)`.
+If you want to change day textColor when the user selects day in the `Koyomi`, set `selectedDayTextState` to `SelectedTextState.change(UIColor)`.
 
-Also, if you don't want to change day textColor when the user selects day, set `selectedDayTextState` to `keeping`.
+Also, if you don't want to change day textColor when the user selects day, set `selectedDayTextState` to `SelectedTextState.keeping`.
 
 ```swift
 // day text color change white when selected.
@@ -337,8 +338,7 @@ You can configure text postion.
     @IBInspectable public var otherMonthColor: UIColor
     @IBInspectable public var dayBackgrondColor: UIColor
     @IBInspectable public var weekBackgrondColor: UIColor
-    @IBInspectable public var selectedDayBackgroundColor: UIColor
-    @IBInspectable public var selectedDayColor: UIColor
+    @IBInspectable public var selectedStyleColor: UIColor
 ```
 
 You can configure the lots of color properties for appearance :weary:
