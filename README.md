@@ -23,6 +23,7 @@
 - Easily usable :sunglasses:
 - Customizable in any properties for appearance
 - Selectable calender
+- Complete `README`
 - [x] Support `@IBDesignable` and `@IBInspectable`
 - [x] Compatible with ***Carthage***
 - [x] Support ***Swift 2.3***.
@@ -101,32 +102,48 @@ You can configure ***SelectionMode*** with style.
         case single(style: Style), multiple(style: Style), sequence(style: SequenceStyle), none
     
         
-        public enum SequenceStyle { case background, circle, semicircleEdge }
-        public enum Style { case background, circle }
+        public enum SequenceStyle { case background, circle, semicircleEdge, line }
+        public enum Style { case background, circle, line }
    }
     
     // default selectionMode is single, circle style
     public var selectionMode: SelectionMode = .single(style: .circle)
     
     // call selectionStyle
-    koyomi.selectionMode = .single(style: circle)
+    koyomi.selectionMode = .single(style: .circle)
 ```
 
 
 
- **single** |<img src="./DemoSource/single-background-mode.gif" width="130"> | <img src="./DemoSource/single-circle-mode.gif" width="130">
-----  |  ----  |  ----  |
- ***SelectionMode*** |  `.single(style: .background)`  |   `.single(style: .circle)` | 
+ **single** |<img src="./DemoSource/single-background-mode.gif" width="130"> | <img src="./DemoSource/single-circle-mode.gif" width="130"> | <img src="./DemoSource/single-line-mode.gif" width="130">
+----  |  ----  |  ----  |  ----  |
+ ***SelectionMode*** |  `.single(style: .background)`  |   `.single(style: .circle)` | `.single(style: .line)` |
  
  
-  **multiple** |<img src="./DemoSource/multiple-background-mode.gif" width="130"> | <img src="./DemoSource/multiple-circle-mode.gif" width="130">
-----  |  ----  |  ----  |
- ***SelectionMode*** |  `.multiple(style: .background)`  |   `.multiple(style: .circle)` | 
- 
- 
-  **sequence** | <img src="./DemoSource/sequence-background-mode.gif" width="130"> | <img src="./DemoSource/sequence-circle-mode.gif" width="130"> | <img src="./DemoSource/sequence-semicircleEdge-mode.gif" width="130">
+  **multiple** |<img src="./DemoSource/multiple-background-mode.gif" width="130"> | <img src="./DemoSource/multiple-circle-mode.gif" width="130"> | <img src="./DemoSource/multiple-line-mode.gif" width="130">
 ----  |  ----  |  ----  | ----  |
- ***SelectionMode*** |  `.sequence(style: .background)`  |   `.sequence(style: .circle)` |  `.sequence(style: .semicircleEdge)` |
+ ***SelectionMode*** |  `.multiple(style: .background)`  |   `.multiple(style: .circle)` | `.multiple(style: .line)` |
+ 
+ 
+  **sequence** | <img src="./DemoSource/sequence-background-mode.gif" width="100"> | <img src="./DemoSource/sequence-circle-mode.gif" width="100"> | <img src="./DemoSource/sequence-semicircleEdge-mode.gif" width="100">　| <img src="./DemoSource/sequence-line-mode.gif" width="100">
+----  |  ----  |  ----  | ----  | ----  |
+ ***SelectionMode*** |  `.sequence(style: .background)`  |   `.sequence(style: .circle)` |  `.sequence(style: .semicircleEdge)` | `.sequence(style: .line)` |
+ 
+You can configure lineView in the case of `line` style.
+
+```swift
+public struct LineView {
+    public enum Position { case top, center, bottom }
+    public var height: CGFloat = 1
+    public var widthRate: CGFloat = 1 // default is 1.0 (0.0 ~ 1.0)
+    public var position: Position = .center
+}
+
+koyomi.selectionMode = .single(style: .line)
+koyomi.lineView.height = 3
+koyomi.lineView.position = .bottom
+koyomi.lineView.widthRate = 0.7
+```
 
 > NOTE
 
@@ -159,12 +176,27 @@ You can also unselect available.
     koyomi.unselectAll()
 ```
 
-You can configure day color in selected state.
+You can configure style color and text state in selected state.
 
 ```swift
-    // Support @IBInspectable properties
-    @IBInspectable public var selectedDayBackgroundColor: UIColor
-    @IBInspectable public var selectedDayColor: UIColor
+    @IBInspectable public var selectedStyleColor: UIColor
+    
+    public enum SelectedTextState { case change(UIColor), keeping }
+    public var selectedDayTextState: SelectedTextState
+```
+
+***selectedDayTextState***
+
+If you want to change day textColor when the user selects day in the `Koyomi`, set `selectedDayTextState` to `SelectedTextState.change(UIColor)`.
+
+Also, if you don't want to change day textColor when the user selects day, set `selectedDayTextState` to `SelectedTextState.keeping`.
+
+```swift
+// day text color change white when selected.
+koyomi.selectedDayTextState = .change(UIcolor.white)
+
+// day text color doesn't change when selected.
+koyomi.selectedDayTextState = .keeping
 ```
 
 ### Highlight specific days
@@ -306,8 +338,7 @@ You can configure text postion.
     @IBInspectable public var otherMonthColor: UIColor
     @IBInspectable public var dayBackgrondColor: UIColor
     @IBInspectable public var weekBackgrondColor: UIColor
-    @IBInspectable public var selectedDayBackgroundColor: UIColor
-    @IBInspectable public var selectedDayColor: UIColor
+    @IBInspectable public var selectedStyleColor: UIColor
 ```
 
 You can configure the lots of color properties for appearance :weary:
