@@ -197,8 +197,10 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var weekBackgrondColor: UIColor = .white
     public var holidayColor: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red)
     
-    @IBInspectable public var selectedDayBackgroundColor: UIColor = UIColor.KoyomiColor.red
-    @IBInspectable public var selectedDayColor: UIColor = .white
+    @IBInspectable public var selectedStyleColor: UIColor = UIColor.KoyomiColor.red
+    
+    public enum SelectedTextState { case change(UIColor), keeping }
+    public var selectedDayTextState: SelectedTextState = .change(.white)
     
     // KoyomiDelegate
     public weak var calendarDelegate: KoyomiDelegate?
@@ -342,21 +344,32 @@ private extension Koyomi {
         } else {
 
             // Configure appearance properties for day cell
-            (textColor, isSelected) = {
-                if model.isSelect(with: indexPath) {
-                    return (selectedDayColor, true)
+            isSelected = model.isSelect(with: indexPath)
+            
+            textColor = {
+                var baseColor: UIColor {
+                    if let beginning = model.indexAtBeginning(in: .current), indexPath.row < beginning {
+                        return otherMonthColor
+                    } else if let end = model.indexAtEnd(in: .current), indexPath.row > end {
+                        return otherMonthColor
+                    } else if indexPath.row % 7 == 0 {
+                        return holidayColor.sunday
+                    } else if indexPath.row % 7 == 6 {
+                        return holidayColor.saturday
+                    } else {
+                        return weekdayColor
+                    }
+                }
+                
+                if isSelected {
+                    switch selectedDayTextState {
+                    case .change(let color): return color
+                    case .keeping:           return baseColor
+                    }
                 } else if model.isHighlighted(with: indexPath) {
-                    return (highlightedDayColor, false)
-                } else if let beginning = model.indexAtBeginning(in: .current), indexPath.row < beginning {
-                    return (otherMonthColor, false)
-                } else if let end = model.indexAtEnd(in: .current), indexPath.row > end {
-                    return (otherMonthColor, false)
-                } else if indexPath.row % 7 == 0 {
-                    return (holidayColor.sunday, false)
-                } else if indexPath.row % 7 == 6 {
-                    return (holidayColor.saturday, false)
+                    return highlightedDayColor
                 } else {
-                    return (weekdayColor, false)
+                    return baseColor
                 }
             }()
             
@@ -398,7 +411,7 @@ private extension Koyomi {
         if case .line = style {
             cell.lineViewAppearance = lineView
         }
-        cell.configureAppearanse(of: style, withColor: selectedDayBackgroundColor, backgroundColor: backgroundColor, isSelected: isSelected)
+        cell.configureAppearanse(of: style, withColor: selectedStyleColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
         }
