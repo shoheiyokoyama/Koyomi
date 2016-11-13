@@ -18,14 +18,8 @@ class ViewController: UIViewController {
             koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             koyomi.style = .standard
             koyomi.dayPosition = .topRight
-            
-            koyomi.lineView.height = 1
-            koyomi.lineView.widthRate = 0.8
-            koyomi.lineView.position = .center
-
-            koyomi.selectionMode = .sequence(style: .line)
-            koyomi.selectedDayTextState = .keeping
-            koyomi.selectedStyleColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
+            koyomi.selectionMode = .sequence(style: .semicircleEdge)
+            koyomi.selectedDayBackgroundColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
             koyomi
                 .setDayFont(size: 14)
                 .setWeekFont(size: 10)
