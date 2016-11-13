@@ -19,7 +19,7 @@ class ViewController: UIViewController {
             koyomi.style = .standard
             koyomi.dayPosition = .topRight
             koyomi.selectionMode = .sequence(style: .semicircleEdge)
-            koyomi.selectedDayBackgroundColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
+            koyomi.selectedStyleColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
             koyomi
                 .setDayFont(size: 14)
                 .setWeekFont(size: 10)
