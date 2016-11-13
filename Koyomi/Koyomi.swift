@@ -374,6 +374,17 @@ private extension Koyomi {
             }()
             
             style = {
+                func sequencePosition(with indexPath: IndexPath) -> KoyomiCell.CellStyle.SequencePosition {
+                    let date = model.date(at: indexPath)
+                    if let start = model.sequenceDates.start, let _ = model.sequenceDates.end , date == start {
+                        return  .left
+                    } else if let _ = model.sequenceDates.start, let end = model.sequenceDates.end , date == end {
+                        return .right
+                    } else {
+                        return .middle
+                    }
+                }
+                
                 switch (selectionMode, isSelected) {
                 //Not selected or background style of single, multiple, sequence mode
                 case (_, false), (.single(style: .background), true), (.multiple(style: .background), true), (.sequence(style: .background), true):
@@ -414,17 +425,6 @@ private extension Koyomi {
         cell.configureAppearanse(of: style, withColor: selectedStyleColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
-        }
-    }
-    
-    func sequencePosition(with indexPath: IndexPath) -> KoyomiCell.CellStyle.SequencePosition {
-        let date = model.date(at: indexPath)
-        if let start = model.sequenceDates.start, let _ = model.sequenceDates.end , date == start {
-            return  .left
-        } else if let _ = model.sequenceDates.start, let end = model.sequenceDates.end , date == end {
-            return .right
-        } else {
-            return .middle
         }
     }
 }
