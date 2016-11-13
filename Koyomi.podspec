@@ -8,12 +8,14 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Koyomi'
-  s.version          = '1.0.5'
+  s.version          = '1.1.0'
   s.summary          = 'Simple customizable calendar component in Swift'
   s.description      = <<-DESC
 
-                        Koyomi is a simple Calender View framework for iOS, written in Swift.
-                        * Easily usable,
+                        Koyomi is a simple calender view framework for iOS, written in Swift.
+                        * Simple Calendar View
+                        * Easily usable.
+                        * Selectable calender
                         * Customizable in any properties for appearance.
                         * Support @IBDesignable and @IBInspectable
                         * Support Swift 2.3
