@@ -374,7 +374,7 @@ private extension Koyomi {
             }()
             
             style = {
-                func sequencePosition(with indexPath: IndexPath) -> KoyomiCell.CellStyle.SequencePosition {
+                var sequencePosition: KoyomiCell.CellStyle.SequencePosition {
                     let date = model.date(at: indexPath)
                     if let start = model.sequenceDates.start, let _ = model.sequenceDates.end , date == start {
                         return  .left
@@ -396,14 +396,14 @@ private extension Koyomi {
                     
                 //Selected and sequence mode, semicircleEdge style
                 case (.sequence(style: .semicircleEdge), true):
-                    return .sequence(position: sequencePosition(with: indexPath))
+                    return .semicircleEdge(position: sequencePosition)
                     
                 case (.single(style: .line), true), (.multiple(style: .line), true):
                     // Position is always nil.
                     return .line(position: nil)
                     
                 case (.sequence(style: .line), true):
-                    return .line(position: sequencePosition(with: indexPath))
+                    return .line(position: sequencePosition)
                     
                 default: return .standard
                 }

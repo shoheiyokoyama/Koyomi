@@ -19,7 +19,7 @@ final class KoyomiCell: UICollectionViewCell {
     fileprivate let rightSemicircleView: UIView = .init()
     
     enum CellStyle {
-        case standard, circle, sequence(position: SequencePosition)/* Cange to SemicircleEdge*/, line(position: SequencePosition?)
+        case standard, circle, semicircleEdge(position: SequencePosition), line(position: SequencePosition?)
         
         enum SequencePosition { case left, middle, right }
     }
@@ -94,7 +94,7 @@ final class KoyomiCell: UICollectionViewCell {
             leftSemicircleView.isHidden  = true
             
         // isSelected is always true
-        case .sequence(let position):
+        case .semicircleEdge(let position):
             lineView.isHidden = true
             circularView.isHidden = true
             
