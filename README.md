@@ -193,7 +193,7 @@ Also, if you don't want to change day textColor when the user selects day, set `
 
 ```swift
 // day text color change white when selected.
-koyomi.selectedDayTextState = .change(UIcolor.white)
+koyomi.selectedDayTextState = .change(.white)
 
 // day text color doesn't change when selected.
 koyomi.selectedDayTextState = .keeping
