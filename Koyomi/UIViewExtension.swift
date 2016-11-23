@@ -16,9 +16,8 @@ extension UIView {
         var angle: (start: CGFloat, end: CGFloat) {
             let pi = CGFloat(M_PI)
             switch self {
-            case .left:  return (start: pi + (pi / 2), end: pi / 2)
-            case .right: return (start: pi + (pi / 2), end: pi / 2)
-            case .none:  return (start: 0, end: 0)
+            case .left, .right: return (start: pi + (pi / 2), end: pi / 2)
+            case .none: return (start: 0, end: 0)
             }
         }
         
