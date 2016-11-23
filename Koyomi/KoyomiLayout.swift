@@ -14,11 +14,10 @@ final class KoyomiLayout: UICollectionViewLayout {
     let inset: UIEdgeInsets
     let cellSpace: CGFloat
     let sectionSpace: CGFloat
+    let weekCellHeight: CGFloat
     
     // Fileprivate properties
     fileprivate var layoutAttributes: [IndexPath: UICollectionViewLayoutAttributes] = [:]
-    
-    let weekCellHeight: CGFloat
     
     // MARK: - Initializer -
     
