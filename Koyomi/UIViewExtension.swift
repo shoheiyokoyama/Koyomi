@@ -10,22 +10,42 @@ import UIKit
 
 extension UIView {
     
-    enum RectCornerType { case left, right, none }
-    
-    func mask(with style: RectCornerType) {
-        let corner: UIRectCorner = {
-            switch style {
-            case .left:  return [.topLeft, .bottomLeft]
-            case .none:  return []
-            case .right: return [.topRight, .bottomRight]
-            }
-        }()
+    enum EdgeDirection {
+        case left, right, none
         
-        let path: UIBezierPath = .init(roundedRect: bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: bounds.width / 2, height: bounds.height / 2))
+        var angle: (start: CGFloat, end: CGFloat) {
+            let pi = CGFloat(M_PI)
+            switch self {
+            case .left:  return (start: pi + (pi / 2), end: pi / 2)
+            case .right: return (start: pi + (pi / 2), end: pi / 2)
+            case .none:  return (start: 0, end: 0)
+            }
+        }
+        
+        var isClockwise: Bool {
+            switch self {
+            case .left: return false
+            default:    return true
+            }
+        }
+        
+        func center(of bounds: CGRect) -> CGPoint {
+            switch self {
+            case .left: return .init(x: bounds.width, y: bounds.height / 2)
+            default:    return .init(x: 0, y: bounds.height / 2)
+            }
+        }
+    }
+    
+    func mask(with style: EdgeDirection) {
+        let center = style.center(of: bounds)
+        let path: UIBezierPath = .init()
+        path.move(to: center)
+        path.addArc(withCenter: center, radius: bounds.height / 2, startAngle: style.angle.start, endAngle: style.angle.end, clockwise: style.isClockwise)
         
         let maskLayer: CAShapeLayer = .init()
         maskLayer.frame = bounds
         maskLayer.path  = path.cgPath
-        layer.mask = corner.isEmpty ? nil : maskLayer
+        layer.mask = style == .none ? nil : maskLayer
     }
 }

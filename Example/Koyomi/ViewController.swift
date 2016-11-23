@@ -17,7 +17,7 @@ class ViewController: UIViewController {
             koyomi.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             koyomi.style = .standard
-            koyomi.dayPosition = .topRight
+            koyomi.dayPosition = .center
             koyomi.selectionMode = .sequence(style: .semicircleEdge)
             koyomi.selectedStyleColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
             koyomi
