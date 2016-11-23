@@ -3,7 +3,7 @@
 <p align="center"><strong>Koyomi</strong> is a simple calendar view framework for iOS, written in Swift :calendar:</p>
 
 <p align="center">
-<img src="./DemoSource/sample-demo.gif" width="400">
+<img src="./DemoSource/demo-example.gif" width="400">
 </p>
 
 ## :octocat: Features
