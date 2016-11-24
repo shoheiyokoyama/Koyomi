@@ -239,7 +239,7 @@ extension ViewController: KoyomiDelegate {
     }
     
     @objc(koyomi:shouldSelectDates:to:withPeriodLength:)
-    func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength length: Int) -> Bool {
+    func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool {
         if length > invalidPeriodLength {
             print("More than \(invalidPeriodLength) days are invalid period.")
             return false

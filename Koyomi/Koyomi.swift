@@ -19,7 +19,7 @@ import UIKit
 
     // The koyomi calls this method before select days
     // return value: true if the item should be selected or false if it should not.
-    @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to: Date?, withPeriodLength length: Int) -> Bool
+    @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool
 }
 
 // MARK: - KoyomiStyle -
@@ -286,15 +286,15 @@ final public class Koyomi: UICollectionView {
     }
     
     @discardableResult
-    public func setDayColor(_ dayColor: UIColor, of date: Date, to Date: Date? = nil) -> Self {
-        model.setHighlightedDates(from: date, to: Date)
+    public func setDayColor(_ dayColor: UIColor, of date: Date, to toDate: Date? = nil) -> Self {
+        model.setHighlightedDates(from: date, to: toDate)
         highlightedDayColor = dayColor
         return self
     }
     
     @discardableResult
-    public func setDayBackgrondColor(_ backgroundColor: UIColor, of date: Date, to Date: Date? = nil) -> Self {
-        model.setHighlightedDates(from: date, to: Date)
+    public func setDayBackgrondColor(_ backgroundColor: UIColor, of date: Date, to toDate: Date? = nil) -> Self {
+        model.setHighlightedDates(from: date, to: toDate)
         highlightedDayBackgrondColor = backgroundColor
         return self
     }
