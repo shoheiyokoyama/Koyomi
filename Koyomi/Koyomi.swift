@@ -306,6 +306,11 @@ final public class Koyomi: UICollectionView {
         super.reloadData()
         setCollectionViewLayout(layout, animated: false)
     }
+    
+    public override func layoutSubviews() {
+        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
+        super.layoutSubviews()
+    }
 }
 
 // MARK: - Private Methods -
@@ -321,7 +326,6 @@ private extension Koyomi {
         register(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
         
         sectionSeparator.backgroundColor = sectionSeparatorColor
-        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
         addSubview(sectionSeparator)
     }
     
