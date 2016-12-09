@@ -80,6 +80,18 @@ final class DateModel: NSObject {
         return false
     }
     
+    func satudatIndex() -> Int {
+        return (7 - self.calendar.firstWeekday) % 7
+    }
+    
+    func sundayIndex() -> Int {
+        return (8 - self.calendar.firstWeekday) % 7
+    }
+    
+    func weekDayStringForDay(_ day:Int) -> String {
+        return self.weeks[(day + 6 + self.calendar.firstWeekday) % 7]
+    }
+    
     func display(in month: MonthType) {
         currentDates = []
         currentDate = month == .current ? Date() : date(of: month)
