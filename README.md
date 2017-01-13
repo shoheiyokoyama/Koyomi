@@ -156,7 +156,7 @@ You can select specific date .
  
 ```swift
     let today = Date()
-    let components = DateComponents()
+    var components = DateComponents()
     components.day = 7
     let weekLaterDay = Calendar.current.date(byAdding: components, toDate: today)
     koyomi.select(date: today, to: weekLaterDay)
