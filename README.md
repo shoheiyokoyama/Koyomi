@@ -7,6 +7,24 @@
 </p>
 
 - [Features](#features)
+- [Demo App](#demo_app)
+- [Usage](#usage)
+    - [Change displayed month](#change-displayed-month)
+    - [Hide days of other months](#hide-days-of-other-months)
+    - [Get current month string](#get-current-month-string)
+    - [The selection state of date](#the-selection-state-of-date)
+    - [Highlight specific days](#highlight-specific-days)
+    - [KoyomiDelegate](#koyomiDelegate)
+    - [Customize layout properties](#customize-layout-properties)
+    - [Customize text postion](#customize-text-postion)
+    - [Customize text font](#customize-text-font)
+    - [Customize weeks text](#customize-weeks-text)
+    - [Customize color properties](#customize-color-properties)
+    - [Customize color properties](#customize-color-properties)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [License](#license)
+- [Author](#author)
 
 ##  <a name="features"> :octocat: Features
 
@@ -31,20 +49,11 @@
 - [x] Support ***Swift 2.3***.
 - [x] Support ***Swift 3.0***
 
-### Installation of ***Swift 2.3***
-
-Please install version `0.1.6` or earlier.
-
-```
-pod 'Koyomi', '~> 0.1.6'
-```
-
-
-## Demo App
+## <a name="demo_app"> Demo App
 
 Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demonstration.
 
-## Usage
+## <a name="usage"> Usage
 
 ***Koyomi*** is designed to be easy to use :sunglasses:
 
@@ -375,13 +384,21 @@ used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-inte
     }
 ```
 
-## :pencil: Requirements
+## <a name="requirements"> :pencil: Requirements
 
 - iOS 8.0+
 - Xcode 8.0+
 - Swift 3.0+
 
-## :computer: Installation
+## <a name="installation"> :computer: Installation
+
+### Installation of ***Swift 2.3***
+
+Please install version `0.1.6` or earlier.
+
+```
+pod 'Koyomi', '~> 0.1.6'
+```
 
 ### CocoaPods
 
@@ -400,10 +417,10 @@ Add the following line to your `Cartfile`:
 github "shoheiyokoyama/Koyomi"
 ```
 
-## :coffee: Author
+## <a name="author"> :coffee: Author
 
 shoheiyokoyama, shohei.yok0602@gmail.com
 
-## :unlock: License
+## <a name="license"> :unlock: License
 
 ***Koyomi*** is available under the MIT license. See the [LICENSE file](https://github.com/shoheiyokoyama/Koyomi/blob/master/LICENSE) for more info.
