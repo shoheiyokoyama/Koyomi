@@ -162,7 +162,11 @@ You can select specific date .
     koyomi.select(date: today, to: weekLaterDay)
     
     // If want to select only one day. 
-    call koyomi.select(date: today)
+    koyomi.select(date: today)
+    
+    // If want to select multiple day.
+    let dates: [Date] = [date1, date2, date3]
+    koyomi.select(dates: dates)
 ```
 
 You can also unselect available.
@@ -171,6 +175,9 @@ You can also unselect available.
     koyomi.unselect(today, to: weekLaterDay) 
     // If want to unselect only one day.
     koyomi.unselect(today)
+    // If want to unselect multiple day.
+    let dates: [Date] = [date1, date2, date3]
+    koyomi.unselect(dates: dates)
     
     // unselect all date
     koyomi.unselectAll()
