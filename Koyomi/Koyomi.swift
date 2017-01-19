@@ -277,8 +277,20 @@ final public class Koyomi: UICollectionView {
     }
     
     @discardableResult
+    public func select(dates: [Date]) -> Self {
+        dates.forEach { [weak self] date in self?.select(date: date) }
+        return self
+    }
+    
+    @discardableResult
     public func unselect(date: Date, to toDate: Date? = nil) -> Self {
         model.unselect(from: date, to: toDate)
+        return self
+    }
+    
+    @discardableResult
+    public func unselect(dates: [Date]) -> Self {
+        dates.forEach { [weak self] date in self?.unselect(date: date) }
         return self
     }
     
