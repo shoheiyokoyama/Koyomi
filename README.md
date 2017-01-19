@@ -16,6 +16,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
+- [Contributing](#contributing)
 - [Author](#author)
 
 ##  <a name="features"> :octocat: Features
@@ -408,6 +409,9 @@ Add the following line to your `Cartfile`:
 ```ruby
 github "shoheiyokoyama/Koyomi"
 ```
+
+## <a name="contributing"> Contributing
+See the [CONTRIBUTING file](https://github.com/shoheiyokoyama/Koyomi/blob/master/CONTRIBUTING.md)
 
 ## <a name="author"> :coffee: Author
 
