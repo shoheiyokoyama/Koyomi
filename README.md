@@ -6,7 +6,9 @@
 <img src="./DemoSource/demo-example.gif" width="400">
 </p>
 
-## :octocat: Features
+- [Features](#features)
+
+##  <a name="features"> :octocat: Features
 
 ![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )
