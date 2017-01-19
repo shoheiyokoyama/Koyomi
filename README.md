@@ -15,9 +15,9 @@
     - ***Customize Koyomi*** : [Customize layout properties](#customize-layout-properties), [Customize text postion](#customize-text-postion), [Customize text font](#customize-text-font), [Customize weeks text](#customize-weeks-text), [Customize color properties](#customize-color-properties), [Customize color properties](#customize-color-properties)
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [License](#license)
 - [Contributing](#contributing)
 - [Author](#author)
+- [License](#license)
 
 ##  <a name="features"> :octocat: Features
 
