@@ -172,7 +172,9 @@ final public class Koyomi: UICollectionView {
     
     // Week cell text
     public var weeks: [String] {
-        get {return self.model.weeks} //use model.weekDayStringForDay to retrive the right string based on calendar.firstWeekday
+        get {
+            return model.weeks
+        }
         set {
             model.weeks = newValue
             reloadData()
@@ -348,7 +350,7 @@ private extension Koyomi {
             isSelected = false
             backgroundColor = weekBackgrondColor
             font = weekLabelFont
-            content = model.weekDayStringForDay(indexPath.row)
+            content = model.weeks[indexPath.row]
             postion = weekPosition
             
         } else {
@@ -362,9 +364,9 @@ private extension Koyomi {
                         return otherMonthColor
                     } else if let end = model.indexAtEnd(in: .current), indexPath.row > end {
                         return otherMonthColor
-                    } else if indexPath.row % 7 == self.model.sundayIndex() {
+                    } else if let type = DateModel.WeekType(indexPath), type == .sunday {
                         return holidayColor.sunday
-                    } else if indexPath.row % 7 == self.model.satudatIndex() {
+                    } else if let type = DateModel.WeekType(indexPath), type == .saturday {
                         return holidayColor.saturday
                     } else {
                         return weekdayColor
