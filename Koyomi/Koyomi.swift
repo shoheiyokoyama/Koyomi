@@ -309,9 +309,9 @@ final public class Koyomi: UICollectionView {
         setCollectionViewLayout(layout, animated: false)
     }
     
-    public override func layoutSubviews() {
-        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
+    override public func layoutSubviews() {
         super.layoutSubviews()
+        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
     }
 }
 
