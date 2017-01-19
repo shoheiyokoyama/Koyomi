@@ -171,9 +171,10 @@ final public class Koyomi: UICollectionView {
     public var weekPosition: ContentPosition = .center
     
     // Week cell text
-    public var weeks: [String] = [] {
-        didSet {
-            model.weeks = weeks
+    public var weeks: [String] {
+        get {return self.model.weeks} //use model.weekDayStringForDay to retrive the right string based on calendar.firstWeekday
+        set {
+            model.weeks = newValue
             reloadData()
         }
     }
@@ -305,6 +306,11 @@ final public class Koyomi: UICollectionView {
         super.reloadData()
         setCollectionViewLayout(layout, animated: false)
     }
+    
+    public override func layoutSubviews() {
+        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
+        super.layoutSubviews()
+    }
 }
 
 // MARK: - Private Methods -
@@ -320,7 +326,6 @@ private extension Koyomi {
         register(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
         
         sectionSeparator.backgroundColor = sectionSeparatorColor
-        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
         addSubview(sectionSeparator)
     }
     
@@ -343,7 +348,7 @@ private extension Koyomi {
             isSelected = false
             backgroundColor = weekBackgrondColor
             font = weekLabelFont
-            content = model.weeks[indexPath.row]
+            content = model.weekDayStringForDay(indexPath.row)
             postion = weekPosition
             
         } else {
@@ -357,9 +362,9 @@ private extension Koyomi {
                         return otherMonthColor
                     } else if let end = model.indexAtEnd(in: .current), indexPath.row > end {
                         return otherMonthColor
-                    } else if indexPath.row % 7 == 0 {
+                    } else if indexPath.row % 7 == self.model.sundayIndex() {
                         return holidayColor.sunday
-                    } else if indexPath.row % 7 == 6 {
+                    } else if indexPath.row % 7 == self.model.satudatIndex() {
                         return holidayColor.saturday
                     } else {
                         return weekdayColor
