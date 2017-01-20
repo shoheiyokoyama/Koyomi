@@ -17,7 +17,7 @@
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [License](#license)
-- [App using koyomi](#app_using_koyomi)
+- [App using Koyomi](#app_using_koyomi)
 - [Author](#author)
 
 
