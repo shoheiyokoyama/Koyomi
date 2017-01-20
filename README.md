@@ -16,8 +16,10 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Contributing](#contributing)
-- [Author](#author)
 - [License](#license)
+- [App using koyomi](#app_using_koyomi)
+- [Author](#author)
+
 
 ##  <a name="features"> :octocat: Features
 
@@ -409,6 +411,12 @@ Add the following line to your `Cartfile`:
 ```ruby
 github "shoheiyokoyama/Koyomi"
 ```
+
+## <a name="app_using_koyomi"> App using ***Koyomi*** 
+
+- Takesone
+
+If you're using ***Koyomi*** in your app, please open a PR to add it to this list! :blush:
 
 ## <a name="contributing"> Contributing
 See the [CONTRIBUTING file](https://github.com/shoheiyokoyama/Koyomi/blob/master/CONTRIBUTING.md)
