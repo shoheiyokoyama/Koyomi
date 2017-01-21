@@ -11,13 +11,15 @@
 - [Demo App](#demo_app)
 - [Usage](#usage)
     - ***introduction*** : [Change displayed month](#calendar-change-displayed-month), [Hide days of other months](#hide-days-of-other-months), [Get current month string](#get-current-month-string), [The selection state of date](#the-selection-state-of-date), [Highlight specific days](#highlight-specific-days)
-    - ***Delegate*** : [KoyomiDelegate](#koyomiDelegate)
+    - ***Delegate*** : [KoyomiDelegate](#koyomi_delegate)
     - ***Customize Koyomi*** : [Customize layout properties](#customize-layout-properties), [Customize text postion](#customize-text-postion), [Customize text font](#customize-text-font), [Customize weeks text](#customize-weeks-text), [Customize color properties](#customize-color-properties), [Customize color properties](#customize-color-properties)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Contributing](#contributing)
-- [Author](#author)
 - [License](#license)
+- [App using Koyomi](#app_using_koyomi)
+- [Author](#author)
+
 
 ##  <a name="features"> :octocat: Features
 
@@ -224,7 +226,7 @@ You can change `dayColor` and `dayBackgroundColor` in specific days.
         // .setDayBackgrondColor(.black, of: today)
 ```
 
-## KoyomiDelegate
+## <a name="koyomi_delegate"> KoyomiDelegate
 
 If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
 
@@ -334,7 +336,13 @@ You can configure text postion.
 ### Customize weeks text
  
  ```swift
-    koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    koyomi.weeks = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    
+    // configure with index
+    koyomi.weeks.0 = "Sun"
+    koyomi.weeks.1 = "Mon"
+    koyomi.weeks.2 = "Tue"
+    ...
 ```
 
 ### Customize color properties
@@ -409,6 +417,12 @@ Add the following line to your `Cartfile`:
 ```ruby
 github "shoheiyokoyama/Koyomi"
 ```
+
+## <a name="app_using_koyomi"> App using ***Koyomi*** 
+
+- Takesone
+
+If you're using ***Koyomi*** in your app, please open a PR to add it to this list! :blush:
 
 ## <a name="contributing"> Contributing
 See the [CONTRIBUTING file](https://github.com/shoheiyokoyama/Koyomi/blob/master/CONTRIBUTING.md)
