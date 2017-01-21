@@ -334,7 +334,13 @@ You can configure text postion.
 ### Customize weeks text
  
  ```swift
-    koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    koyomi.weeks = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    
+    // configure with index
+    koyomi.weeks.0 = "Sun"
+    koyomi.weeks.1 = "Mon"
+    koyomi.weeks.2 = "Tue"
+    ...
 ```
 
 ### Customize color properties
