@@ -11,7 +11,7 @@
 - [Demo App](#demo_app)
 - [Usage](#usage)
     - ***introduction*** : [Change displayed month](#calendar-change-displayed-month), [Hide days of other months](#hide-days-of-other-months), [Get current month string](#get-current-month-string), [The selection state of date](#the-selection-state-of-date), [Highlight specific days](#highlight-specific-days)
-    - ***Delegate*** : [KoyomiDelegate](#koyomi-delegate)
+    - ***Delegate*** : [KoyomiDelegate](#koyomi_delegate)
     - ***Customize Koyomi*** : [Customize layout properties](#customize-layout-properties), [Customize text postion](#customize-text-postion), [Customize text font](#customize-text-font), [Customize weeks text](#customize-weeks-text), [Customize color properties](#customize-color-properties), [Customize color properties](#customize-color-properties)
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -226,7 +226,7 @@ You can change `dayColor` and `dayBackgroundColor` in specific days.
         // .setDayBackgrondColor(.black, of: today)
 ```
 
-## KoyomiDelegate
+## <a name="koyomi_delegate"> KoyomiDelegate
 
 If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
 
