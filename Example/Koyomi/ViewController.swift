@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         didSet {
             koyomi.calendarDelegate = self
             koyomi.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            koyomi.weeks = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
             koyomi.style = .standard
             koyomi.dayPosition = .center
             koyomi.selectionMode = .sequence(style: .semicircleEdge)

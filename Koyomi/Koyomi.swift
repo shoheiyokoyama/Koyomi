@@ -171,7 +171,7 @@ final public class Koyomi: UICollectionView {
     public var weekPosition: ContentPosition = .center
     
     // Week cell text
-    public var weeks: [String] {
+    public var weeks: (String, String, String, String, String, String, String) {
         get {
             return model.weeks
         }
@@ -362,7 +362,7 @@ private extension Koyomi {
             isSelected = false
             backgroundColor = weekBackgrondColor
             font = weekLabelFont
-            content = model.weeks[indexPath.row]
+            content = model.week(at: indexPath.row)
             postion = weekPosition
             
         } else {
