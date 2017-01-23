@@ -6,7 +6,22 @@
 <img src="./DemoSource/demo-example.gif" width="400">
 </p>
 
-## :octocat: Features
+## Content
+- [Features](#features)
+- [Demo App](#demo_app)
+- [Usage](#usage)
+    - ***introduction*** : [Change displayed month](#calendar-change-displayed-month), [Hide days of other months](#hide-days-of-other-months), [Get current month string](#get-current-month-string), [The selection state of date](#the-selection-state-of-date), [Highlight specific days](#highlight-specific-days)
+    - ***Delegate*** : [KoyomiDelegate](#koyomi_delegate)
+    - ***Customize Koyomi*** : [Customize layout properties](#customize-layout-properties), [Customize text postion](#customize-text-postion), [Customize text font](#customize-text-font), [Customize weeks text](#customize-weeks-text), [Customize color properties](#customize-color-properties), [Customize color properties](#customize-color-properties)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+- [App using Koyomi](#app_using_koyomi)
+- [Author](#author)
+
+
+##  <a name="features"> :octocat: Features
 
 ![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )
@@ -29,20 +44,11 @@
 - [x] Support ***Swift 2.3***.
 - [x] Support ***Swift 3.0***
 
-### Installation of ***Swift 2.3***
-
-Please install version `0.1.6` or earlier.
-
-```
-pod 'Koyomi', '~> 0.1.6'
-```
-
-
-## Demo App
+## <a name="demo_app"> Demo App
 
 Open `Example/Koyomi.xcworkspace` and run `Koyomi-Example` to see a simple demonstration.
 
-## Usage
+## <a name="usage"> Usage
 
 ***Koyomi*** is designed to be easy to use :sunglasses:
 
@@ -156,13 +162,17 @@ You can select specific date .
  
 ```swift
     let today = Date()
-    let components = DateComponents()
+    var components = DateComponents()
     components.day = 7
     let weekLaterDay = Calendar.current.date(byAdding: components, toDate: today)
     koyomi.select(date: today, to: weekLaterDay)
     
     // If want to select only one day. 
-    call koyomi.select(date: today)
+    koyomi.select(date: today)
+    
+    // If want to select multiple day.
+    let dates: [Date] = [date1, date2, date3]
+    koyomi.select(dates: dates)
 ```
 
 You can also unselect available.
@@ -171,6 +181,9 @@ You can also unselect available.
     koyomi.unselect(today, to: weekLaterDay) 
     // If want to unselect only one day.
     koyomi.unselect(today)
+    // If want to unselect multiple day.
+    let dates: [Date] = [date1, date2, date3]
+    koyomi.unselect(dates: dates)
     
     // unselect all date
     koyomi.unselectAll()
@@ -213,7 +226,7 @@ You can change `dayColor` and `dayBackgroundColor` in specific days.
         // .setDayBackgrondColor(.black, of: today)
 ```
 
-## KoyomiDelegate
+## <a name="koyomi_delegate"> KoyomiDelegate
 
 If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
 
@@ -323,7 +336,13 @@ You can configure text postion.
 ### Customize weeks text
  
  ```swift
-    koyomi.weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    koyomi.weeks = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    
+    // configure with index
+    koyomi.weeks.0 = "Sun"
+    koyomi.weeks.1 = "Mon"
+    koyomi.weeks.2 = "Tue"
+    ...
 ```
 
 ### Customize color properties
@@ -366,13 +385,21 @@ used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-inte
     }
 ```
 
-## :pencil: Requirements
+## <a name="requirements"> :pencil: Requirements
 
 - iOS 8.0+
 - Xcode 8.0+
 - Swift 3.0+
 
-## :computer: Installation
+## <a name="installation"> :computer: Installation
+
+### Installation of ***Swift 2.3***
+
+Please install version `0.1.6` or earlier.
+
+```
+pod 'Koyomi', '~> 0.1.6'
+```
 
 ### CocoaPods
 
@@ -391,10 +418,19 @@ Add the following line to your `Cartfile`:
 github "shoheiyokoyama/Koyomi"
 ```
 
-## :coffee: Author
+## <a name="app_using_koyomi"> App using ***Koyomi*** 
+
+- Takesone
+
+If you're using ***Koyomi*** in your app, please open a PR to add it to this list! :blush:
+
+## <a name="contributing"> Contributing
+See the [CONTRIBUTING file](https://github.com/shoheiyokoyama/Koyomi/blob/master/CONTRIBUTING.md)
+
+## <a name="author"> :coffee: Author
 
 shoheiyokoyama, shohei.yok0602@gmail.com
 
-## :unlock: License
+## <a name="license"> :unlock: License
 
 ***Koyomi*** is available under the MIT license. See the [LICENSE file](https://github.com/shoheiyokoyama/Koyomi/blob/master/LICENSE) for more info.

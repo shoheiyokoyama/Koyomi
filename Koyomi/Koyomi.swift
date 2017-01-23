@@ -171,8 +171,10 @@ final public class Koyomi: UICollectionView {
     public var weekPosition: ContentPosition = .center
     
     // Week cell text
-    public var weeks: [String] {
-        get {return self.model.weeks} //use model.weekDayStringForDay to retrive the right string based on calendar.firstWeekday
+    public var weeks: (String, String, String, String, String, String, String) {
+        get {
+            return model.weeks
+        }
         set {
             model.weeks = newValue
             reloadData()
@@ -275,8 +277,20 @@ final public class Koyomi: UICollectionView {
     }
     
     @discardableResult
+    public func select(dates: [Date]) -> Self {
+        dates.forEach { [weak self] date in self?.select(date: date) }
+        return self
+    }
+    
+    @discardableResult
     public func unselect(date: Date, to toDate: Date? = nil) -> Self {
         model.unselect(from: date, to: toDate)
+        return self
+    }
+    
+    @discardableResult
+    public func unselect(dates: [Date]) -> Self {
+        dates.forEach { [weak self] date in self?.unselect(date: date) }
         return self
     }
     
@@ -307,9 +321,9 @@ final public class Koyomi: UICollectionView {
         setCollectionViewLayout(layout, animated: false)
     }
     
-    public override func layoutSubviews() {
-        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
+    override public func layoutSubviews() {
         super.layoutSubviews()
+        sectionSeparator.frame = CGRect(x: inset.left, y: inset.top + weekCellHeight, width: frame.width - (inset.top + inset.left), height: sectionSpace)
     }
 }
 
@@ -348,7 +362,7 @@ private extension Koyomi {
             isSelected = false
             backgroundColor = weekBackgrondColor
             font = weekLabelFont
-            content = model.weekDayStringForDay(indexPath.row)
+            content = model.week(at: indexPath.row)
             postion = weekPosition
             
         } else {
@@ -362,9 +376,9 @@ private extension Koyomi {
                         return otherMonthColor
                     } else if let end = model.indexAtEnd(in: .current), indexPath.row > end {
                         return otherMonthColor
-                    } else if indexPath.row % 7 == self.model.sundayIndex() {
+                    } else if let type = DateModel.WeekType(indexPath), type == .sunday {
                         return holidayColor.sunday
-                    } else if indexPath.row % 7 == self.model.satudatIndex() {
+                    } else if let type = DateModel.WeekType(indexPath), type == .saturday {
                         return holidayColor.saturday
                     } else {
                         return weekdayColor

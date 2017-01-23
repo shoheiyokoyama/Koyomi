@@ -17,7 +17,25 @@ final class DateModel: NSObject {
     static let maxCellCount   = 42
     
     // Week text
-    var weeks: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+    var weeks: (String, String, String, String, String, String, String) = ("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT")
+    
+    enum WeekType: String {
+        case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+
+        init?(_ indexPath: IndexPath) {
+            let firstWeekday = Calendar.current.firstWeekday
+            switch indexPath.row % 7 {
+            case (8 -  firstWeekday) % 7:  self = .sunday
+            case (9 -  firstWeekday) % 7:  self = .monday
+            case (10 - firstWeekday) % 7:  self = .tuesday
+            case (11 - firstWeekday) % 7:  self = .wednesday
+            case (12 - firstWeekday) % 7:  self = .thursday
+            case (13 - firstWeekday) % 7:  self = .friday
+            case (14 - firstWeekday) % 7:  self = .saturday
+            default: return nil
+            }
+        }
+    }
     
     enum SelectionMode { case single, multiple, sequence, none }
     var selectionMode: SelectionMode = .single
@@ -78,18 +96,6 @@ final class DateModel: NSObject {
             return true
         }
         return false
-    }
-    
-    func satudatIndex() -> Int {
-        return (7 - self.calendar.firstWeekday) % 7
-    }
-    
-    func sundayIndex() -> Int {
-        return (8 - self.calendar.firstWeekday) % 7
-    }
-    
-    func weekDayStringForDay(_ day:Int) -> String {
-        return self.weeks[(day + 6 + self.calendar.firstWeekday) % 7]
     }
     
     func display(in month: MonthType) {
@@ -281,6 +287,19 @@ final class DateModel: NSObject {
                 }
                 date = nextDay
             }
+        }
+    }
+    
+    func week(at index: Int) -> String {
+        switch index {
+        case 0:  return weeks.0
+        case 1:  return weeks.1
+        case 2:  return weeks.2
+        case 3:  return weeks.3
+        case 4:  return weeks.4
+        case 5:  return weeks.5
+        case 6:  return weeks.6
+        default: return ""
         }
     }
 }
