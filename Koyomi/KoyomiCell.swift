@@ -17,6 +17,7 @@ final class KoyomiCell: UICollectionViewCell {
     
     fileprivate let leftSemicircleView: UIView  = .init()
     fileprivate let rightSemicircleView: UIView = .init()
+    var circularViewDiameter:CGFloat = 0.75 {didSet {self.setNeedsLayout()}}
     
     enum CellStyle {
         case standard, circle, semicircleEdge(position: SequencePosition), line(position: SequencePosition?)
@@ -185,9 +186,6 @@ private extension KoyomiCell {
     }
     
     func setup() {
-        let diameter = bounds.width * 0.75
-        circularView.frame = .init(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
-        circularView.layer.cornerRadius = diameter / 2
         circularView.isHidden = true
         addSubview(circularView)
         
@@ -214,7 +212,7 @@ private extension KoyomiCell {
         rightSemicircleView.frame = .init(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
         leftSemicircleView.frame  = .init(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
 
-        let diameter = bounds.width * 0.75
+        let diameter = bounds.width * self.circularViewDiameter
         circularView.frame = .init(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
         circularView.layer.cornerRadius = diameter / 2
     }
