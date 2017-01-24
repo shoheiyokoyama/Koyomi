@@ -276,6 +276,26 @@ Tells the delegate that the displayed month is changed.
 `koyomi` calls this method before select days.
 ***return value***: true if the item should be selected or false if it should not. `to` is always nil if `selectionMode` isn't `sequence`.
 
+```swift
+    optional func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date: Date) -> UIColor?
+    
+    //　change selection color for specific date (only called for selected dates).
+    func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date: Date) -> UIColor? {
+        return self.today.compare(date) == .orderedSame ? UIColor.black : nil
+    }
+```
+***return value***: UIColor instance for a different color then the default one or return nil to use the default color.
+
+```swift
+    func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date: Date) -> UIFont?
+    
+    //　change font for specific date.
+    func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date: Date) -> UIFont? {
+        return self.today.compare(date) == .orderedSame ? UIFont(name:"FuturaStd-Bold", size:16) : nil
+    }
+```
+***return value***: UIFont instance for a different font then the default one or return nil to use the default font.
+
 ## :wrench: Customize ***Koyomi***
 
 ### Customize layout properties
