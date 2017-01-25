@@ -213,7 +213,7 @@ private extension KoyomiCell {
         leftSemicircleView.frame  = .init(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
 
         let diameter = bounds.width * self.circularViewDiameter
-        circularView.frame = .init(x: (bounds.width - diameter) / 2, y: (bounds.width - diameter) / 2, width: diameter, height: diameter)
+        circularView.frame = .init(x: (bounds.width - diameter) / 2, y: (bounds.height - diameter) / 2, width: diameter, height: diameter)
         circularView.layer.cornerRadius = diameter / 2
     }
     
