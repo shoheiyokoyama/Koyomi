@@ -236,6 +236,8 @@ If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
 
 ### Declaration
 
+#### koyomi(_:didSelect:forItemAt)
+
 ```swift
     optional func koyomi(_ koyomi: Koyomi, didSelect date: Date, forItemAt indexPath: IndexPath) 
 ```
@@ -243,6 +245,7 @@ If you want to use `KoyomiDelegate`, set `calendarDelegate` to `target`
 Tells the delegate that the date at the specified index path was selected.
 `date`: the date user selected, when tapped cell
 
+#### koyomi(_:currentDateString:)
 
 ```swift
    optional func koyomi(_ koyomi: Koyomi, currentDateString dateString: String)
@@ -253,6 +256,7 @@ Tells the delegate that the date at the specified index path was selected.
 Tells the delegate that the displayed month is changed.
 `currentDateString`: the current month string, when changed month.
 
+#### koyomi(_:shouldSelectDates:to:withPeriodLength)
 
 ```swift
     optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool
@@ -276,24 +280,28 @@ Tells the delegate that the displayed month is changed.
 `koyomi` calls this method before select days.
 ***return value***: true if the item should be selected or false if it should not. `to` is always nil if `selectionMode` isn't `sequence`.
 
+#### koyomi(_:selectionColorForItemAt:date:)
+
 ```swift
     optional func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date: Date) -> UIColor?
     
-    //　change selection color for specific date (only called for selected dates).
     func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date: Date) -> UIColor? {
-        return self.today.compare(date) == .orderedSame ? UIColor.black : nil
+        return today == date ? UIColor.black : nil
     }
 ```
+`koyomi` calls this method before setting selectionColor for specific date.
 ***return value***: UIColor instance for a different color then the default one or return nil to use the default color.
+
+#### koyomi(_:fontForItemAt:date:)
 
 ```swift
     func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date: Date) -> UIFont?
     
-    //　change font for specific date.
     func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date: Date) -> UIFont? {
-        return self.today.compare(date) == .orderedSame ? UIFont(name:"FuturaStd-Bold", size:16) : nil
+        return today == date ? UIFont(name:"FuturaStd-Bold", size:16) : nil
     }
 ```
+`koyomi` calls this method before setting font for specific date.
 ***return value***: UIFont instance for a different font then the default one or return nil to use the default font.
 
 ## :wrench: Customize ***Koyomi***
