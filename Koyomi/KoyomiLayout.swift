@@ -91,6 +91,6 @@ private extension KoyomiLayout {
         let y = isWeekCell ? inset.top : row * (size.height + lineSpace) + weekCellHeight + sectionSpace + inset.top
         let x = (size.width + cellSpace) * column + inset.left
         
-        return .init(origin: .init(x: x, y: y), size: size)
+        return .init(origin: CGPoint(x: x, y: y), size: size)
     }
 }

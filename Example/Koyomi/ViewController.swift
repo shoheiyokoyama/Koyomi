@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet fileprivate weak var koyomi: Koyomi! {
         didSet {
+            koyomi.circularViewDiameter = 0.2
             koyomi.calendarDelegate = self
             koyomi.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             koyomi.weeks = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
