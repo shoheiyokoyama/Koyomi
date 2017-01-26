@@ -20,6 +20,29 @@ import UIKit
     // The koyomi calls this method before select days
     // return value: true if the item should be selected or false if it should not.
     @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool
+
+    /**
+     Returns selection color for individual cells.
+     
+     - Parameter koyomi:   The current koyomi instance.
+     - Parameter selectionColorForItemAt: The indexpath of current item.
+     - Parameter date: The date representing current item.
+     
+     - Returns: A color for selection background for item at the `indexPath` or nil for default color.
+     */
+    @objc optional func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date:Date) -> UIColor?
+    
+    /**
+     Returns font for individual cells.
+     
+     - Parameter koyomi:   The current koyomi instance.
+     - Parameter fontForItemAt: The indexpath of current item.
+     - Parameter date: The date representing current item.
+     
+     - Returns: A UIFont for item at the `indexPath` or nil for default font.
+     */
+    @objc optional func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date:Date) -> UIFont?
+
 }
 
 // MARK: - KoyomiStyle -
@@ -160,6 +183,14 @@ final public class Koyomi: UICollectionView {
             }
         }
     }
+    @IBInspectable public var circularViewDiameter:CGFloat = 0.75 {
+        didSet {
+            if let layout = collectionViewLayout as? KoyomiLayout, self.circularViewDiameter != oldValue {
+                setCollectionViewLayout(self.layout, animated: false)
+            }
+        }
+    }
+
     public var inset: UIEdgeInsets = .zero {
         didSet {
             if let layout = collectionViewLayout as? KoyomiLayout, layout.inset != inset {
@@ -353,7 +384,7 @@ private extension Koyomi {
         let font: UIFont?
         let content: String
         let postion: ContentPosition
-        
+        let date = model.date(at: indexPath)
         if indexPath.section == 0 {
             
             // Configure appearance properties for week cell
@@ -434,7 +465,7 @@ private extension Koyomi {
             }()
             
             backgroundColor = model.isHighlighted(with: indexPath) ? highlightedDayBackgrondColor : dayBackgrondColor
-            font    = dayLabelFont
+            font    = self.calendarDelegate?.koyomi?(self, fontForItemAt: indexPath, date:date) ?? dayLabelFont
             content = model.dayString(at: indexPath, isHiddenOtherMonth: isHiddenOtherMonth)
             postion = dayPosition
         }
@@ -443,10 +474,12 @@ private extension Koyomi {
         cell.content   = content
         cell.textColor = textColor
         cell.contentPosition = postion
+        cell.circularViewDiameter = self.circularViewDiameter
         if case .line = style {
             cell.lineViewAppearance = lineView
         }
-        cell.configureAppearanse(of: style, withColor: selectedStyleColor, backgroundColor: backgroundColor, isSelected: isSelected)
+        let selectionColor = isSelected ? self.calendarDelegate?.koyomi?(self, selectionColorForItemAt: indexPath, date:date) ?? self.selectedStyleColor : self.selectedStyleColor
+        cell.configureAppearanse(of: style, withColor: selectionColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
         }
