@@ -181,19 +181,19 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var isHiddenOtherMonth: Bool = false
     
     // Layout properties
-    @IBInspectable var sectionSpace: CGFloat = 1.5 {
+    @IBInspectable public var sectionSpace: CGFloat = 1.5 {
         didSet {
             sectionSeparator.frame.size.height = sectionSpace
         }
     }
-    @IBInspectable var cellSpace: CGFloat = 0.5 {
+    @IBInspectable public var cellSpace: CGFloat = 0.5 {
         didSet {
             if let layout = collectionViewLayout as? KoyomiLayout, layout.cellSpace != cellSpace {
                 setCollectionViewLayout(self.layout, animated: false)
             }
         }
     }
-    @IBInspectable var weekCellHeight: CGFloat = 25 {
+    @IBInspectable public var weekCellHeight: CGFloat = 25 {
         didSet {
             sectionSeparator.frame.origin.y = inset.top + weekCellHeight
             if let layout = collectionViewLayout as? KoyomiLayout, layout.weekCellHeight != weekCellHeight {
