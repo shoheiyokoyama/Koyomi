@@ -8,11 +8,8 @@
 
 import UIKit
 
-protocol DateConvertible {}
-extension Date: DateConvertible {}
-
-extension Dictionary where Key: DateConvertible {
-    func keys(of element: Bool) -> [Key] {
-        return filter{ $0.1 as? Bool == element }.map { $0.0 }
+extension Dictionary where Value: Equatable {
+    func keys(of element: Value) -> [Key] {
+        return filter { $0.1 == element }.map { $0.0 }
     }
 }

@@ -10,31 +10,7 @@ import UIKit
 
 extension UIView {
     
-    enum EdgeDirection {
-        case left, right, none
-        
-        var angle: (start: CGFloat, end: CGFloat) {
-            let pi = CGFloat(M_PI)
-            switch self {
-            case .left, .right: return (start: pi + (pi / 2), end: pi / 2)
-            case .none: return (start: 0, end: 0)
-            }
-        }
-        
-        var isClockwise: Bool {
-            switch self {
-            case .left: return false
-            default:    return true
-            }
-        }
-        
-        func center(of bounds: CGRect) -> CGPoint {
-            switch self {
-            case .left: return .init(x: bounds.width, y: bounds.height / 2)
-            default:    return .init(x: 0, y: bounds.height / 2)
-            }
-        }
-    }
+    enum EdgeDirection { case left, right, none }
     
     func mask(with style: EdgeDirection) {
         let center = style.center(of: bounds)
@@ -46,5 +22,29 @@ extension UIView {
         maskLayer.frame = bounds
         maskLayer.path  = path.cgPath
         layer.mask = style == .none ? nil : maskLayer
+    }
+}
+
+extension UIView.EdgeDirection {
+    var angle: (start: CGFloat, end: CGFloat) {
+        let pi = CGFloat(M_PI)
+        switch self {
+        case .left, .right: return (start: pi + (pi / 2), end: pi / 2)
+        case .none: return (start: 0, end: 0)
+        }
+    }
+    
+    var isClockwise: Bool {
+        switch self {
+        case .left: return false
+        default:    return true
+        }
+    }
+    
+    func center(of bounds: CGRect) -> CGPoint {
+        switch self {
+        case .left: return CGPoint(x: bounds.width, y: bounds.height / 2)
+        default:    return CGPoint(x: 0, y: bounds.height / 2)
+        }
     }
 }

@@ -66,7 +66,9 @@ import UIKit
 // MARK: - KoyomiStyle -
 
 public enum KoyomiStyle {
+    // Basic color
     case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
+    // Deep color
     case deepBlack, deepRed, deepOrange, deepYellow, deepTealBlue, deepBlue, deepPurple, deepGreen, deepPink
     
     var colors: Koyomi.Colors {
@@ -121,14 +123,10 @@ public enum ContentPosition {
 @IBDesignable
 final public class Koyomi: UICollectionView {
     struct Colors {
-        let dayBackgrond: UIColor
-        let weekBackgrond: UIColor
-        
-        let week: UIColor
-        let weekday: UIColor
+        let dayBackgrond, weekBackgrond: UIColor
+        let week, weekday: UIColor
         let holiday: (saturday: UIColor, sunday: UIColor)
         let otherMonth: UIColor
-        
         let separator: UIColor
         
         init(dayBackgrond: UIColor, weekBackgrond: UIColor, week: UIColor = UIColor.KoyomiColor.black, weekday: UIColor = UIColor.KoyomiColor.black, holiday: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red), otherMonth: UIColor = UIColor.KoyomiColor.lightGray, separator: UIColor = UIColor.KoyomiColor.lightGray) {
@@ -172,7 +170,7 @@ final public class Koyomi: UICollectionView {
     
     public struct LineView {
         public enum Position { case top, center, bottom }
-        public var height: CGFloat = 1
+        public var height: CGFloat    = 1
         public var widthRate: CGFloat = 1
         public var position: Position = .center
     }
