@@ -257,8 +257,6 @@ final public class Koyomi: UICollectionView {
     fileprivate var highlightedDayColor = UIColor.KoyomiColor.black
     fileprivate var highlightedDayBackgrondColor: UIColor = .white
     
-    fileprivate static let cellIdentifier = "KoyomiCell"
-    
     fileprivate lazy var model: DateModel    = .init()
     fileprivate let sectionSeparator: UIView = .init()
     
@@ -380,7 +378,7 @@ private extension Koyomi {
         
         backgroundColor = separatorColor
         
-        register(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
+        register(KoyomiCell.self, forCellWithReuseIdentifier: KoyomiCell.identifier)
         
         sectionSeparator.backgroundColor = sectionSeparatorColor
         addSubview(sectionSeparator)
@@ -562,7 +560,7 @@ extension Koyomi: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Koyomi.cellIdentifier, for: indexPath) as? KoyomiCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KoyomiCell.identifier, for: indexPath) as? KoyomiCell else {
             return .init()
         }
         configure(cell, at: indexPath)

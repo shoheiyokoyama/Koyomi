@@ -18,6 +18,8 @@ final class KoyomiCell: UICollectionViewCell {
     fileprivate let leftSemicircleView: UIView  = .init()
     fileprivate let rightSemicircleView: UIView = .init()
     
+    static let identifier = "KoyomiCell"
+    
     enum CellStyle {
         case standard, circle, semicircleEdge(position: SequencePosition), line(position: SequencePosition?)
         
