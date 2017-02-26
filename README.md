@@ -448,7 +448,7 @@ github "shoheiyokoyama/Koyomi"
 
 ## <a name="app_using_koyomi"> App using ***Koyomi*** 
 
-- Take's One
+- [Take's One](http://www.takesone.jp/)
 
 If you're using ***Koyomi*** in your app, please open a PR to add it to this list! :blush:
 
