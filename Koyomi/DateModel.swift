@@ -40,7 +40,7 @@ final class DateModel: NSObject {
     enum SelectionMode { case single, multiple, sequence, none }
     var selectionMode: SelectionMode = .single
     
-    struct SequenceDates { var start: Date?, end: Date? }
+    struct SequenceDates { var start, end: Date? }
     lazy var sequenceDates: SequenceDates = .init(start: nil, end: nil)
     
     // Fileprivate properties
@@ -310,36 +310,34 @@ private extension DateModel {
     var calendar: Calendar { return Calendar.current }
     
     func setup() {
-        let selectedDateKeys = selectedDates.keys(of: true)
         selectedDates = [:]
         
         guard let indexAtBeginning = indexAtBeginning(in: .current) else { return }
 
-        var components = DateComponents()
-        currentDates = CountableRange(0..<DateModel.maxCellCount).map { index in
+        var components: DateComponents = .init()
+        currentDates = (0..<DateModel.maxCellCount).flatMap { index in
                 components.day = index - indexAtBeginning
                 return calendar.date(byAdding: components, to: atBeginning(of: .current))
-            }.flatMap { $0 }
+            }
             .map { (date: Date) in
                 selectedDates[date] = false
                 return date
             }
         
+        let selectedDateKeys = selectedDates.keys(of: true)
         selectedDateKeys.forEach { selectedDates[$0] = true }
     }
     
     func set(_ isSelected: Bool, withFrom fromDate: Date, to toDate: Date) {
-        currentDates.forEach { date in
-            if fromDate <= date && toDate >= date {
-                selectedDates[date] = isSelected
-            }
-        }
+        currentDates
+            .filter { fromDate <= $0 && toDate >= $0 }
+            .forEach { selectedDates[$0] = isSelected }
     }
     
     func atBeginning(of month: MonthType) -> Date {
         var components = calendar.dateComponents([.year, .month, .day], from: date(of: month))
         components.day = 1
-        return calendar.date(from: components) ?? .init()
+        return calendar.date(from: components) ?? Date()
     }
     
     func date(of month: MonthType) -> Date {
@@ -351,6 +349,6 @@ private extension DateModel {
             case .next:     return 1
             }
         }()
-        return calendar.date(byAdding: components, to: currentDate) ?? .init()
+        return calendar.date(byAdding: components, to: currentDate) ?? Date()
     }
 }

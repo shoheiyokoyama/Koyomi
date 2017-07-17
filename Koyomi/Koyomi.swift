@@ -9,46 +9,66 @@
 import UIKit
 
 // MARK: - KoyomiDelegate -
-
 @objc public protocol KoyomiDelegate: class {
-    // Tells the delegate that the date at the specified index path was selected.
+    /**
+     Tells the delegate that the date at the specified index path was selected.
+     
+     - Parameter koyomi:    The current Koyomi instance.
+     - Parameter date:      The date of the cell that was selected.
+     - Parameter indexPath: The index path of the cell that was selected.
+     */
     @objc optional func koyomi(_ koyomi: Koyomi, didSelect date: Date?, forItemAt indexPath: IndexPath)
     
-    // Tells the delegate that the displayed month is changed.
+    /**
+     Tells the delegate that the displayed month is changed.
+     
+     - Parameter koyomi:     The current Koyomi instance.
+     - Parameter dateString: The current date string.
+     */
     @objc optional func koyomi(_ koyomi: Koyomi, currentDateString dateString: String)
 
-    // The koyomi calls this method before select days
-    // return value: true if the item should be selected or false if it should not.
+    /**
+     The koyomi calls this method before select days
+     
+     - Parameter koyomi:  The current Koyomi instance.
+     - Parameter date:    The first date in selected date.
+     - Parameter toDate:  The end date in selected date.
+     - Parameter length:  The length of selected date.
+     
+     - Returns: true if the item should be selected or false if it should not.
+     */
     @objc optional func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool
 
     /**
      Returns selection color for individual cells.
+    
+     - Parameter koyomi:    The current Koyomi instance.
+     - Parameter indexPath: The index path of the cell that was selected.
+     - Parameter date:      The date representing current item.
      
-     - Parameter koyomi:   The current koyomi instance.
-     - Parameter selectionColorForItemAt: The indexpath of current item.
-     - Parameter date: The date representing current item.
-     
-     - Returns: A color for selection background for item at the `indexPath` or nil for default color.
+     - Returns: A color for selection background for item at the `indexPath` or nil for default selection color.
      */
-    @objc optional func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date:Date) -> UIColor?
+    @objc optional func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date: Date) -> UIColor?
     
     /**
      Returns font for individual cells.
      
-     - Parameter koyomi:   The current koyomi instance.
-     - Parameter fontForItemAt: The indexpath of current item.
-     - Parameter date: The date representing current item.
+     - Parameter koyomi:    The current Koyomi instance.
+     - Parameter indexPath: The index path of the cell that was selected.
+     - Parameter date:      The date representing current item.
      
-     - Returns: A UIFont for item at the `indexPath` or nil for default font.
+     - Returns: A font for item at the indexPath or nil for default font.
      */
-    @objc optional func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date:Date) -> UIFont?
+    @objc optional func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date: Date) -> UIFont?
 
 }
 
 // MARK: - KoyomiStyle -
 
 public enum KoyomiStyle {
+    // Basic color
     case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
+    // Deep color
     case deepBlack, deepRed, deepOrange, deepYellow, deepTealBlue, deepBlue, deepPurple, deepGreen, deepPink
     
     var colors: Koyomi.Colors {
@@ -103,14 +123,10 @@ public enum ContentPosition {
 @IBDesignable
 final public class Koyomi: UICollectionView {
     struct Colors {
-        let dayBackgrond: UIColor
-        let weekBackgrond: UIColor
-        
-        let week: UIColor
-        let weekday: UIColor
+        let dayBackgrond, weekBackgrond: UIColor
+        let week, weekday: UIColor
         let holiday: (saturday: UIColor, sunday: UIColor)
         let otherMonth: UIColor
-        
         let separator: UIColor
         
         init(dayBackgrond: UIColor, weekBackgrond: UIColor, week: UIColor = UIColor.KoyomiColor.black, weekday: UIColor = UIColor.KoyomiColor.black, holiday: (saturday: UIColor, sunday: UIColor) = (UIColor.KoyomiColor.blue, UIColor.KoyomiColor.red), otherMonth: UIColor = UIColor.KoyomiColor.lightGray, separator: UIColor = UIColor.KoyomiColor.lightGray) {
@@ -154,7 +170,7 @@ final public class Koyomi: UICollectionView {
     
     public struct LineView {
         public enum Position { case top, center, bottom }
-        public var height: CGFloat = 1
+        public var height: CGFloat    = 1
         public var widthRate: CGFloat = 1
         public var position: Position = .center
     }
@@ -163,19 +179,19 @@ final public class Koyomi: UICollectionView {
     @IBInspectable public var isHiddenOtherMonth: Bool = false
     
     // Layout properties
-    @IBInspectable var sectionSpace: CGFloat = 1.5 {
+    @IBInspectable public var sectionSpace: CGFloat = 1.5 {
         didSet {
             sectionSeparator.frame.size.height = sectionSpace
         }
     }
-    @IBInspectable var cellSpace: CGFloat = 0.5 {
+    @IBInspectable public var cellSpace: CGFloat = 0.5 {
         didSet {
             if let layout = collectionViewLayout as? KoyomiLayout, layout.cellSpace != cellSpace {
                 setCollectionViewLayout(self.layout, animated: false)
             }
         }
     }
-    @IBInspectable var weekCellHeight: CGFloat = 25 {
+    @IBInspectable public var weekCellHeight: CGFloat = 25 {
         didSet {
             sectionSeparator.frame.origin.y = inset.top + weekCellHeight
             if let layout = collectionViewLayout as? KoyomiLayout, layout.weekCellHeight != weekCellHeight {
@@ -183,11 +199,9 @@ final public class Koyomi: UICollectionView {
             }
         }
     }
-    @IBInspectable public var circularViewDiameter:CGFloat = 0.75 {
+    @IBInspectable public var circularViewDiameter: CGFloat = 0.75 {
         didSet {
-            if let layout = collectionViewLayout as? KoyomiLayout, self.circularViewDiameter != oldValue {
-                setCollectionViewLayout(self.layout, animated: false)
-            }
+            reloadData()
         }
     }
 
@@ -243,8 +257,6 @@ final public class Koyomi: UICollectionView {
     fileprivate var highlightedDayColor = UIColor.KoyomiColor.black
     fileprivate var highlightedDayBackgrondColor: UIColor = .white
     
-    fileprivate static let cellIdentifier = "KoyomiCell"
-    
     fileprivate lazy var model: DateModel    = .init()
     fileprivate let sectionSeparator: UIView = .init()
     
@@ -256,7 +268,6 @@ final public class Koyomi: UICollectionView {
     fileprivate var weekLabelFont: UIFont?
 
     // MARK: - Initialization -
-
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
@@ -359,7 +370,6 @@ final public class Koyomi: UICollectionView {
 }
 
 // MARK: - Private Methods -
-
 private extension Koyomi {
     func configure() {
         delegate   = self
@@ -368,7 +378,7 @@ private extension Koyomi {
         
         backgroundColor = separatorColor
         
-        register(KoyomiCell.self, forCellWithReuseIdentifier: Koyomi.cellIdentifier)
+        register(KoyomiCell.self, forCellWithReuseIdentifier: KoyomiCell.identifier)
         
         sectionSeparator.backgroundColor = sectionSeparatorColor
         addSubview(sectionSeparator)
@@ -384,7 +394,9 @@ private extension Koyomi {
         let font: UIFont?
         let content: String
         let postion: ContentPosition
+        
         let date = model.date(at: indexPath)
+        
         if indexPath.section == 0 {
             
             // Configure appearance properties for week cell
@@ -432,7 +444,7 @@ private extension Koyomi {
                 var sequencePosition: KoyomiCell.CellStyle.SequencePosition {
                     let date = model.date(at: indexPath)
                     if let start = model.sequenceDates.start, let _ = model.sequenceDates.end , date == start {
-                        return  .left
+                        return .left
                     } else if let _ = model.sequenceDates.start, let end = model.sequenceDates.end , date == end {
                         return .right
                     } else {
@@ -465,7 +477,7 @@ private extension Koyomi {
             }()
             
             backgroundColor = model.isHighlighted(with: indexPath) ? highlightedDayBackgrondColor : dayBackgrondColor
-            font    = self.calendarDelegate?.koyomi?(self, fontForItemAt: indexPath, date:date) ?? dayLabelFont
+            font    = calendarDelegate?.koyomi?(self, fontForItemAt: indexPath, date: date) ?? dayLabelFont
             content = model.dayString(at: indexPath, isHiddenOtherMonth: isHiddenOtherMonth)
             postion = dayPosition
         }
@@ -474,15 +486,23 @@ private extension Koyomi {
         cell.content   = content
         cell.textColor = textColor
         cell.contentPosition = postion
-        cell.circularViewDiameter = self.circularViewDiameter
+        cell.circularViewDiameter = circularViewDiameter
+        let selectionColor: UIColor = {
+            if isSelected {
+                return calendarDelegate?.koyomi?(self, selectionColorForItemAt: indexPath, date: date) ?? selectedStyleColor
+            } else {
+                return selectedStyleColor
+            }
+        }()
+        
         if case .line = style {
             cell.lineViewAppearance = lineView
         }
-        let selectionColor = isSelected ? self.calendarDelegate?.koyomi?(self, selectionColorForItemAt: indexPath, date:date) ?? self.selectedStyleColor : self.selectedStyleColor
-        cell.configureAppearanse(of: style, withColor: selectionColor, backgroundColor: backgroundColor, isSelected: isSelected)
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
         }
+        
+        cell.configureAppearanse(of: style, withColor: selectionColor, backgroundColor: backgroundColor, isSelected: isSelected)
     }
 }
 
@@ -540,7 +560,7 @@ extension Koyomi: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Koyomi.cellIdentifier, for: indexPath) as? KoyomiCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KoyomiCell.identifier, for: indexPath) as? KoyomiCell else {
             return .init()
         }
         configure(cell, at: indexPath)

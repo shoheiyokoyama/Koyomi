@@ -17,7 +17,8 @@ final class KoyomiCell: UICollectionViewCell {
     
     fileprivate let leftSemicircleView: UIView  = .init()
     fileprivate let rightSemicircleView: UIView = .init()
-    var circularViewDiameter:CGFloat = 0.75 {didSet {self.setNeedsLayout()}}
+    
+    static let identifier = "KoyomiCell"
     
     enum CellStyle {
         case standard, circle, semicircleEdge(position: SequencePosition), line(position: SequencePosition?)
@@ -47,6 +48,11 @@ final class KoyomiCell: UICollectionViewCell {
     var lineViewAppearance: Koyomi.LineView? {
         didSet {
             configureLineView()
+        }
+    }
+    var circularViewDiameter: CGFloat = 0.75 {
+        didSet {
+            configureCircularView()
         }
     }
     
@@ -189,18 +195,18 @@ private extension KoyomiCell {
         circularView.isHidden = true
         addSubview(circularView)
         
-        leftSemicircleView.frame = .init(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+        leftSemicircleView.frame = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
         leftSemicircleView.isHidden = true
         addSubview(leftSemicircleView)
         
-        rightSemicircleView.frame = .init(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
+        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
         rightSemicircleView.isHidden = true
         addSubview(rightSemicircleView)
         
         addSubview(contentLabel)
         
         let lineViewSize: CGSize = .init(width: bounds.width, height: 1)
-        lineView.frame = .init(origin: .init(x: 0, y: (bounds.height - lineViewSize.height) / 2), size: lineViewSize)
+        lineView.frame = CGRect(origin: .init(x: 0, y: (bounds.height - lineViewSize.height) / 2), size: lineViewSize)
         lineView.isHidden = true
         addSubview(lineView)
     }
@@ -209,17 +215,19 @@ private extension KoyomiCell {
         contentLabel.sizeToFit()
         contentLabel.frame.origin = postion
         
-        rightSemicircleView.frame = .init(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
-        leftSemicircleView.frame  = .init(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
-
-        let diameter = bounds.width * self.circularViewDiameter
-        circularView.frame = .init(x: (bounds.width - diameter) / 2, y: (bounds.height - diameter) / 2, width: diameter, height: diameter)
+        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
+        leftSemicircleView.frame  = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+    }
+    
+    func configureCircularView() {
+        let diameter = bounds.width * circularViewDiameter
+        circularView.frame = CGRect(x: (bounds.width - diameter) / 2, y: (bounds.height - diameter) / 2, width: diameter, height: diameter)
         circularView.layer.cornerRadius = diameter / 2
     }
     
     func configureLineView() {
         guard let appearance = lineViewAppearance else { return }
-        lineView.frame.size = .init(width: bounds.width * appearance.widthRate, height: appearance.height)
+        lineView.frame.size = CGSize(width: bounds.width * appearance.widthRate, height: appearance.height)
         lineView.frame.origin.y = {
             switch appearance.position {
             case .top:    return (bounds.height / 2 - lineView.frame.height) / 2

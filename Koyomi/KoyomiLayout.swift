@@ -80,17 +80,24 @@ private extension KoyomiLayout {
     func frame(at indexPath: IndexPath) -> CGRect {
         let isWeekCell = indexPath.section == 0
         
-        let availableWidth: CGFloat  = width - (cellSpace * CGFloat(Constant.columnCount - 1) + inset.right + inset.left)
-        let availableHeight: CGFloat = height - (cellSpace * CGFloat(Constant.maxLineSpaceCount) + inset.bottom + inset.top + sectionSpace + weekCellHeight)
-        let size: CGSize = .init(width: availableWidth / Constant.columnCount, height: isWeekCell ? weekCellHeight : availableHeight / CGFloat(Constant.maxRowCount))
+        let availableWidth  = width - (cellSpace * CGFloat(Constant.columnCount - 1) + inset.right + inset.left)
+        let availableHeight = height - (cellSpace * CGFloat(Constant.maxLineSpaceCount) + inset.bottom + inset.top + sectionSpace + weekCellHeight)
+        
+        var cellWidth  = availableWidth / Constant.columnCount
+        let cellHeight = isWeekCell ? weekCellHeight : availableHeight / CGFloat(Constant.maxRowCount)
         
         let row    = floor(CGFloat(indexPath.row) / Constant.columnCount)
         let column = CGFloat(indexPath.row) - row * Constant.columnCount
         
         let lineSpace = row == 0 ? 0 : cellSpace
-        let y = isWeekCell ? inset.top : row * (size.height + lineSpace) + weekCellHeight + sectionSpace + inset.top
-        let x = (size.width + cellSpace) * column + inset.left
+        let y = isWeekCell ? inset.top : row * (cellHeight + lineSpace) + weekCellHeight + sectionSpace + inset.top
+        let x = (cellWidth + cellSpace) * column + inset.left
         
-        return .init(origin: .init(x: x, y: y), size: size)
+        //For disappearing cell under specific width
+        if x + cellWidth > width, indexPath.row % 7 == 6 {
+            cellWidth = width - x
+        }
+        
+        return CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
     }
 }
