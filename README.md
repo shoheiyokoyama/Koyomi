@@ -30,6 +30,9 @@
 )](http://mit-license.org)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 ![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
+![pod](https://img.shields.io/badge/pod-v1.2.5-red.svg)
+[![GitHub stars](https://img.shields.io/github/stars/shoheiyokoyama/Koyomi.svg)](https://github.com/shoheiyokoyama/Koyomi/stargazers)
+
 
 - Simple Calendar View :calendar:
 - Easily usable :sunglasses:
