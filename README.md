@@ -3,7 +3,7 @@
 <p align="center"><strong>Koyomi</strong> is a simple calendar view framework for iOS, written in Swift :calendar:</p>
 
 <p align="center">
-<img src="./DemoSource/demo-example.gif" width="400">
+<img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/demo-example.gif" width="400">
 </p>
 
 ## Content
@@ -121,17 +121,17 @@ You can configure ***SelectionMode*** with style.
 
 
 
- **single** |<img src="./DemoSource/single-background-mode.gif" width="130"> | <img src="./DemoSource/single-circle-mode.gif" width="130"> | <img src="./DemoSource/single-line-mode.gif" width="130">
+ **single** |<img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/single-background-mode.gif" width="130"> | <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/single-circle-mode.gif" width="130"> | <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/single-line-mode.gif" width="130">
 ----  |  ----  |  ----  |  ----  |
  ***SelectionMode*** |  `.single(style: .background)`  |   `.single(style: .circle)` | `.single(style: .line)` |
  
  
-  **multiple** |<img src="./DemoSource/multiple-background-mode.gif" width="130"> | <img src="./DemoSource/multiple-circle-mode.gif" width="130"> | <img src="./DemoSource/multiple-line-mode.gif" width="130">
+  **multiple** |<img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/multiple-background-mode.gif" width="130"> | <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/multiple-circle-mode.gif" width="130"> | <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/multiple-line-mode.gif" width="130">
 ----  |  ----  |  ----  | ----  |
  ***SelectionMode*** |  `.multiple(style: .background)`  |   `.multiple(style: .circle)` | `.multiple(style: .line)` |
  
  
-  **sequence** | <img src="./DemoSource/sequence-background-mode.gif" width="100"> | <img src="./DemoSource/sequence-circle-mode.gif" width="100"> | <img src="./DemoSource/sequence-semicircleEdge-mode.gif" width="100">　| <img src="./DemoSource/sequence-line-mode.gif" width="100">
+  **sequence** | <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/sequence-background-mode.gif" width="100"> | <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/sequence-circle-mode.gif" width="100"> | <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/sequence-semicircleEdge-mode.gif" width="100">　| <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/sequence-line-mode.gif" width="100">
 ----  |  ----  |  ----  | ----  | ----  |
  ***SelectionMode*** |  `.sequence(style: .background)`  |   `.sequence(style: .circle)` |  `.sequence(style: .semicircleEdge)` | `.sequence(style: .line)` |
  
@@ -318,7 +318,7 @@ Tells the delegate that the displayed month is changed.
 ```
 
 <p align="center">
-<img src="./DemoSource/calendar-layout.png" width="450">
+<img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/calendar-layout.png" width="450">
 </p>
 
 ```swift
@@ -397,7 +397,7 @@ Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance 
 ```
 
 <p align="center">
-<img src="./DemoSource/color-style.gif" width="300">
+<img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/color-style.gif" width="300">
 </p>
 
 `KoyomiStyle` is defined by 19 types.
