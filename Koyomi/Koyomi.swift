@@ -51,6 +51,17 @@ import UIKit
     @objc optional func koyomi(_ koyomi: Koyomi, selectionColorForItemAt indexPath: IndexPath, date: Date) -> UIColor?
     
     /**
+     Returns selection text color for individual cells.
+     
+     - Parameter koyomi:    The current Koyomi instance.
+     - Parameter indexPath: The index path of the cell that was selected.
+     - Parameter date:      The date representing current item.
+     
+     - Returns: A text color for the label for item at the `indexPath` or nil for default selection color.
+     */
+    @objc optional func koyomi(_ koyomi: Koyomi, selectionTextColorForItemAt indexPath: IndexPath, date: Date) -> UIColor?
+    
+    /**
      Returns font for individual cells.
      
      - Parameter koyomi:    The current Koyomi instance.
@@ -484,7 +495,13 @@ private extension Koyomi {
         
         // Set cell to appearance properties
         cell.content   = content
-        cell.textColor = textColor
+        cell.textColor = {
+            if isSelected {
+                return calendarDelegate?.koyomi?(self, selectionTextColorForItemAt: indexPath, date: date) ?? textColor
+            } else {
+                return textColor
+            }
+        }()
         cell.contentPosition = postion
         cell.circularViewDiameter = circularViewDiameter
         let selectionColor: UIColor = {
