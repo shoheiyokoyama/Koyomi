@@ -400,7 +400,7 @@ Don't worry :stuck_out_tongue_closed_eyes:, you can easily configure appearance 
 <img src="https://github.com/shoheiyokoyama/Assets/blob/master/Koyomi/color-style.gif" width="300">
 </p>
 
-`KoyomiStyle` is defined by 19 types.
+`KoyomiStyle` is defined by 19 types + 1 custom.
 used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/visual-design/color/) as reference
 
 
@@ -410,7 +410,24 @@ used [iOS Human Interface Guidelines](https://developer.apple.com/ios/human-inte
         case monotone, standard, red, orange, yellow, tealBlue, blue, purple, green, pink
         // deep color style
         case deepBlack, deepRed, deepOrange, deepYellow, deepTealBlue, deepBlue, deepPurple, deepGreen, deepPink
+        
+        case custom(customColor: CustomColorScheme)
     }
+```
+
+To use a custom color scheme, you need to define tuple with the necessarry values
+
+```swift
+    // This is a replica of the `.deepRed` style, you can unleash your creativity here:
+    let customColorScheme = (dayBackgrond: UIColor.KoyomiColor.red,
+                           weekBackgrond: UIColor.KoyomiColor.red,
+                           week: .white,
+                           weekday: .white,
+                           holiday: (saturday: UIColor.white, sunday: UIColor.white),
+                           otherMonth: UIColor.KoyomiColor.lightGray,
+                           separator: UIColor.KoyomiColor.orange)
+            
+    koyomi.style = KoyomiStyle.custom(customColor: customColorScheme)
 ```
 
 ## <a name="requirements"> :pencil: Requirements
