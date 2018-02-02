@@ -131,7 +131,7 @@ public enum SelectionMode {
     case single(style: Style), multiple(style: Style), sequence(style: SequenceStyle), none
     
     public enum SequenceStyle { case background, circle, line, semicircleEdge }
-    public enum Style { case background, circle, line, border }
+    public enum Style { case background, circle, line }
 }
 
 // MARK: - ContentPosition -
