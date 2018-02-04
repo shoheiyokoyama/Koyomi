@@ -83,7 +83,9 @@ final class KoyomiCell: UICollectionViewCell {
     func configureAppearanse(of style: CellStyle, withColor color: UIColor, backgroundColor: UIColor, isSelected: Bool) {
         switch style {
         case .standard:
-            self.backgroundColor = isSelected ? color : backgroundColor
+            self.backgroundColor = UIColor.clear
+            self.layer.borderWidth = isSelected ? 1.0 : 0.0
+            self.layer.borderColor = isSelected ? color.cgColor : backgroundColor.cgColor
             
             circularView.isHidden  = true
             lineView.isHidden = true

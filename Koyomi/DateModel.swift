@@ -8,7 +8,16 @@
 
 import UIKit
 
-public enum MonthType { case previous, current, next }
+public enum MonthType: Equatable { case previous, current, next, specific(diff: Int) }
+public func ==(lhs: MonthType, rhs: MonthType) -> Bool {
+    switch (lhs, rhs) {
+        case (.previous, .previous): return true
+        case (.next, .next): return true
+        case (.current, .current): return true
+        case (.specific(let leftFrom), .specific(let rightFrom)): return leftFrom == rightFrom
+        default: return false
+    }
+}
 
 final class DateModel: NSObject {
     
@@ -347,6 +356,7 @@ private extension DateModel {
             case .previous: return -1
             case .current:  return 0
             case .next:     return 1
+            case .specific(let diff): return diff
             }
         }()
         return calendar.date(byAdding: components, to: currentDate) ?? Date()
