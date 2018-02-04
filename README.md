@@ -70,10 +70,13 @@ Set custom class of `UICollectionView ` to `Koyomi`
 If you want to change displayed month, call `display(in: MonthType)`. `MonthType` is defined by three types.
 
 ```swift
-    public enum MonthType { case previous, current, next }
+    public enum MonthType { case previous, current, next, specific(diff: Int) }
     
     // change month
     koyomi.display(in: .next)
+
+    // go back 4 months
+    koyomi.display(in: .specific(diff: -4))
 ```
 
 ### Hide days of other months
@@ -173,6 +176,13 @@ You can select specific date .
     // If want to select multiple day.
     let dates: [Date] = [date1, date2, date3]
     koyomi.select(dates: dates)
+    
+    // ... or you can go around the world in 80 days and calculate when is your arrival date :)
+    let components = DateComponents.init(calendar: Calendar.current, day: +80)
+
+    if let eightyDays = Calendar.current.date(byAdding: components, to: today) {
+        koyomi.select(date: eightyDays) // new feature: the calendar will actualy show that date as selected
+    }
 ```
 
 You can also unselect available.
