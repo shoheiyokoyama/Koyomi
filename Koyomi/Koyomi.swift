@@ -73,13 +73,15 @@ import UIKit
     @objc optional func koyomi(_ koyomi: Koyomi, fontForItemAt indexPath: IndexPath, date: Date) -> UIFont?
 	
 	
-	/// Returns font color for individual cells.
-	///
-	/// - Parameters:
-	///   - koyomi: The current Koyomi instance.
-	///   - indexPath: The index path of the cell that was selected.
-	///   - date: The date representing current item.
-	/// - Returns: A color for item at the indexPath or nil for default font.
+	/**
+	 Returns font color for individual cells.
+	
+	 - Parameter koyomi: 	The current Koyomi instance.
+	 - Parameter indexPath: The index path of the cell that was selected.
+	 - Parameter date: 		The date representing current item.
+	
+	 - Returns: A color for item at the indexPath or nil for default font.
+	 */
 	@objc optional func koyomi(_ koyomi: Koyomi, fontColorForItemAt indexPath: IndexPath, date: Date) -> UIColor?
     
 }
