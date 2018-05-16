@@ -494,22 +494,49 @@ private extension Koyomi {
                 case (_, false), (.single(style: .background), true), (.multiple(style: .background), true), (.sequence(style: .background), true):
                     return .standard
                     
-                //Selected and circle style of single, multiple, sequence mode
-                case (.single(style: .circle), true), (.multiple(style: .circle), true), (.sequence(style: .circle), true):
-                    return .circle
-                    
-                //Selected and sequence mode, semicircleEdge style
-                case (.sequence(style: .semicircleEdge), true):
-                    return .semicircleEdge(position: sequencePosition)
-                    
-                case (.single(style: .line), true), (.multiple(style: .line), true):
-                    // Position is always nil.
-                    return .line(position: nil)
-                    
-                case (.sequence(style: .line), true):
-                    return .line(position: sequencePosition)
-                    
-                default: return .standard
+//                //Selected and circle style of single, multiple, sequence mode
+//                case (.single(style: .circle), true), (.multiple(style: .circle), true), (.sequence(style: .circle), true):
+//                    return .circle
+//
+//                //Selected and sequence mode, semicircleEdge style
+//                case (.sequence(style: .semicircleEdge), true):
+//                    return .semicircleEdge(position: sequencePosition)
+//
+//                case (.single(style: .line), true), (.multiple(style: .line), true):
+//                    // Position is always nil.
+//                    return .line(position: nil)
+//
+//                case (.sequence(style: .line), true):
+//                    return .line(position: sequencePosition)
+//
+                default:
+					let isFirstItemInSection = indexPath.item == 0
+					let isLastItemInSection = indexPath.item == DateModel.maxCellCount - 1
+					
+					func isPreviousDateSelected() -> Bool {
+						if isFirstItemInSection {
+							return false
+						} else {
+							return model.isSelect(with: IndexPath(item: indexPath.item - 1, section: indexPath.section))
+						}
+					}
+					func isNextDateSelected() -> Bool {
+						if isLastItemInSection {
+							return false
+						} else {
+							return model.isSelect(with: IndexPath(item: indexPath.item + 1, section: indexPath.section))
+						}
+					}
+					
+					if isSelected && isNextDateSelected() && isPreviousDateSelected() == false {
+						return .semicircleEdge(position: .left)
+					} else if isSelected && isPreviousDateSelected() == false && isNextDateSelected() == false {
+						return .circle
+					} else if isSelected && isPreviousDateSelected() && isNextDateSelected() == false {
+						return .semicircleEdge(position: .right)
+					} else {
+						return .semicircleEdge(position: .middle)
+					}
                 }
             }()
             
