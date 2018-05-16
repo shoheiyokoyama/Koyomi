@@ -307,7 +307,11 @@ final class DateModel: NSObject {
 // MARK: - Private Methods -
 
 private extension DateModel {
-    var calendar: Calendar { return Calendar.current }
+    var calendar: Calendar {
+		var utcCalendar = Calendar.current
+		utcCalendar.timeZone = TimeZone(abbreviation: "UTC")!
+		return utcCalendar
+	}
     
     func setup() {
         selectedDates = [:]
