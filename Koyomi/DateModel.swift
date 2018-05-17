@@ -315,14 +315,13 @@ private extension DateModel {
         guard let indexAtBeginning = indexAtBeginning(in: .current) else { return }
 
         var components: DateComponents = .init()
-        currentDates = (0..<DateModel.maxCellCount).flatMap { index in
-                components.day = index - indexAtBeginning
-                return calendar.date(byAdding: components, to: atBeginning(of: .current))
-            }
-            .map { (date: Date) in
-                selectedDates[date] = false
-                return date
-            }
+        currentDates = (0..<DateModel.maxCellCount).compactMap({ (index) -> Date? in
+            components.day = index - indexAtBeginning
+            return calendar.date(byAdding: components, to: atBeginning(of: .current))
+        }).map { (date: Date) in
+            selectedDates[date] = false
+            return date
+        }
         
         let selectedDateKeys = selectedDates.keys(of: true)
         selectedDateKeys.forEach { selectedDates[$0] = true }
