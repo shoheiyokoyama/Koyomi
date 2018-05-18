@@ -119,12 +119,17 @@ final class KoyomiCell: UICollectionViewCell {
                 leftSemicircleView.mask(with: .left)
                 rightSemicircleView.mask(with: .none)
             } else if case .middle = position {
-                rightSemicircleView.isHidden = true
-                leftSemicircleView.isHidden  = true
-                self.backgroundColor = color
-                
-                leftSemicircleView.frame.size.width = bounds.width / 2
-                
+                rightSemicircleView.isHidden = false
+                leftSemicircleView.isHidden  = false
+				
+				self.backgroundColor = backgroundColor
+				
+				
+				leftSemicircleView.backgroundColor  = color
+				rightSemicircleView.backgroundColor = color
+				
+				leftSemicircleView.mask(with: .none)
+				rightSemicircleView.mask(with: .none)
             } else if case .right = position {
                 rightSemicircleView.isHidden = false
                 leftSemicircleView.isHidden  = false
@@ -192,14 +197,18 @@ private extension KoyomiCell {
     }
     
     func setup() {
+		let diameter = bounds.width * circularViewDiameter
+		let halfWidth = bounds.width / 2
+		let halfWidthMinusDiameter = (bounds.width - diameter) / 2
+		
         circularView.isHidden = true
         addSubview(circularView)
         
-        leftSemicircleView.frame = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+        leftSemicircleView.frame = CGRect(x: 0, y: (bounds.height - diameter) / 2, width: halfWidth, height: diameter)
         leftSemicircleView.isHidden = true
         addSubview(leftSemicircleView)
         
-        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
+        rightSemicircleView.frame = CGRect(x: halfWidthMinusDiameter, y: (bounds.height - diameter) / 2, width: halfWidth, height: diameter)
         rightSemicircleView.isHidden = true
         addSubview(rightSemicircleView)
         
@@ -212,11 +221,13 @@ private extension KoyomiCell {
     }
     
     func adjustSubViewsFrame() {
+		let diameter = bounds.width * circularViewDiameter
+		let halfWidth = bounds.width / 2
         contentLabel.sizeToFit()
         contentLabel.frame.origin = postion
         
-        rightSemicircleView.frame = CGRect(x: bounds.width / 2, y: 0, width: bounds.width / 2, height: bounds.height)
-        leftSemicircleView.frame  = CGRect(x: 0, y: 0, width: bounds.width / 2, height: bounds.height)
+        rightSemicircleView.frame = CGRect(x: halfWidth, y: (bounds.height - diameter) / 2, width: halfWidth, height: diameter)
+        leftSemicircleView.frame  = CGRect(x: 0, y: (bounds.height - diameter) / 2, width: halfWidth, height: diameter)
     }
     
     func configureCircularView() {
